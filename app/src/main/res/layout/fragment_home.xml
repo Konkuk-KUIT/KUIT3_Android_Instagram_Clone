@@ -360,9 +360,9 @@
                 app:layout_constraintStart_toEndOf="@id/tv_home_post_content"
                 android:layout_marginStart="4dp"/>
 
-            <!--게시물 하나-->
+            <!--게시물 하나 완료-->
 
-            <!--recycler view-->
+            <!--recycler view를 위한 게시글-->
             <com.google.android.material.imageview.ShapeableImageView
                 android:id="@+id/siv_home_profile2"
                 android:layout_width="30dp"
