@@ -7,6 +7,7 @@
     tools:context=".HomeFragment">
 
     <TextView
+        android:id="@+id/tv_home"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="home 화면"
@@ -14,6 +15,15 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"/>
+
+    <TextView
+        android:id="@+id/tv_taejung"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:text="깃허브 태정 수정"/>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
