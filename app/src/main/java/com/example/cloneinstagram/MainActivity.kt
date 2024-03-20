@@ -19,6 +19,7 @@ class MainActivity : AppCompatActivity() {
 
         initBottomNavigation()
 
+        /**과제**/
 
     }
 
