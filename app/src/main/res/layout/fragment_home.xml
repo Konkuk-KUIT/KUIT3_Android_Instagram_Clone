@@ -9,9 +9,6 @@
     <ScrollView
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="1.0"
-            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent">
 
         <androidx.constraintlayout.widget.ConstraintLayout
@@ -322,6 +319,7 @@
                     app:layout_constraintTop_toBottomOf="@id/iv_home_post"/>
 
             <ImageView
+                    android:id="@+id/iv_home_comment"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
@@ -331,6 +329,7 @@
                     app:layout_constraintTop_toBottomOf="@id/iv_home_post"/>
 
             <ImageView
+                    android:id="@+id/iv_home_share"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
@@ -340,6 +339,7 @@
                     app:layout_constraintTop_toBottomOf="@id/iv_home_post"/>
 
             <ImageView
+                    android:id="@+id/iv_home_bookmark"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
@@ -373,36 +373,31 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/iv_home_like" />
 
-            <ImageView
+            <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="44dp"
-                    android:src="@drawable/comment_1"
-                    android:gravity="center_vertical"
+                    android:layout_marginTop="43dp"
+                    android:text="님 외 여려명이 좋아합니다"
+                    android:textColor="@color/black"
+                    android:textSize="10sp"
                     app:layout_constraintStart_toEndOf="@id/tv_post_comment"
                     app:layout_constraintTop_toBottomOf="@id/iv_home_post"/>
 
             <TextView
-                    android:layout_width="wrap_content"
+                    android:id="@+id/tv_home_comment1"
+                    android:layout_width="229dp"
                     android:layout_height="wrap_content"
-                    android:text="쿠잇 3기 시작합니다!! 다들 혈심히 한 학기 마무리해봐요"
+                    android:maxLines="1"
+                    android:text="쿠잇 3기 시작합니다!! 다들 혈심히 한 학기 마무리해봐요. 쿠잇 3기 시작합니다!!
+                    다들 혈심히 한 학기 마무리해봐요쿠잇 3기 시작합니다!! 다들 혈심히 한 학기 마무리해봐요.
+                    쿠잇 3기 시작합니다!! 다들 혈심히 한 학기 마무리해봐요."
+                    android:ellipsize="end"
                     android:textColor="@color/black"
                     android:layout_marginStart="79dp"
                     android:layout_marginTop="28dp"
                     android:textSize="10sp"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/iv_home_like" />
-
-            <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="65dp"
-                    android:layout_marginStart="308dp"
-                    android:src="@drawable/comment_2_1"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/iv_home_post"/>
-
-
 
 
         </androidx.constraintlayout.widget.ConstraintLayout>
