@@ -388,9 +388,7 @@
                     android:layout_width="229dp"
                     android:layout_height="wrap_content"
                     android:maxLines="1"
-                    android:text="쿠잇 3기 시작합니다!! 다들 혈심히 한 학기 마무리해봐요. 쿠잇 3기 시작합니다!!
-                    다들 혈심히 한 학기 마무리해봐요쿠잇 3기 시작합니다!! 다들 혈심히 한 학기 마무리해봐요.
-                    쿠잇 3기 시작합니다!! 다들 혈심히 한 학기 마무리해봐요."
+                    android:text="쿠잇 3기 시작합니다!! 다들 혈심히 한 학기 마무리해봐요. 쿠잇 3기 시작합니다!!다들 혈심히 한 학기 마무리해봐요. 쿠잇 3기 시작합니다!! 다들 혈심히 한 학기 마무리해봐요. 쿠잇 3기 시작합니다!! 다들 혈심히 한 학기 마무리해봐요."
                     android:ellipsize="end"
                     android:textColor="@color/black"
                     android:layout_marginStart="79dp"
@@ -398,6 +396,17 @@
                     android:textSize="10sp"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/iv_home_like" />
+
+            <TextView
+                    android:id="@+id/tv_post_comment_plus"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="더보기"
+                    android:textSize="10sp"
+                    app:layout_constraintBottom_toBottomOf="@id/tv_home_comment1"
+                    app:layout_constraintTop_toTopOf="@id/tv_home_comment1"
+                    app:layout_constraintStart_toEndOf="@id/tv_home_comment1"/>
+
 
 
         </androidx.constraintlayout.widget.ConstraintLayout>

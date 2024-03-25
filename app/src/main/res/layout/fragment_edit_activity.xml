@@ -55,7 +55,7 @@
             android:id="@+id/siv_edit_profile"
             android:layout_width="30dp"
             android:layout_height="30dp"
-            android:src="@drawable/img_sample"
+            android:src="@drawable/img_sample2"
             app:layout_constraintTop_toBottomOf="@id/line1"
             app:layout_constraintStart_toStartOf="parent"
             android:layout_marginTop="14dp"

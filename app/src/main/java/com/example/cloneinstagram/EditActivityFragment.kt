@@ -18,6 +18,9 @@ class EditActivityFragment : Fragment() {
     ): View? {
         binding = FragmentEditActivityBinding.inflate(inflater, container, false)
 
+        binding.tvEditName.text = arguments?.getString("NameChange")
+        binding.tvEditPostContent.text = arguments?.getString("ContentChange")
+
         binding.tvEditCancelBtn.setOnClickListener {
             parentFragmentManager.beginTransaction()
                 .replace(R.id.main_frm, HomeFragment()).commit()

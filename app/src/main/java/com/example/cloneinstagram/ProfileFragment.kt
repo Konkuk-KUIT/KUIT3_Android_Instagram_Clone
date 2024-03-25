@@ -16,6 +16,9 @@ class ProfileFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         binding = FragmentProfileBinding.inflate(inflater, container, false)
+
+        binding.tvEditProfileName.text = arguments?.getString("NameChange")
+
         return binding.root
     }
 }
