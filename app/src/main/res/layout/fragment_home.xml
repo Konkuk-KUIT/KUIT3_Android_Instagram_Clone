@@ -376,10 +376,14 @@
 
             <TextView
                 android:id="@+id/tv_home_feed_1_comments"
-                android:layout_width="wrap_content"
+                android:layout_width="290dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="4dp"
-                android:text="쿠잇 3기 시작합니다!! 다들 열심히 한 학기 마무리해봐요."
+                android:text="쿠잇 3기 시작합니다!! 다들 열심히 한 학기 마무리해봐요. 쿠잇 3기 시작합니다!! 다들 열심히 한 학기 마무리해봐요.
+                쿠잇 3기 시작합니다!! 다들 열심히 한 학기 마무리해봐요. 쿠잇 3기 시작합니다!! 다들 열심히 한 학기 마무리해봐요.
+                쿠잇 3기 시작합니다!! 다들 열심히 한 학기 마무리해봐요."
+                android:maxLines="1"
+                android:ellipsize="end"
                 android:textColor="@color/black"
                 android:textSize="10sp"
                 app:layout_constraintBottom_toBottomOf="@id/tv_home_feed_1_commenter"
@@ -390,7 +394,7 @@
                 android:id="@+id/tv_home_feed_1_show_more"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="...더 보기"
+                android:text="더 보기"
                 android:textColor="#737373"
                 app:layout_constraintBottom_toBottomOf="@id/tv_home_feed_1_commenter"
                 app:layout_constraintEnd_toEndOf="parent"

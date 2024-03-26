@@ -17,6 +17,11 @@ class HomeFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         binding = FragmentHomeBinding.inflate(inflater, container, false)
+
+        binding.tvHomeFeed1ShowMore.setOnClickListener {
+
+        }
+
         return binding.root
     }
 }
