@@ -16,7 +16,8 @@ class ProfileFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         binding = FragmentProfileBinding.inflate(inflater, container, false)
-
+        
+        //HomeFragment로부터 받은 String을 프로필의 이름으로 설정
         binding.tvEditProfileName.text = arguments?.getString("NameChange")
 
         return binding.root
