@@ -20,6 +20,7 @@
         app:menu="@menu/bottom_nav_menu"
         app:itemIconSize="30dp" />
 
+
     <FrameLayout
         android:id="@+id/main_frm"
         android:layout_width="match_parent"
