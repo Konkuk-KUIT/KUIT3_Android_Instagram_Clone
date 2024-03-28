@@ -1,6 +1,10 @@
 package com.example.cloneinstagram
 
+import android.content.Intent
 import android.os.Bundle
+import android.view.View
+import android.widget.ImageView
+import android.widget.TextView
 import androidx.activity.OnBackPressedCallback
 import androidx.appcompat.app.AppCompatActivity
 import com.example.cloneinstagram.R
@@ -19,12 +23,12 @@ class MainActivity : AppCompatActivity() {
 
         initBottomNavigation()
 
-
     }
 
     private fun initBottomNavigation() {
+
         supportFragmentManager.beginTransaction()
-            .replace(R.id.main_frm, HomeFragment())
+                .replace(R.id.main_frm, HomeFragment())
             .commitAllowingStateLoss()
         binding.mainBnv.selectedItemId = R.id.homeFragment
 

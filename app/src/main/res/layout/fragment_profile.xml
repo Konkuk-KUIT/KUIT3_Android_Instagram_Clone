@@ -7,12 +7,249 @@
     tools:context=".SearchFragment">
 
     <TextView
+        android:id="@+id/tv_profile_logo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="profile 화면"
-        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="25dp"
+        android:fontStyle="normal"
+        android:text="프로필 id"
+        android:textColor="@color/black"
+        android:textSize="20sp"
+        android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"/>
+        app:layout_constraintTop_toTopOf="parent"></TextView>
 
+    <ImageView
+        android:id="@+id/iv_profile_menu"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="16dp"
+        android:src="@drawable/profile_menu"
+        app:layout_constraintBottom_toBottomOf="@+id/tv_profile_logo"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/tv_profile_logo"></ImageView>
+
+    <ImageView
+        android:id="@+id/iv_profile_create"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="20dp"
+        android:src="@drawable/profile_create"
+        app:layout_constraintBottom_toBottomOf="@+id/tv_profile_logo"
+        app:layout_constraintEnd_toStartOf="@+id/iv_profile_menu"
+        app:layout_constraintTop_toTopOf="@+id/tv_profile_logo"></ImageView>
+
+    <ImageView
+        android:id="@+id/iv_profile_threads"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="20dp"
+        android:src="@drawable/profile_threads"
+        app:layout_constraintBottom_toBottomOf="@+id/tv_profile_logo"
+        app:layout_constraintEnd_toStartOf="@+id/iv_profile_create"
+        app:layout_constraintTop_toTopOf="@+id/tv_profile_logo"></ImageView>
+
+    <com.google.android.material.imageview.ShapeableImageView
+        android:id="@+id/siv_profile_img"
+        android:layout_width="79dp"
+        android:layout_height="79dp"
+        android:layout_marginStart="19dp"
+        android:layout_marginTop="24dp"
+        android:src="@drawable/img_sample"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_profile_logo"
+        app:shapeAppearance="@style/ShapeAppearance.Material3.Corner.Full"></com.google.android.material.imageview.ShapeableImageView>
+
+    <TextView
+        android:id="@+id/tv_profile_number_of_following"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="18dp"
+        android:layout_marginEnd="47dp"
+        android:text="10"
+        android:textColor="@color/black"
+        android:textSize="14dp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/siv_profile_img"></TextView>
+
+    <TextView
+        android:id="@+id/tv_profile_following"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="팔로잉"
+        android:textColor="@color/black"
+        android:textSize="11dp"
+        android:textStyle="normal"
+        app:layout_constraintEnd_toEndOf="@+id/tv_profile_number_of_following"
+        app:layout_constraintStart_toStartOf="@+id/tv_profile_number_of_following"
+        app:layout_constraintTop_toBottomOf="@+id/tv_profile_number_of_following"></TextView>
+
+    <TextView
+        android:id="@+id/tv_profile_number_of_follower"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="18dp"
+        android:layout_marginEnd="57dp"
+        android:text="10"
+        android:textColor="@color/black"
+        android:textSize="14dp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="@+id/tv_profile_number_of_following"
+        app:layout_constraintTop_toTopOf="@+id/siv_profile_img"></TextView>
+
+    <TextView
+        android:id="@+id/tv_profile_follower"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="팔로워"
+        android:textColor="@color/black"
+        android:textSize="11dp"
+        android:textStyle="normal"
+        app:layout_constraintEnd_toEndOf="@+id/tv_profile_number_of_follower"
+        app:layout_constraintStart_toStartOf="@+id/tv_profile_number_of_follower"
+        app:layout_constraintTop_toBottomOf="@+id/tv_profile_number_of_follower"></TextView>
+
+    <TextView
+        android:id="@+id/tv_profile_number_of_posting"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="18dp"
+        android:layout_marginEnd="57dp"
+        android:text="10"
+        android:textColor="@color/black"
+        android:textSize="14dp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="@+id/tv_profile_number_of_follower"
+        app:layout_constraintTop_toTopOf="@+id/siv_profile_img"></TextView>
+
+    <TextView
+        android:id="@+id/tv_profile_posting"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="게시글"
+        android:textColor="@color/black"
+        android:textSize="11dp"
+        android:textStyle="normal"
+        app:layout_constraintEnd_toEndOf="@+id/tv_profile_number_of_posting"
+        app:layout_constraintStart_toStartOf="@+id/tv_profile_number_of_posting"
+        app:layout_constraintTop_toBottomOf="@+id/tv_profile_number_of_posting"></TextView>
+
+
+    <TextView
+        android:id="@+id/tv_profile_intro"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="쿠잇"
+        android:textColor="@color/black"
+        android:textSize="12dp"
+        android:textStyle="normal"
+        app:layout_constraintTop_toBottomOf="@+id/siv_profile_img"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginStart="13dp"
+        android:layout_marginTop="12dp">
+    </TextView>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/cl_profile_edit_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@+id/tv_profile_intro"
+        app:layout_constraintStart_toStartOf="@+id/tv_profile_intro"
+        android:layout_marginTop="9dp">
+
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/siv_profile_edit_button_box"
+            android:layout_width="148dp"
+            android:layout_height="30dp"
+            android:background="#EFEFEF"
+            app:shapeAppearance="@style/ShapeAppearance.Material3.Corner.Small"
+            tools:ignore="MissingConstraints">
+        </com.google.android.material.imageview.ShapeableImageView>
+
+        <TextView
+            android:id="@+id/tv_profile_edit_button_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="프로필 편집"
+            android:textColor="@color/black"
+            android:textSize="11dp"
+            android:textStyle="normal"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent">
+        </TextView>
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/cl_profile_share_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@+id/tv_profile_intro"
+        app:layout_constraintStart_toEndOf="@+id/cl_profile_edit_button"
+        android:layout_marginStart="4dp"
+        android:layout_marginTop="9dp">
+
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/siv_profile_share_button_box"
+            android:layout_width="148dp"
+            android:layout_height="30dp"
+            android:background="#EFEFEF"
+            app:shapeAppearance="@style/ShapeAppearance.Material3.Corner.Small"
+            tools:ignore="MissingConstraints">
+        </com.google.android.material.imageview.ShapeableImageView>
+
+        <TextView
+            android:id="@+id/tv_profile_share_button_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="프로필 공유"
+            android:textColor="@color/black"
+            android:textSize="11dp"
+            android:textStyle="normal"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent">
+        </TextView>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/cl_profile_people_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@+id/tv_profile_intro"
+        app:layout_constraintStart_toEndOf="@+id/cl_profile_share_button"
+        android:layout_marginStart="4dp"
+        android:layout_marginTop="9dp">
+
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/siv_profile_people_button_box"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:background="#EFEFEF"
+            app:shapeAppearance="@style/ShapeAppearance.Material3.Corner.Small"
+            tools:ignore="MissingConstraints">
+        </com.google.android.material.imageview.ShapeableImageView>
+
+        <ImageView
+            android:id="@+id/iv_profile_people_button_icon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/profile_people"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent">
+        </ImageView>
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    
 </androidx.constraintlayout.widget.ConstraintLayout>
