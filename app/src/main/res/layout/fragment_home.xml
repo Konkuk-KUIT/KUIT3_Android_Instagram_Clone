@@ -83,7 +83,7 @@
                     android:visibility="gone" />
 
             </FrameLayout>
-            S
+
             <ImageView
                 android:id="@+id/iv_home_my_story_plus"
                 android:layout_width="wrap_content"
@@ -241,6 +241,7 @@
             </FrameLayout>
 
             <TextView
+                android:id="@+id/tv_home_feed_1_id"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="5dp"
@@ -268,8 +269,7 @@
                 android:layout_height="360dp"
                 android:layout_marginTop="6dp"
                 android:background="#D9D9D9"
-                app:layout_constraintTop_toBottomOf="@id/fl_home_feed_1"
-                tools:layout_editor_absoluteX="-83dp" />
+                app:layout_constraintTop_toBottomOf="@id/fl_home_feed_1" />
 
             <ImageView
                 android:id="@+id/iv_home_feed_1_like"
@@ -375,8 +375,8 @@
                 app:layout_constraintTop_toBottomOf="@id/tv_home_feed_1_text1" />
 
             <TextView
-                android:id="@+id/tv_home_feed_1_comments"
-                android:layout_width="290dp"
+                android:id="@+id/tv_home_feed_1_contents"
+                android:layout_width="240dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="4dp"
                 android:text="쿠잇 3기 시작합니다!! 다들 열심히 한 학기 마무리해봐요. 쿠잇 3기 시작합니다!! 다들 열심히 한 학기 마무리해봐요.
@@ -386,7 +386,7 @@
                 android:ellipsize="end"
                 android:textColor="@color/black"
                 android:textSize="10sp"
-                app:layout_constraintBottom_toBottomOf="@id/tv_home_feed_1_commenter"
+
                 app:layout_constraintStart_toEndOf="@id/tv_home_feed_1_commenter"
                 app:layout_constraintTop_toTopOf="@id/tv_home_feed_1_commenter" />
 

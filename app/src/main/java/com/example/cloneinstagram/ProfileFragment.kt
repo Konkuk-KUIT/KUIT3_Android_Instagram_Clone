@@ -16,6 +16,13 @@ class ProfileFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         binding = FragmentProfileBinding.inflate(inflater, container, false)
+
+        binding.tvProfileName.text = arguments?.getString("userID")
         return binding.root
     }
+
+    onStart(
+
+            )
+
 }

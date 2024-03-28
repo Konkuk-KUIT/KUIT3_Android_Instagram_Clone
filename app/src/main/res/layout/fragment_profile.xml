@@ -7,12 +7,228 @@
     tools:context=".SearchFragment">
 
     <TextView
+        android:id="@+id/tv_profile_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="profile 화면"
+        android:text="user_id"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:textColor="@color/black"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"/>
+        android:layout_marginTop="25dp"
+        android:layout_marginStart="20dp"
+        />
+    
+    <ImageView
+        android:id="@+id/iv_profile_menu"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_menu"
+        app:layout_constraintTop_toTopOf="@id/tv_profile_name"
+        app:layout_constraintBottom_toBottomOf="@id/tv_profile_name"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginEnd="16dp"/>
+
+    <ImageView
+        android:id="@+id/iv_profile_create"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_create"
+        app:layout_constraintTop_toTopOf="@id/tv_profile_name"
+        app:layout_constraintBottom_toBottomOf="@id/tv_profile_name"
+        app:layout_constraintEnd_toStartOf="@id/iv_profile_menu"
+        android:layout_marginEnd="20dp"/>
+
+    <ImageView
+        android:id="@+id/iv_profile_thread"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_threads"
+        app:layout_constraintTop_toTopOf="@id/tv_profile_name"
+        app:layout_constraintBottom_toBottomOf="@id/tv_profile_name"
+        app:layout_constraintEnd_toStartOf="@id/iv_profile_create"
+        android:layout_marginEnd="20dp"/>
+
+    <FrameLayout
+        android:id="@+id/fl_profile_my_story"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/tv_profile_name"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginTop="18dp"
+        android:layout_marginStart="13dp">
+
+        <ImageView
+            android:id="@+id/iv_profile_my_story_gray"
+            android:layout_width="91dp"
+            android:layout_height="91dp"
+            android:src="@drawable/ic_story_gray"/>
+
+        <ImageView
+            android:id="@+id/iv_profile_my_story_color"
+            android:layout_width="91dp"
+            android:layout_height="91dp"
+            android:src="@drawable/ic_story_color"
+            android:visibility="gone" />
+
+    </FrameLayout>
+
+    <com.google.android.material.imageview.ShapeableImageView
+        android:id="@+id/siv_profile_profile_image"
+        android:layout_width="79dp"
+        android:layout_height="79dp"
+        app:shapeAppearance="@style/ShapeAppearance.Material3.Corner.Full"
+        android:background="#D9D9D9"
+        android:scaleType="centerCrop"
+        app:layout_constraintTop_toTopOf="@id/fl_profile_my_story"
+        app:layout_constraintBottom_toBottomOf="@id/fl_profile_my_story"
+        app:layout_constraintStart_toStartOf="@id/fl_profile_my_story"
+        app:layout_constraintEnd_toEndOf="@id/fl_profile_my_story"/>
+
+    <TextView
+        android:id="@+id/tv_profile_followings_number"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="10"
+        android:textStyle="bold"
+        android:textSize="14sp"
+        android:textColor="@color/black"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="91dp"
+        android:layout_marginEnd="47dp"/>
+
+    <TextView
+        android:id="@+id/tv_profile_followings"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="팔로잉"
+        android:textColor="@color/black"
+        app:layout_constraintTop_toBottomOf="@id/tv_profile_followings_number"
+        app:layout_constraintStart_toStartOf="@id/tv_profile_followings_number"
+        app:layout_constraintEnd_toEndOf="@id/tv_profile_followings_number"
+        android:layout_marginTop="1dp"/>
+
+    <TextView
+        android:id="@+id/tv_profile_followers_number"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="10"
+        android:textStyle="bold"
+        android:textSize="14sp"
+        android:textColor="@color/black"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/tv_profile_followings_number"
+        android:layout_marginTop="91dp"
+        android:layout_marginEnd="47dp"/>
+
+    <TextView
+        android:id="@+id/tv_profile_follower"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="팔로워"
+        android:textColor="@color/black"
+        app:layout_constraintTop_toBottomOf="@id/tv_profile_followers_number"
+        app:layout_constraintStart_toStartOf="@id/tv_profile_followers_number"
+        app:layout_constraintEnd_toEndOf="@id/tv_profile_followers_number"
+        android:layout_marginTop="1dp"/>
+
+    <TextView
+        android:id="@+id/tv_profile_posts_number"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="10"
+        android:textStyle="bold"
+        android:textSize="14sp"
+        android:textColor="@color/black"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/tv_profile_followers_number"
+        android:layout_marginTop="91dp"
+        android:layout_marginEnd="47dp"/>
+
+    <TextView
+        android:id="@+id/tv_profile_post"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="게시물"
+        android:textColor="@color/black"
+        app:layout_constraintTop_toBottomOf="@id/tv_profile_posts_number"
+        app:layout_constraintStart_toStartOf="@id/tv_profile_posts_number"
+        app:layout_constraintEnd_toEndOf="@id/tv_profile_posts_number"
+        android:layout_marginTop="1dp"/>
+
+    <TextView
+        android:id="@+id/tv_profile_introduction"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/fl_profile_my_story"
+        android:layout_marginStart="13dp"
+        android:layout_marginTop="6dp"
+        android:text="쿠잇"
+        android:textColor="@color/black"
+        android:textStyle="bold"
+        android:textSize="12sp"/>
+
+    <com.google.android.material.imageview.ShapeableImageView
+        android:layout_width="148dp"
+        android:layout_height="30dp"
+        android:background="#EFEFEF"
+        app:layout_constraintTop_toTopOf="@id/tv_profile_edit_profile"
+        app:layout_constraintBottom_toBottomOf="@id/tv_profile_edit_profile"
+        app:layout_constraintStart_toStartOf="@id/tv_profile_edit_profile"
+        app:layout_constraintEnd_toEndOf="@id/tv_profile_edit_profile"
+        app:shapeAppearanceOverlay="@style/Circle"/>
+
+    <TextView
+        android:id="@+id/tv_profile_edit_profile"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="프로필 편집"
+        android:textStyle="bold"
+        android:textColor="@color/black"
+        android:textSize="11sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tv_profile_introduction"
+        android:layout_marginStart="60dp"
+        android:layout_marginTop="17dp"/>
+
+    <com.google.android.material.imageview.ShapeableImageView
+        android:layout_width="148dp"
+        android:layout_height="30dp"
+        android:background="#EFEFEF"
+        app:layout_constraintTop_toTopOf="@id/tv_profile_share_profile"
+        app:layout_constraintBottom_toBottomOf="@id/tv_profile_share_profile"
+        app:layout_constraintStart_toStartOf="@id/tv_profile_share_profile"
+        app:layout_constraintEnd_toEndOf="@id/tv_profile_share_profile"
+        app:shapeAppearanceOverlay="@style/Circle"/>
+
+
+    <TextView
+        android:id="@+id/tv_profile_share_profile"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="프로필 공유"
+        android:textStyle="bold"
+        android:textColor="@color/black"
+        android:textSize="11sp"
+        app:layout_constraintStart_toEndOf="@id/tv_profile_edit_profile"
+        app:layout_constraintTop_toTopOf="@id/tv_profile_edit_profile"
+        app:layout_constraintBottom_toBottomOf="@id/tv_profile_edit_profile"
+        android:layout_marginStart="99dp" />
+
+    <com.google.android.material.imageview.ShapeableImageView
+        android:id="@+id/siv_profile_people"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:src="@drawable/ic_people"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@id/tv_profile_edit_profile"
+        app:layout_constraintBottom_toBottomOf="@id/tv_profile_edit_profile"
+        android:layout_marginEnd="13dp"
+        android:background="#EFEFEF"
+        app:shapeAppearanceOverlay="@style/Circle"/>
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
