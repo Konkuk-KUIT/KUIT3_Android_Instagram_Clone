@@ -6,13 +6,40 @@
     android:layout_height="match_parent"
     tools:context=".SearchFragment">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="profile 화면"
-        app:layout_constraintTop_toTopOf="parent"
+    <ImageView
+        android:id="@+id/ic_profile_margin"
+        android:layout_width="82dp"
+        android:layout_height="82dp"
+        android:layout_marginLeft="6dp"
+        android:layout_marginTop="8dp"
+        android:src="@drawable/ic_graycircle"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"/>
+        app:layout_constraintTop_toTopOf="parent">
+
+    </ImageView>
+    <ImageView
+        android:id="@+id/ic_profile_margin_colored"
+        android:layout_width="82dp"
+        android:layout_height="82dp"
+        android:layout_marginLeft="6dp"
+        android:layout_marginTop="8dp"
+        android:src="@drawable/ic_coloredcircle"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+    </ImageView>
+
+    <com.google.android.material.imageview.ShapeableImageView
+        android:id="@+id/ic_profile1"
+        android:layout_width="72dp"
+        android:layout_height="72dp"
+        android:layout_marginHorizontal="5dp"
+        android:layout_marginTop="5dp"
+        android:src="@drawable/img_sample"
+        app:layout_constraintStart_toStartOf="@id/ic_profile_margin"
+        app:layout_constraintTop_toTopOf="@id/ic_profile_margin"
+        app:shapeAppearance="@style/ShapeAppearance.Material3.Corner.Full">
+
+    </com.google.android.material.imageview.ShapeableImageView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

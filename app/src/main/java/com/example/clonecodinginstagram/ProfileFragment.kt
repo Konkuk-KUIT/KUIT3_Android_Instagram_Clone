@@ -1,5 +1,6 @@
 package com.example.clonecodinginstagram
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -16,6 +17,11 @@ class ProfileFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         binding = FragmentProfileBinding.inflate(inflater, container, false)
+
+        binding.icProfile1.setOnClickListener{
+            val intent = Intent(this.activity, MenuActivity::class.java)
+            startActivity(intent)
+        }
         return binding.root
     }
 }

@@ -89,17 +89,18 @@
                     app:layout_constraintTop_toTopOf="parent">
 
                 </ImageView>
-                <ImageView
-                    android:id="@+id/ic_profile_margin_colored"
-                    android:layout_width="82dp"
-                    android:layout_height="82dp"
-                    android:layout_marginLeft="6dp"
-                    android:layout_marginTop="8dp"
-                    android:src="@drawable/ic_coloredcircle"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent">
 
-                </ImageView>
+    <ImageView
+        android:id="@+id/ic_profile_margin_colored"
+        android:layout_width="82dp"
+        android:layout_height="82dp"
+        android:layout_marginLeft="6dp"
+        android:layout_marginTop="8dp"
+        android:src="@drawable/ic_coloredcircle"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+    </ImageView>
 </FrameLayout>
                 <ImageView
                     android:id="@+id/ic_profile_add"
@@ -287,7 +288,12 @@
                 android:layout_marginTop="8dp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/ly_line1">
-
+<FrameLayout
+    android:id="@+id/profile5"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toTopOf="parent">
                 <com.google.android.material.imageview.ShapeableImageView
                     android:id="@+id/ic_profile5"
                     android:layout_width="28dp"
@@ -309,7 +315,7 @@
                     app:layout_constraintTop_toTopOf="parent">
 
                 </ImageView>
-
+</FrameLayout>
                 <TextView
                     android:id="@+id/text_profile5_name"
                     android:layout_width="wrap_content"
@@ -320,10 +326,11 @@
                     android:textColor="@color/black"
                     android:textSize="12sp"
                     android:textStyle="bold"
-                    app:layout_constraintStart_toEndOf="@id/ic_profile_margin5"
+                    app:layout_constraintStart_toEndOf="@id/profile5"
                     app:layout_constraintTop_toTopOf="parent"></TextView>
 
                 <ImageView
+                    android:id="@+id/ic_menu"
                     android:layout_width="24dp"
                     android:layout_height="24dp"
                     android:layout_marginTop="6dp"
@@ -341,10 +348,12 @@
                 android:layout_width="match_parent"
                 android:layout_height="360dp"
                 android:layout_marginTop="6dp"
-                android:background="#A6A6A6"
-                app:layout_constraintTop_toBottomOf="@id/ly_profile5">
+                android:background="#8E8E8E"
+                app:layout_constraintTop_toBottomOf="@id/ly_profile5"
+                tools:layout_editor_absoluteX="116dp">
 
             </View>
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="102dp"
@@ -413,6 +422,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="3dp">
                     <TextView
+                        android:id="@+id/text_id"
                         android:layout_marginLeft="14dp"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -422,19 +432,16 @@
                         android:textStyle="bold">
 
                     </TextView>
+
                     <TextView
-                        android:layout_width="wrap_content"
+                        android:id="@+id/text_writing"
+                        android:layout_width="320dp"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="4dp"
-                        android:text="쿠잇 3기 시작합니다!! 다들 열심히 한 학기 마무리해봐요"
-                        android:textSize="12sp">
-                    </TextView>
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="... 더 보기"
-                        android:textSize="12sp">
-                    </TextView>
+                        android:maxLines="1"
+                        android:ellipsize="end"
+                        android:text="쿠잇 3기 시작합니다!! 다들 열심히 한 학기 마무리해봐요. 이 뒤의 내용은 잘립니다."
+                        android:textSize="12sp"></TextView>
 
                 </LinearLayout>
             </LinearLayout>
