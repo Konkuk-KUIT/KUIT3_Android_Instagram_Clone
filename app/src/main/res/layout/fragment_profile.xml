@@ -2,17 +2,205 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/container"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".SearchFragment">
+    android:layout_height="match_parent">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:layout_editor_absoluteX="49dp"
+        tools:layout_editor_absoluteY="-89dp" />
 
     <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="profile 화면"
+        android:id="@+id/tv_kuit"
+        android:layout_width="111dp"
+        android:layout_height="24dp"
+        android:text="kuit_official"
+        android:textColor="@color/black"
+        android:textSize="20sp"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"/>
+        android:layout_marginTop="25dp"
+        android:layout_marginStart="25dp" />
+
+    <ImageView
+        android:id="@+id/iv_create1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/create"
+        app:layout_constraintTop_toTopOf="@id/iv_menu"
+        app:layout_constraintEnd_toStartOf="@id/iv_menu"
+        android:layout_marginEnd="20dp" />
+
+    <ImageView
+        android:id="@+id/iv_threads"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/threads"
+        app:layout_constraintTop_toTopOf="@id/iv_menu"
+        app:layout_constraintEnd_toStartOf="@id/iv_create1"
+        android:layout_marginEnd="20dp"/>
+
+    <ImageView
+        android:id="@+id/iv_menu"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_menu"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="16dp"/>
+
+    <ImageView
+        android:id="@+id/iv_ellipse_81"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ellipse_81"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginTop="98dp"
+        android:layout_marginStart="19dp"
+        />
+
+    <ImageView
+        android:id="@+id/iv_ellipse_84"
+        android:layout_width="90dp"
+        android:layout_height="91dp"
+        android:src="@drawable/ellipse_84"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginTop="92dp"
+        android:layout_marginStart="15dp"/>
+
+    <TextView
+        android:id="@+id/tv_10"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="10"
+        android:textColor="@color/black"
+        android:textSize="24sp"
+        app:layout_constraintTop_toTopOf="@id/tv_10_2"
+        app:layout_constraintStart_toEndOf="@id/tv_10_2"
+        android:layout_marginStart="55dp"
+        />
+
+    <TextView
+        android:id="@+id/tv_10_1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="10"
+        android:textColor="@color/black"
+        android:textSize="24sp"
+        app:layout_constraintTop_toTopOf="@id/tv_10"
+        app:layout_constraintStart_toEndOf="@id/tv_10"
+        android:layout_marginStart="57dp"/>
+    <TextView
+        android:id="@+id/tv_10_2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="10"
+        android:textColor="@color/black"
+        android:textSize="24sp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toEndOf="@id/iv_ellipse_84"
+        android:layout_marginStart="55dp"
+        android:layout_marginTop="117dp"/>
+
+    <TextView
+        android:id="@+id/tv_follow1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="게시물"
+        android:textColor="@color/black"
+        android:textSize="11sp"
+        app:layout_constraintTop_toTopOf="@id/tv_10_2"
+        app:layout_constraintStart_toStartOf="@id/tv_10_2"
+        android:layout_marginTop="28dp"
+        />
+
+    <TextView
+        android:id="@+id/tv_follow2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="팔로워"
+        android:textColor="@color/black"
+        android:textSize="11sp"
+        app:layout_constraintTop_toTopOf="@id/tv_10_1"
+        app:layout_constraintStart_toStartOf="@id/tv_10_1"
+        android:layout_marginTop="28dp"/>
+
+    <TextView
+        android:id="@+id/tv_follow3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="팔로잉"
+        android:textColor="@color/black"
+        android:textSize="11sp"
+        app:layout_constraintTop_toTopOf="@id/tv_10"
+        app:layout_constraintStart_toStartOf="@id/tv_10"
+        android:layout_marginTop="28dp"/>
+
+    <ImageView
+        android:id="@+id/iv_rectangle_1437"
+        android:layout_width="148dp"
+        android:layout_height="30dp"
+        android:src="@drawable/rectangle_1437"
+        app:layout_constraintTop_toBottomOf="@id/iv_ellipse_84"
+        app:layout_constraintStart_toStartOf="@id/iv_ellipse_84"
+        android:layout_marginTop="31dp" />
+
+    <ImageView
+        android:id="@+id/iv_rectangle_1437_1"
+        android:layout_width="148dp"
+        android:layout_height="30dp"
+        android:src="@drawable/rectangle_1437"
+        app:layout_constraintTop_toTopOf="@id/iv_rectangle_1437"
+        app:layout_constraintStart_toStartOf="@id/iv_rectangle_1437"
+        android:layout_marginStart="168dp"/>
+
+    <TextView
+        android:id="@+id/tv_kuit1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="쿠잇"
+        android:textColor="#000"
+        android:textSize="15sp"
+        android:textStyle="normal"
+        app:layout_constraintTop_toBottomOf="@id/iv_ellipse_84"
+        app:layout_constraintStart_toStartOf="@id/iv_ellipse_84"
+        android:layout_marginStart="25dp"/>
+
+    <TextView
+        android:id="@+id/tv_profile1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="프로필 편집"
+        android:gravity="center_vertical"
+        android:textColor="#000000"
+        app:layout_constraintTop_toTopOf="@id/iv_rectangle_1437"
+        app:layout_constraintStart_toStartOf="@id/iv_rectangle_1437"
+        android:layout_marginTop="6dp"
+        android:layout_marginStart="35dp"/>
+
+    <TextView
+        android:id="@+id/tv_profile2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="프로필 공유"
+        android:textColor="#000000"
+        app:layout_constraintTop_toTopOf="@id/iv_rectangle_1437_1"
+        app:layout_constraintStart_toStartOf="@id/iv_rectangle_1437_1"
+        android:layout_marginTop="5dp"
+        android:layout_marginStart="35dp"/>
+
+    <ImageView
+        android:id="@+id/iv_people"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:src="@drawable/people"
+        app:layout_constraintTop_toTopOf="@id/iv_rectangle_1437_1"
+        app:layout_constraintStart_toEndOf="@id/iv_rectangle_1437_1"
+        android:layout_marginStart="11dp"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
