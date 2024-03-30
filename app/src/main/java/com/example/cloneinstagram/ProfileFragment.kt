@@ -18,7 +18,14 @@ class ProfileFragment : Fragment() {
         binding = FragmentProfileBinding.inflate(inflater, container, false)
         
         //HomeFragment로부터 받은 String을 프로필의 이름으로 설정
-        binding.tvEditProfileName.text = arguments?.getString("NameChange")
+        val bundle = arguments
+        if (bundle != null && bundle.containsKey("key")) {
+            // Bundle에서 Serializable 객체를 가져와서 캐스팅
+            val homePostData = bundle.getSerializable("key") as HomePostData
+
+            binding.tvEditProfileName.text = homePostData.InstagramID
+            binding.sivProfileEdit.setImageResource(homePostData.ProfileImage)
+        }
 
         return binding.root
     }
