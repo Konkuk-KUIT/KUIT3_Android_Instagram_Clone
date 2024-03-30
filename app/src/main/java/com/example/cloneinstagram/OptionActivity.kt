@@ -12,13 +12,10 @@ class OptionActivity : AppCompatActivity() {
         binding = ActivityOptionBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        /*val btn = findViewById<TextView>(R.id.tv_edit_done_btn)
-        btn.setOnClickListener {
-            finish()
-        }*/
+        binding.tvEditName.text = intent.getStringExtra("idvalue")
+        binding.tvEditPostContent.text = intent.getStringExtra("postcontent")
 
-        binding.tvEditDoneBtn.setOnClickListener {
-            val intent = Intent(this, MainActivity::class.java)
+        binding.tvEditCancleBtn.setOnClickListener {
             finish()
         }
     }

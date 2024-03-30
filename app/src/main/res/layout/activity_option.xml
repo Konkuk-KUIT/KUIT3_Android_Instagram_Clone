@@ -7,7 +7,7 @@
     tools:context=".SearchFragment">
 
     <TextView
-        android:id="@+id/tv_edit_cancel_btn"
+        android:id="@+id/tv_edit_cancle_btn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="취소"

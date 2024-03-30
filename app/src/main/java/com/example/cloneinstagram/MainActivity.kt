@@ -3,28 +3,27 @@ package com.example.cloneinstagram
 import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import com.example.cloneinstagram.databinding.ActivityMainBinding
 import com.example.cloneinstagram.databinding.FragmentHomeBinding
 
 
 class MainActivity : AppCompatActivity() {
 
-    lateinit var binding : FragmentHomeBinding
+    lateinit var binding : ActivityMainBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = FragmentHomeBinding.inflate(layoutInflater)
+        binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        binding.ibPostOptions.setOnClickListener {
-            val intent = Intent(this, OptionActivity::class.java)
-            startActivity(intent)
-        }
-
+        supportFragmentManager.beginTransaction()
+            .replace(R.id.container, HomeFragment())
+            .commit()
     }
 
 
 
-    /*private fun initBottomNavigation() {
+  /*  private fun initBottomNavigation() {
         supportFragmentManager.beginTransaction()
             .replace(R.id.main_frm, HomeFragment())
             .commitAllowingStateLoss()
@@ -85,8 +84,7 @@ class MainActivity : AppCompatActivity() {
         }
         onBackPressedDispatcher.addCallback(this, callback)
 
-    }*/
-
-
+    }
+*/
 
 }
