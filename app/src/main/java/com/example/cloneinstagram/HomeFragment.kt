@@ -9,11 +9,14 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.cloneinstagram.databinding.FragmentHomeBinding
 
 
 class HomeFragment : Fragment() {
     lateinit var binding: FragmentHomeBinding
+    private var itemList:ArrayList<PostData> =arrayListOf()
+    private var postAdapter:PostAdapter?=null
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -47,7 +50,26 @@ class HomeFragment : Fragment() {
                 .commit()
         }
 
+        initData()
+        initRecyclerView()
+
         return binding.root
+    }
+
+    private fun initRecyclerView() {
+        postAdapter= PostAdapter(itemList)
+        binding.rvHomePost.adapter=postAdapter
+        binding.rvHomePost.layoutManager=LinearLayoutManager(this,LinearLayoutManager.VERTICAL, false)
+
+    }
+
+    private fun initData() {
+
+        itemList.addAll(
+            arrayListOf(
+                PostData(, ,)
+            )
+        )
     }
 
 
