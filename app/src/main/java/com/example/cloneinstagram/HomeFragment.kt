@@ -48,7 +48,7 @@ class HomeFragment : Fragment() {
 
             //포스트 옵션 버튼을 눌렀을 때 수정 엑티비티에 String들을 보내고 엑티비티 실행
             override fun onOptionButtonClick(homePostData: HomePostData) {
-                val intent = Intent(activity, EditActivity::class.java)
+                val intent = Intent(requireActivity(), EditActivity::class.java)
                 //직렬화 객체 전송
                 intent.putExtra("key", homePostData)
                 startActivity(intent)
