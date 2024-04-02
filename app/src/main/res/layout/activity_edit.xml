@@ -95,7 +95,7 @@
 
     <TextView
             android:id="@+id/tv_edit_post_content"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="content가 들어갈 자리입니다."
             android:textColor="@color/black"
