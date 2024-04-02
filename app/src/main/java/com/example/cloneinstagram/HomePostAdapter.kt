@@ -34,11 +34,16 @@ class HomePostAdapter(val items : ArrayList<HomePostData>) : RecyclerView.Adapte
                 itemClickerListener.onNameButtonClick(item)
             }
 
-            //포스트 댓글의 더보기 버튼을 눌렀을 때 댓글의 나머지 부분 표시
-            binding.tvPostCommentPlus.setOnClickListener {
+            if (binding.tvHomeCommentEdit.length() < 26)
+            {
                 binding.tvPostCommentPlus.visibility = View.GONE
-                binding.tvHomeCommentEdit.ellipsize = null
-                binding.tvHomeCommentEdit.maxLines = Int.MAX_VALUE
+            } else {
+                //포스트 댓글의 더보기 버튼을 눌렀을 때 댓글의 나머지 부분 표시
+                binding.tvPostCommentPlus.setOnClickListener {
+                    binding.tvPostCommentPlus.visibility = View.GONE
+                    binding.tvHomeCommentEdit.ellipsize = null
+                    binding.tvHomeCommentEdit.maxLines = Int.MAX_VALUE
+                }
             }
         }
     }
