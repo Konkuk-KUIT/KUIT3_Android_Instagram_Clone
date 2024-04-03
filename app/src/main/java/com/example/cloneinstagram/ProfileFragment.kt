@@ -22,8 +22,10 @@ class ProfileFragment : Fragment() {
         val imageView: ImageView = binding.ivProfileImg
         imageView.setImageResource(R.drawable.img_sample)
 
-        var profileName=arguments?.getString("PostName")
-        binding.tvProfileId.text=profileName
+
+        val profileData=arguments?.getSerializable("nameKey") as? PostData
+        binding.tvProfileId.text=profileData?.postId
+        binding.ivProfileImg.setImageResource(profileData!!.profileImgId)
 
         return binding.root
     }
