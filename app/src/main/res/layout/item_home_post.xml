@@ -67,10 +67,11 @@
 
     <ImageView
         android:id="@+id/iv_post_pic"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="360dp"
+        android:layout_height="360dp"
         android:src="@drawable/ic_post_pic"
         app:layout_constraintTop_toBottomOf="@id/fl_post_story"
+        android:scaleType="fitCenter"
         android:layout_marginTop="7dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -194,9 +195,9 @@
         android:layout_height="wrap_content"
         android:text="더보기"
         android:textSize="12sp"
+        app:layout_constraintStart_toEndOf="@id/tv_post_content"
         app:layout_constraintTop_toTopOf="@id/tv_comment_account"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginEnd="12dp"/>
+        />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
