@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <com.google.android.material.imageview.ShapeableImageView
+        android:id="@+id/siv_home_profile2"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:src="@drawable/img_sample"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginTop="24dp"
+        android:layout_marginHorizontal="14dp"
+        app:shapeAppearance="@style/ShapeAppearance.Material3.Corner.Full"/>
+
+    <ImageView
+        android:layout_width="36dp"
+        android:layout_height="36dp"
+        android:src="@drawable/icon_circle_color"
+        app:layout_constraintTop_toTopOf="@id/siv_home_profile2"
+        app:layout_constraintStart_toStartOf="@id/siv_home_profile2"
+        app:layout_constraintBottom_toBottomOf="@id/siv_home_profile2"
+        app:layout_constraintEnd_toEndOf="@id/siv_home_profile2"/>
+
+    <TextView
+        android:id="@+id/tv_home_name2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="kuit.official"
+        android:textColor="@color/black"
+        android:textStyle="bold"
+        app:layout_constraintTop_toTopOf="@id/siv_home_profile2"
+        app:layout_constraintStart_toEndOf="@id/siv_home_profile2"
+        app:layout_constraintBottom_toBottomOf="@id/siv_home_profile2"
+        android:layout_marginStart="12dp"/>
+
+    <ImageView
+        android:id="@+id/iv_home_option2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_options"
+        app:layout_constraintTop_toTopOf="@id/siv_home_profile2"
+        app:layout_constraintBottom_toBottomOf="@id/siv_home_profile2"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginEnd="14dp"/>
+
+    <ImageView
+        android:id="@+id/iv_home_post_img2"
+        android:layout_width="match_parent"
+        android:layout_height="360dp"
+        android:src="@drawable/img_sample2"
+        app:layout_constraintTop_toBottomOf="@id/siv_home_profile2"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginTop="10dp"
+        android:scaleType="centerCrop"/>
+
+    <ImageView
+        android:id="@+id/iv_home_post_like_btn2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_like_empty"
+        app:layout_constraintTop_toBottomOf="@id/iv_home_post_img2"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginTop="10dp"
+        android:layout_marginStart="14dp"/>
+
+    <ImageView
+        android:id="@+id/iv_home_post_comment_btn2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_comment"
+        app:layout_constraintTop_toTopOf="@id/iv_home_post_like_btn2"
+        app:layout_constraintStart_toEndOf="@id/iv_home_post_like_btn2"
+        app:layout_constraintBottom_toBottomOf="@id/iv_home_post_like_btn2"
+        android:layout_marginStart="14dp"/>
+
+    <ImageView
+        android:id="@+id/iv_home_post_share_btn2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_share"
+        app:layout_constraintTop_toTopOf="@id/iv_home_post_comment_btn2"
+        app:layout_constraintStart_toEndOf="@id/iv_home_post_comment_btn2"
+        app:layout_constraintBottom_toBottomOf="@id/iv_home_post_comment_btn2"
+        android:layout_marginStart="14dp"/>
+
+    <ImageView
+        android:id="@+id/iv_home_post_save_btn2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_save_empty"
+        app:layout_constraintTop_toTopOf="@id/iv_home_post_share_btn2"
+        app:layout_constraintBottom_toBottomOf="@id/iv_home_post_share_btn2"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginEnd="14dp"/>
+
+    <TextView
+        android:id="@+id/tv_home_post_like_name2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="ri._.nny"
+        android:textColor="@color/black"
+        android:textStyle="bold"
+        app:layout_constraintTop_toBottomOf="@id/iv_home_post_like_btn2"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginTop="10dp"
+        android:layout_marginStart="14dp"/>
+
+    <TextView
+        android:id="@+id/tv_home_text12"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="님 외"
+        android:textColor="@color/black"
+        app:layout_constraintTop_toTopOf="@id/tv_home_post_like_name2"
+        app:layout_constraintStart_toEndOf="@id/tv_home_post_like_name2"/>
+
+    <TextView
+        android:id="@+id/tv_home_text22"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="여러 명"
+        android:textColor="@color/black"
+        android:textStyle="bold"
+        app:layout_constraintTop_toTopOf="@id/tv_home_post_like_name2"
+        app:layout_constraintStart_toEndOf="@id/tv_home_text12"
+        android:layout_marginStart="4dp"/>
+
+    <TextView
+        android:id="@+id/tv_home_text32"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="이 좋아합니다"
+        android:textColor="@color/black"
+        app:layout_constraintTop_toTopOf="@id/tv_home_post_like_name2"
+        app:layout_constraintStart_toEndOf="@id/tv_home_text22"/>
+
+    <TextView
+        android:id="@+id/tv_home_post_name2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="kuit.official"
+        android:textColor="@color/black"
+        android:textStyle="bold"
+        app:layout_constraintTop_toBottomOf="@id/tv_home_post_like_name2"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginTop="4dp"
+        android:layout_marginStart="14dp"/>
+
+    <TextView
+        android:id="@+id/tv_home_post_content2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="쿠잇 3기 시작합니다!! 다들 열심히 한.."
+        android:textColor="@color/black"
+        app:layout_constraintTop_toTopOf="@id/tv_home_post_name2"
+        app:layout_constraintStart_toEndOf="@id/tv_home_post_name2"
+        android:layout_marginStart="4dp"/>
+
+    <TextView
+        android:id="@+id/tv_home_post_more2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="더 보기"
+        app:layout_constraintTop_toTopOf="@id/tv_home_post_content2"
+        app:layout_constraintStart_toEndOf="@id/tv_home_post_content2"
+        android:layout_marginStart="4dp"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
