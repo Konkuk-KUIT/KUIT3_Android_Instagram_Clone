@@ -3,7 +3,6 @@ package com.example.cloneinstagram
 import android.os.Bundle
 import androidx.activity.OnBackPressedCallback
 import androidx.appcompat.app.AppCompatActivity
-import com.example.cloneinstagram.R
 import com.example.cloneinstagram.databinding.ActivityMainBinding
 
 
