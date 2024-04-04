@@ -11,6 +11,7 @@ class MainActivity : AppCompatActivity() {
 
     lateinit var binding: ActivityMainBinding
 
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
@@ -19,8 +20,9 @@ class MainActivity : AppCompatActivity() {
 
         initBottomNavigation()
 
-
     }
+
+
 
     private fun initBottomNavigation() {
         supportFragmentManager.beginTransaction()
