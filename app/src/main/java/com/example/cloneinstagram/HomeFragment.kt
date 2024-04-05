@@ -16,12 +16,6 @@ class HomeFragment : Fragment() {
     private var itemList : ArrayList<PostData> = arrayListOf()
     private lateinit var postAdapter: PostAdapter
 
-//    override fun onPause() {
-//        super.onPause()
-//        itemPostHomeBinding.tvItemPostContents.maxLines = 1
-//        itemPostHomeBinding.tvItemPostContents.layoutParams.width = 240//
-//        itemPostHomeBinding.tvItemPostShowMore.visibility = View.VISIBLE
-//    }
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,

@@ -30,7 +30,6 @@ class MainActivity : AppCompatActivity() {
             .commitAllowingStateLoss()
         binding.mainBnv.selectedItemId = R.id.homeFragment
 
-
         binding.mainBnv.setOnItemSelectedListener {
             when (it.itemId) {
                 R.id.homeFragment -> {
