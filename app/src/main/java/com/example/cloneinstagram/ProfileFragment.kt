@@ -18,6 +18,7 @@ class ProfileFragment : Fragment() {
         binding = FragmentProfileBinding.inflate(inflater, container, false)
 
         binding.tvProfileLogo.text = arguments?.getString("id") ?: "kuit"
+        arguments?.let { binding.sivProfileImg.setImageResource(it.getInt("imageId")) }
 
         return binding.root
     }
