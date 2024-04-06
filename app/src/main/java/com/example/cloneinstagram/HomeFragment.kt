@@ -22,7 +22,10 @@ class HomeFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         binding = FragmentHomeBinding.inflate(inflater, container, false)
+
+        //데이터 생성
         initData()
+        //RecyclerView 생성
         initRecyclerView()
 
         return binding.root
@@ -31,7 +34,7 @@ class HomeFragment : Fragment() {
     private fun initRecyclerView() {
         HomePostAdapter = HomePostAdapter(itemList)
         binding.rvPost.adapter = HomePostAdapter
-        binding.rvPost.layoutManager = LinearLayoutManager(getActivity(), LinearLayoutManager.VERTICAL, false)
+        binding.rvPost.layoutManager = LinearLayoutManager(requireActivity(), LinearLayoutManager.VERTICAL, false)
 
         HomePostAdapter!!.setOnItemClickListener(object : HomePostAdapter.OnItemClickListener{
 
