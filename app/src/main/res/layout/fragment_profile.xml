@@ -6,7 +6,6 @@
     android:layout_height="match_parent"
     tools:context=".SearchFragment">
 
-<<<<<<< HEAD
     <ImageView
         android:id="@+id/ic_profile_margin"
         android:layout_width="82dp"
@@ -42,15 +41,5 @@
         app:shapeAppearance="@style/ShapeAppearance.Material3.Corner.Full">
 
     </com.google.android.material.imageview.ShapeableImageView>
-=======
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="profile 화면"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"/>
->>>>>>> 1b835d16fe5dc607568dcbbc7258673e689f5687
 
 </androidx.constraintlayout.widget.ConstraintLayout>
