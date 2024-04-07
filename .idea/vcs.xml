@@ -1,8 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="VcsDirectoryMappings">
+<<<<<<< HEAD
     <mapping directory="$PROJECT_DIR$" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/KUIT3_Android" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/KUIT3_Android_Instagram_Clone" vcs="Git" />
+=======
+    <mapping directory="" vcs="Git" />
+>>>>>>> 1b835d16fe5dc607568dcbbc7258673e689f5687
   </component>
 </project>

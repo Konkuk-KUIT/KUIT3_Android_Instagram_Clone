@@ -1,6 +1,10 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Base application theme. -->
+<<<<<<< HEAD
     <style name="Theme.CloneCodingInstagram" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
+=======
+    <style name="Theme.CloneInstagram" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
+>>>>>>> 1b835d16fe5dc607568dcbbc7258673e689f5687
         <!-- Primary brand color. -->
         <item name="colorPrimary">@color/purple_500</item>
         <item name="colorPrimaryVariant">@color/purple_700</item>
@@ -14,9 +18,12 @@
         <!-- Customize your theme here. -->
         <item name="windowNoTitle">true</item>
     </style>
+<<<<<<< HEAD
     <!-- Base application theme. -->
     <style name="Base.Theme.CloneCodingInstagram" parent="Theme.Material3.DayNight.NoActionBar">
         <!-- Customize your light theme here. -->
         <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
     </style>
+=======
+>>>>>>> 1b835d16fe5dc607568dcbbc7258673e689f5687
 </resources>
