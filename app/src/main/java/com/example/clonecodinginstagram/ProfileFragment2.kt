@@ -16,11 +16,20 @@ class ProfileFragment2 : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+        var str_id = arguments?.getString("id")
+        var str_name = arguments?.getString("name")
+
         binding = FragmentProfile2Binding.inflate(inflater, container, false)
 
-        binding.icProfile5.setOnClickListener{
-            val intent = Intent(this.activity, MenuActivity::class.java)
-            startActivity(intent)
+        binding.icProfile5.setOnClickListener {
+            parentFragmentManager.beginTransaction()
+                .replace(R.id.main_frm, ProfileScreenFragment().apply {
+                    arguments = Bundle().apply {
+                        putString("id", str_id)
+                        putString("name", str_name)
+                    }
+                })
+                .commit()
         }
         return binding.root
     }
