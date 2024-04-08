@@ -5,10 +5,52 @@
     android:layout_height="match_parent"
     tools:context=".GridFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <GridLayout
+        android:id="@+id/gl_grid"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:layout_height="wrap_content"
+        android:columnCount="3"
+        >
+
+        <ImageView
+            android:id="@+id/iv_grid_1"
+            android:layout_width="135dp"
+            android:layout_height="135dp"
+            android:src="@drawable/img_grey_rectangle"
+            android:padding="9dp"
+            />
+        <ImageView
+            android:id="@+id/iv_grid_2"
+            android:layout_width="135dp"
+            android:layout_height="135dp"
+            android:src="@drawable/img_grey_rectangle"
+            android:padding="9dp"/>
+        <ImageView
+            android:id="@+id/iv_grid_3"
+            android:layout_width="135dp"
+            android:layout_height="135dp"
+            android:src="@drawable/img_grey_rectangle"
+            android:padding="9dp"/>
+        <ImageView
+            android:id="@+id/iv_grid_4"
+            android:layout_width="135dp"
+            android:layout_height="135dp"
+            android:src="@drawable/img_grey_rectangle"
+            android:padding="9dp"/>
+        <ImageView
+            android:id="@+id/iv_grid_5"
+            android:layout_width="135dp"
+            android:layout_height="135dp"
+            android:src="@drawable/img_grey_rectangle"
+            android:padding="9dp"/>
+        <ImageView
+            android:id="@+id/iv_grid_6"
+            android:layout_width="135dp"
+            android:layout_height="135dp"
+            android:src="@drawable/img_grey_rectangle"
+            android:padding="9dp"/>
+
+    </GridLayout>
+
 
 </FrameLayout>
