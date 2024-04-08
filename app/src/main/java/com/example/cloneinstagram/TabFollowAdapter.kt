@@ -1,20 +1,23 @@
 package com.example.cloneinstagram
 
+import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.example.cloneinstagram.databinding.ItemTabFollowBinding
 
-class followerAdapter:RecyclerView.Adapter<PostAdapter.ViewHolder>() {
+class TabFollowAdapter:RecyclerView.Adapter<TabFollowAdapter.ViewHolder>() {
 
-
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): PostAdapter.ViewHolder {
-        TODO("Not yet implemented")
+    inner class ViewHolder(val binding: ItemTabFollowBinding):RecyclerView.ViewHolder(binding.root)
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): TabFollowAdapter.ViewHolder {
+        val binding= ItemTabFollowBinding.inflate(LayoutInflater.from(parent.context),parent,false)
+        return ViewHolder(binding)
     }
 
     override fun getItemCount(): Int {
-        TODO("Not yet implemented")
+        return 10
     }
 
-    override fun onBindViewHolder(holder: PostAdapter.ViewHolder, position: Int) {
-        TODO("Not yet implemented")
+    override fun onBindViewHolder(holder: TabFollowAdapter.ViewHolder, position: Int) {
     }
 }
+
