@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/ly_profile5"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="6dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+        <FrameLayout
+            android:id="@+id/profile5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+            <com.google.android.material.imageview.ShapeableImageView
+                android:id="@+id/ic_profile5"
+                android:layout_width="28dp"
+                android:layout_height="28dp"
+                android:layout_margin="4dp"
+                android:src="@drawable/img_sample2"
+                app:layout_constraintStart_toStartOf="@id/ic_profile_margin5"
+                app:layout_constraintTop_toTopOf="@id/ic_profile_margin5"
+                app:shapeAppearance="@style/ShapeAppearance.Material3.Corner.Full">
+
+            </com.google.android.material.imageview.ShapeableImageView>
+
+            <ImageView
+                android:id="@+id/ic_profile_margin5"
+                android:layout_width="36dp"
+                android:layout_height="36dp"
+                android:src="@drawable/ic_coloredcircle"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+            </ImageView>
+        </FrameLayout>
+        <TextView
+            android:id="@+id/text_profile5_name"
+            android:layout_width="wrap_content"
+            android:layout_height="36dp"
+            android:layout_marginLeft="5dp"
+            android:gravity="center"
+            android:text="kuit.official"
+            android:textColor="@color/black"
+            android:textSize="12sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toEndOf="@id/profile5"
+            app:layout_constraintTop_toTopOf="parent"></TextView>
+
+        <ImageView
+            android:id="@+id/ic_menu"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_marginTop="6dp"
+            android:layout_marginRight="14dp"
+            android:src="@drawable/ic_options"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+        </ImageView>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <View
+        android:id="@+id/view_image"
+        android:layout_width="match_parent"
+        android:layout_height="360dp"
+        android:layout_marginTop="6dp"
+        android:background="#8E8E8E"
+        app:layout_constraintTop_toBottomOf="@id/ly_profile5">
+
+    </View>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="102dp"
+        android:orientation="vertical"
+        app:layout_constraintTop_toBottomOf="@id/view_image">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="44dp"
+            android:layout_gravity="center_vertical">
+
+            <ImageView
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="12dp"
+                android:src="@drawable/ic_like_empty">
+            </ImageView>
+            <ImageView
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="13dp"
+                android:src="@drawable/ic_comment">
+            </ImageView>
+            <ImageView
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="13dp"
+                android:src="@drawable/ic_share">
+            </ImageView>
+            <ImageView
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="255dp"
+                android:layout_marginRight="15dp"
+                android:src="@drawable/ic_save">
+            </ImageView>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <TextView
+                android:layout_marginLeft="14dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="kuit.official"
+                android:textSize="12sp"
+                android:textColor="@color/black"
+                android:textStyle="bold">
+
+            </TextView>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="님 외 여러 명이 좋아합니다."
+                android:textSize="12sp">
+            </TextView>
+
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="3dp">
+            <TextView
+                android:id="@+id/text_id"
+                android:layout_marginLeft="14dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="kuit.official"
+                android:textSize="12sp"
+                android:textColor="@color/black"
+                android:textStyle="bold">
+
+            </TextView>
+
+            <TextView
+                android:id="@+id/text_writing"
+                android:layout_width="320dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="4dp"
+                android:maxLines="1"
+                android:ellipsize="end"
+                android:text="쿠잇 3기 시작합니다!! 다들 열심히 한 학기 마무리해봐요. 이 뒤의 내용은 잘립니다."
+                android:textSize="12sp"></TextView>
+
+        </LinearLayout>
+    </LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
