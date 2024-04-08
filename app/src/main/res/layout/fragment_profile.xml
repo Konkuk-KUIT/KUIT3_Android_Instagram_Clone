@@ -5,7 +5,6 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".SearchFragment">
-
     <ImageView
         android:id="@+id/ic_profile_margin"
         android:layout_width="82dp"
@@ -41,5 +40,6 @@
         app:shapeAppearance="@style/ShapeAppearance.Material3.Corner.Full">
 
     </com.google.android.material.imageview.ShapeableImageView>
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
