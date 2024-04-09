@@ -29,8 +29,13 @@ class FollowerFollowingActivity : AppCompatActivity() {
 
     private fun initView() {
         binding.vpFollower.adapter = FollowerFollowingTabLayoutVPAdapter(this)
+        val fragmentIndex = intent.getIntExtra("fragment_index", 0) // 기본값은 0
+
         TabLayoutMediator(binding.tlFollower, binding.vpFollower){ tab, position ->
             tab.text = tapList[position]
         }.attach()
+
+        // fragment_index에 따라 viewPager에서 해당하는 fragment를 보여줌
+        binding.vpFollower.setCurrentItem(fragmentIndex, false)
     }
 }

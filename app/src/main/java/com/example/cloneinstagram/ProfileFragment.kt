@@ -43,12 +43,14 @@ class ProfileFragment : Fragment() {
         binding.tvFollower.setOnClickListener {
             val intent = Intent(requireActivity(), FollowerFollowingActivity::class.java)
             intent.putExtra("key", binding.tvEditProfileName.text)
+            intent.putExtra("fragment_index", 0) // 첫 번째 fragment를 보여주기 위한 index
             startActivity(intent)
         }
 
         binding.tvFollowing.setOnClickListener {
             val intent = Intent(requireActivity(), FollowerFollowingActivity::class.java)
             intent.putExtra("key", binding.tvEditProfileName.text)
+            intent.putExtra("fragment_index", 1) // 두 번째 fragment를 보여주기 위한 index
             startActivity(intent)
         }
     }
