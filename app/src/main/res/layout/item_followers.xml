@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    
+    <com.google.android.material.imageview.ShapeableImageView
+        android:id="@+id/siv_item_followers_image"
+        android:layout_width="54dp"
+        android:layout_height="54dp"
+        app:shapeAppearance="@style/ShapeAppearance.Material3.Corner.Full"
+        android:background="#DBDBDB"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="12dp"
+        android:layout_marginStart="16dp"
+        app:layout_constraintStart_toStartOf="parent"/>
+    
+    <TextView
+        android:id="@+id/tv_item_followers_user_id"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="kuit.official"
+        android:textSize="12sp"
+        android:textStyle="bold"
+        android:textColor="@color/black"
+        app:layout_constraintTop_toTopOf="@id/siv_item_followers_image"
+        app:layout_constraintStart_toEndOf="@id/siv_item_followers_image"
+        android:layout_marginTop="12dp"
+        android:layout_marginStart="11dp"/>
+
+    <TextView
+        android:id="@+id/tv_item_followers_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="#737373"
+        android:text="쿠잇"
+        android:textSize="12sp"
+        app:layout_constraintTop_toBottomOf="@id/tv_item_followers_user_id"
+        app:layout_constraintStart_toEndOf="@id/siv_item_followers_image"
+        android:layout_marginStart="11dp"/>
+    
+    <com.google.android.material.imageview.ShapeableImageView
+        android:id="@+id/siv_item_followers_remove"
+        android:layout_width="50dp"
+        android:layout_height="30dp"
+        app:shapeAppearanceOverlay="@style/Circle"
+        android:background="#EFEFEF"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@id/siv_item_followers_image"
+        android:layout_marginTop="12dp"
+        android:layout_marginEnd="16dp"/>
+
+    <TextView
+        android:id="@+id/tv_item_followers_remove"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/black"
+        android:textSize="12sp"
+        android:text="삭제"
+        app:layout_constraintTop_toTopOf="@id/siv_item_followers_remove"
+        app:layout_constraintBottom_toBottomOf="@id/siv_item_followers_remove"
+        app:layout_constraintStart_toStartOf="@id/siv_item_followers_remove"
+        app:layout_constraintEnd_toEndOf="@id/siv_item_followers_remove"/>
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

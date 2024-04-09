@@ -1,4 +1,4 @@
-package com.example.cloneinstagram
+package com.example.cloneinstagram.home
 
 import android.content.Intent
 import android.os.Bundle
@@ -8,8 +8,10 @@ import android.view.ViewGroup
 import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.StaggeredGridLayoutManager
+import com.example.cloneinstagram.R
 import com.example.cloneinstagram.databinding.FragmentHomeBinding
 import com.example.cloneinstagram.databinding.ItemPostHomeBinding
+import com.example.cloneinstagram.profile.profile_main.ProfileFragment
 
 class HomeFragment : Fragment() {
     lateinit var binding: FragmentHomeBinding
@@ -30,45 +32,30 @@ class HomeFragment : Fragment() {
     }
 
     private fun initRecyclerView() {
-        val CLICK_USERID = 1 // user id 클릭
-        val CLICK_SHOWMORE = 2 // 더보기 클릭
-        val CLICK_OPTIONS = 3 // 게시글 수정 클릭
         postAdapter = PostAdapter(itemList)
         binding.rvHomePostList.adapter = postAdapter
 
-//        binding.tvItemUserId.setOnClickListener {
-//            itemClickListener.onItemClick(item, CLICK_USERID)
-//        }
-//        binding.tvItemPostShowMore.setOnClickListener {
-//            itemClickListener.onItemClick(item, CLICK_SHOWMORE)
-//        }
-//        binding.ivItemPostImageOptions.setOnClickListener {
-//            itemClickListener.onItemClick(item, CLICK_OPTIONS)
-//        }
         binding.rvHomePostList.layoutManager = StaggeredGridLayoutManager(1, StaggeredGridLayoutManager.VERTICAL)
-        postAdapter.setOnItemClickListener(object :PostAdapter.OnItemClickListener{
-            override fun onItemClick(postData: PostData, type: Int, itemPostHomeBinding: ItemPostHomeBinding) {
-                when(type) {
-                    CLICK_USERID -> {
-                        val profileFragment = ProfileFragment()
-                        profileFragment.arguments = bundleOf("data" to postData)
+        postAdapter.setOnItemClickListener(object : PostAdapter.OnItemClickListener {
+            override fun onIdClick(postData: PostData) {
+                val profileFragment = ProfileFragment()
+                profileFragment.arguments = bundleOf("data" to postData)
 
-                        parentFragmentManager.beginTransaction()
-                            .replace(R.id.main_frm, profileFragment)
-                            .addToBackStack(null)
-                            .commit()
-                    }
-                    CLICK_SHOWMORE -> {
-                        itemPostHomeBinding.tvItemPostContents.maxLines = 4
-                        itemPostHomeBinding.tvItemPostContents.layoutParams.width = 260//
-                        itemPostHomeBinding.tvItemPostShowMore.visibility = View.GONE
-                    }
-                    CLICK_OPTIONS -> {
-                        val intent = Intent(activity, EditActivity::class.java)
-                        intent.putExtra("data", postData)
-                        startActivity(intent)
-                    }
-                }
+                parentFragmentManager.beginTransaction()
+                    .replace(R.id.main_frm, profileFragment)
+                    .addToBackStack(null)
+                    .commit()
+
+            }
+            override fun onOptionClick(postData: PostData) {
+                val intent = Intent(activity, EditActivity::class.java)
+                intent.putExtra("data", postData)
+                startActivity(intent)
+            }
+            override fun onShowMoreClick(postData: PostData, itemBinding : ItemPostHomeBinding) {
+                itemBinding.tvItemPostContents.maxLines = Int.MAX_VALUE
+                itemBinding.tvItemPostContents.layoutParams.width = 700//
+                itemBinding.tvItemPostShowMore.visibility = View.GONE
             }
         })
     }
@@ -76,9 +63,11 @@ class HomeFragment : Fragment() {
     private fun initData() {
         itemList.addAll(
             arrayListOf(
-                PostData(R.drawable.img_sample, "kuit.official_1", R.drawable.img_sample2,
+                PostData(
+                    R.drawable.img_sample, "kuit.official_1", R.drawable.img_sample2,
                     "첫번째 게시물 첫번째 게시물 첫번째 게시물 첫번째 게시물 첫번째 게시물 첫번째 게시물 첫번째 게시물 첫번째 게시물 첫번째 게시물 첫번째 게시물 첫번째 게시물 첫번째 게시물 첫번째 게시물 첫번째 게시물 첫번째 게시물 첫번째 게시물 첫번째 게시물 첫번째 게시물 첫번째 게시물 첫번째 게시물 첫번째 게시물 첫번째 게시물 첫번째 게시물 첫번째 게시물 첫번째 게시물 첫번째 게시물 첫번째 게시물 첫번째 게시물 첫번째 게시물 첫번째 게시물 "),
-                PostData(R.drawable.img_sample2, "kuit.official_2", R.drawable.img_sample,
+                PostData(
+                    R.drawable.img_sample2, "kuit.official_2", R.drawable.img_sample,
                     "두번째 게시물 두번째 게시물 두번째 게시물 두번째 게시물 두번째 게시물 두번째 게시물 두번째 게시물 두번째 게시물 두번째 게시물 두번째 게시물 두번째 게시물 두번째 게시물 두번째 게시물 두번째 게시물 두번째 게시물 두번째 게시물 두번째 게시물 두번째 게시물 두번째 게시물 두번째 게시물 두번째 게시물 두번째 게시물 두번째 게시물 두번째 게시물 두번째 게시물 두번째 게시물 두번째 게시물 두번째 게시물 두번째 게시물 두번째 게시물 ")
             )
         )

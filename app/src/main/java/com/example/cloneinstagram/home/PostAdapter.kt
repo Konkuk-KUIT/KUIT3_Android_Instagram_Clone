@@ -1,4 +1,4 @@
-package com.example.cloneinstagram
+package com.example.cloneinstagram.home
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
@@ -12,7 +12,9 @@ class PostAdapter(val items : ArrayList<PostData>) : RecyclerView.Adapter<PostAd
     private val CLICK_OPTIONS = 3 // 게시글 수정 클릭
 
     interface OnItemClickListener{
-        fun onItemClick(postData: PostData, type: Int, binding: ItemPostHomeBinding)
+        fun onIdClick(postData: PostData)
+        fun onShowMoreClick(postData: PostData, itemBinding : ItemPostHomeBinding)
+        fun onOptionClick(postData: PostData)
     }
 
     fun setOnItemClickListener(onItemClickListener : OnItemClickListener){
@@ -26,23 +28,23 @@ class PostAdapter(val items : ArrayList<PostData>) : RecyclerView.Adapter<PostAd
             binding.ivItemPostImage.setImageResource(item.postImage)
             binding.tvItemPostContents.text = item.postContent
             binding.tvItemUserId.setOnClickListener {
-                itemClickListener.onItemClick(item, CLICK_USERID, binding)
+                itemClickListener.onIdClick(item)
             }
             binding.tvItemPostShowMore.setOnClickListener {
-                itemClickListener.onItemClick(item, CLICK_SHOWMORE, binding)
+                itemClickListener.onShowMoreClick(item, binding)
             }
             binding.ivItemPostImageOptions.setOnClickListener {
-                itemClickListener.onItemClick(item, CLICK_OPTIONS, binding)
+                itemClickListener.onOptionClick(item)
             }
         }
     }
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): PostAdapter.ViewHolder {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val binding = ItemPostHomeBinding.inflate(LayoutInflater.from(parent.context), parent, false)
         return ViewHolder(binding)
     }
 
-    override fun onBindViewHolder(holder: PostAdapter.ViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         holder.bind(items[position])
     }
 

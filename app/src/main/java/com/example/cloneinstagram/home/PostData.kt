@@ -1,4 +1,4 @@
-package com.example.cloneinstagram
+package com.example.cloneinstagram.home
 
 import java.io.Serializable
 

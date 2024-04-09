@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".profile.profile_main.ProfileTagFragment">
+
+    <GridLayout
+        android:id="@+id/gl_profile_tag"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:columnCount="3">
+
+        <ImageView
+            android:id="@+id/iv_profile_tag_1"
+            android:layout_width="118dp"
+            android:layout_height="118dp"
+            android:src="@drawable/img_sample"
+            android:padding="1dp"
+            android:scaleType="centerCrop"/>
+
+        <ImageView
+            android:id="@+id/iv_profile_tag_2"
+            android:layout_width="118dp"
+            android:layout_height="118dp"
+            android:padding="1dp"
+            android:scaleType="centerCrop"/>
+
+        <ImageView
+            android:id="@+id/iv_profile_tag_3"
+            android:layout_width="118dp"
+            android:layout_height="118dp"
+            android:padding="1dp"
+            android:scaleType="centerCrop"/>
+
+        <ImageView
+            android:id="@+id/iv_profile_tag_4"
+            android:layout_width="118dp"
+            android:layout_height="118dp"
+            android:padding="1dp"
+            android:scaleType="centerCrop"/>
+
+        <ImageView
+            android:id="@+id/iv_profile_tag_5"
+            android:layout_width="118dp"
+            android:layout_height="118dp"
+            android:padding="1dp"
+            android:scaleType="centerCrop"/>
+
+        <ImageView
+            android:id="@+id/iv_profile_tag_6"
+            android:layout_width="118dp"
+            android:layout_height="118dp"
+            android:padding="1dp"
+            android:scaleType="centerCrop"/>
+
+        <ImageView
+            android:id="@+id/iv_profile_tag_7"
+            android:layout_width="118dp"
+            android:layout_height="118dp"
+            android:padding="1dp"
+            android:scaleType="centerCrop"/>
+
+        <ImageView
+            android:id="@+id/iv_profile_tag_8"
+            android:layout_width="118dp"
+            android:layout_height="118dp"
+            android:padding="1dp"
+            android:scaleType="centerCrop"/>
+
+        <ImageView
+            android:id="@+id/iv_profile_tag_9"
+            android:layout_width="118dp"
+            android:layout_height="118dp"
+            android:padding="1dp"
+            android:scaleType="centerCrop"/>
+
+        <ImageView
+            android:id="@+id/iv_profile_tag_10"
+            android:layout_width="118dp"
+            android:layout_height="118dp"
+            android:padding="1dp"
+            android:scaleType="centerCrop"/>
+
+        <ImageView
+            android:id="@+id/iv_profile_tag_11"
+            android:layout_width="118dp"
+            android:layout_height="118dp"
+            android:padding="1dp"
+            android:scaleType="centerCrop"/>
+
+        <ImageView
+            android:id="@+id/iv_profile_tag_12"
+            android:layout_width="118dp"
+            android:layout_height="118dp"
+            android:padding="1dp"
+            android:scaleType="centerCrop"/>
+
+        <ImageView
+            android:id="@+id/iv_profile_tag_13"
+            android:layout_width="118dp"
+            android:layout_height="118dp"
+            android:padding="1dp"
+            android:scaleType="centerCrop"/>
+
+        <ImageView
+            android:id="@+id/iv_profile_tag_14"
+            android:layout_width="118dp"
+            android:layout_height="118dp"
+            android:padding="1dp"
+            android:scaleType="centerCrop"/>
+
+    </GridLayout>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
