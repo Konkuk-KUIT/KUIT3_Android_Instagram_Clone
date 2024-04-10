@@ -17,7 +17,13 @@ class ProfileFragment : Fragment() {
     ): View? {
         binding = FragmentProfileBinding.inflate(inflater, container, false)
 
-        binding.tvProfileId.text = arguments?.getString("nameValue")
+        val bundle = arguments
+        if (bundle != null && bundle.containsKey("key")) {
+            val postData = bundle.getSerializable("key") as PostData
+
+            binding.tvProfileId.text = postData.userId
+            binding.sivProfileImg.setImageResource(postData.profileImg)
+        }
 
         return binding.root
     }
