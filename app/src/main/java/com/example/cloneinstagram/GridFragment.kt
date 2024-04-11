@@ -28,6 +28,24 @@ class GridFragment : Fragment() {
             .error(R.drawable.img_cloud4)
             .into(binding.ivGridImg2)
 
+        Glide.with(this)
+            .load("https://cdn.pixabay.com/photo/2016/01/05/17/51/maltese-1123016_1280.jpg")
+            .error(R.drawable.img_cloud4)
+            .into(binding.ivGridImg3)
+
+        Glide.with(this)
+            .load("https://cdn.pixabay.com/photo/2018/05/11/08/11/dog-3389729_1280.jpg")
+            .error(R.drawable.img_cloud4)
+            .into(binding.ivGridImg4)
+
+        Glide.with(this)
+            .load("https://cdn.pixabay.com/photo/2020/11/08/10/25/dog-5723334_1280.jpg")
+            .error(R.drawable.img_cloud4)
+            .into(binding.ivGridImg5)
+        Glide.with(this)
+            .load("https://cdn.pixabay.com/photo/2019/11/07/08/40/puppy-4608266_1280.jpg")
+            .error(R.drawable.img_cloud4)
+            .into(binding.ivGridImg6)
 
         return binding.root
     }
