@@ -133,6 +133,7 @@
                 app:layout_constraintTop_toTopOf="@+id/tv_post_count" />
 
             <TextView
+                android:id="@+id/tv_follower"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="팔로워"
@@ -156,6 +157,7 @@
                 app:layout_constraintTop_toTopOf="@+id/tv_follower_count" />
 
             <TextView
+                android:id="@+id/tv_following"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="49dp"
@@ -241,6 +243,112 @@
                 app:layout_constraintEnd_toEndOf="@id/iv_add_friend"
                 app:layout_constraintStart_toStartOf="@id/iv_add_friend"
                 app:layout_constraintTop_toTopOf="@id/iv_add_friend" />
+
+            <TextView
+                android:id="@+id/tv_highlight_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="스토리 하이라이트"
+                app:layout_constraintTop_toBottomOf="@id/iv_edit_profile"
+                app:layout_constraintStart_toStartOf="@id/iv_edit_profile"
+                android:layout_marginTop="18dp"
+                android:textColor="@color/black"
+                android:textSize="12sp"
+                android:textStyle="bold"/>
+
+            <TextView
+                android:id="@+id/tv_highlight_description"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="좋아하는 스토리를 프로필에 보관해보세요"
+                app:layout_constraintTop_toBottomOf="@id/tv_highlight_title"
+                app:layout_constraintStart_toStartOf="@id/tv_highlight_title"
+                android:textColor="@color/black"
+                android:textSize="12sp"/>
+
+            <com.google.android.material.imageview.ShapeableImageView
+                android:id="@+id/siv_add_highlight"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                app:layout_constraintStart_toStartOf="@id/tv_highlight_description"
+                app:layout_constraintTop_toBottomOf="@id/tv_highlight_description"
+                android:layout_marginTop="13dp"
+                app:shapeAppearance="@style/ShapeAppearance.Material3.Corner.Full"/>
+
+            <ImageView
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:src="@drawable/ic_story_gray"
+                app:layout_constraintStart_toStartOf="@id/siv_add_highlight"
+                app:layout_constraintTop_toTopOf="@id/siv_add_highlight"
+                app:layout_constraintBottom_toBottomOf="@id/siv_add_highlight"
+                app:layout_constraintEnd_toEndOf="@id/siv_add_highlight"/>
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_plus"
+                app:layout_constraintStart_toStartOf="@id/siv_add_highlight"
+                app:layout_constraintTop_toTopOf="@id/siv_add_highlight"
+                app:layout_constraintBottom_toBottomOf="@id/siv_add_highlight"
+                app:layout_constraintEnd_toEndOf="@id/siv_add_highlight"/>
+
+            <TextView
+                android:id="@+id/tv_add_story"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="새로 만들기"
+                android:textSize="11sp"
+                android:textColor="@color/black"
+                app:layout_constraintTop_toBottomOf="@id/siv_add_highlight"
+                app:layout_constraintStart_toStartOf="@id/siv_add_highlight"
+                app:layout_constraintEnd_toEndOf="@id/siv_add_highlight"
+                android:layout_marginTop="6dp"/>
+
+            <ImageView
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:src="@drawable/ic_no_profile"
+                app:layout_constraintStart_toEndOf="@id/siv_add_highlight"
+                app:layout_constraintTop_toTopOf="@id/siv_add_highlight"
+                android:layout_marginStart="16dp"/>
+
+            <ImageView
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:src="@drawable/ic_no_profile"
+                app:layout_constraintStart_toEndOf="@id/siv_add_highlight"
+                app:layout_constraintTop_toTopOf="@id/siv_add_highlight"
+                android:layout_marginStart="92dp"/>
+
+            <ImageView
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:src="@drawable/ic_no_profile"
+                app:layout_constraintStart_toEndOf="@id/siv_add_highlight"
+                app:layout_constraintTop_toTopOf="@id/siv_add_highlight"
+                android:layout_marginStart="168dp"/>
+
+            <com.google.android.material.tabs.TabLayout
+                android:id="@+id/tl_profile"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@id/tv_add_story"
+                app:tabIndicatorAnimationMode="linear"
+                app:tabIndicatorColor="@color/black"
+                app:tabIndicatorFullWidth="true"
+                app:tabRippleColor="#BDBDBD"
+                app:tabIconTint="@color/black"
+                android:layout_marginTop="16dp"/>
+
+            <androidx.viewpager2.widget.ViewPager2
+                android:id="@+id/vp_profile_tab"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                app:layout_constraintTop_toBottomOf="@id/tl_profile"
+                app:layout_constraintBottom_toBottomOf="parent"/>
+
+
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 

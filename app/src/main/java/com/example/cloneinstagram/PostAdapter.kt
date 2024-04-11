@@ -1,6 +1,7 @@
 package com.example.cloneinstagram
 
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
 import android.widget.AdapterView.OnItemClickListener
 import androidx.recyclerview.widget.RecyclerView
@@ -32,7 +33,17 @@ class PostAdapter(val items: ArrayList<PostData>) : RecyclerView.Adapter<PostAda
             }
 
 //            더보기 눌렀을 때 작업 해주기
-        }
+            if (binding.tvPostContent.length() < 15)
+            {
+                binding.tvPostMore.visibility = View.GONE
+            } else {
+                binding.tvPostMore.setOnClickListener {
+                    binding.tvPostMore.visibility = View.GONE
+                    binding.tvPostContent.ellipsize = null
+                    binding.tvPostContent.maxLines = Int.MAX_VALUE
+                }
+            }
+            }
     }
 
     fun setOnItemClickListener(onItemClickListener: OnItemClickListener) {

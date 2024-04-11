@@ -58,7 +58,7 @@ class HomeFragment : Fragment() {
         PostAdapter = PostAdapter(itemList)
 
         binding.rvPost.adapter = PostAdapter
-        binding.rvPost.layoutManager = LinearLayoutManager(activity, LinearLayoutManager.VERTICAL, false)
+        binding.rvPost.layoutManager = LinearLayoutManager(requireActivity(), LinearLayoutManager.VERTICAL, false)
 
         PostAdapter!!.setOnItemClickListener(object : PostAdapter.OnItemClickListener{
             override fun onIdClick(postData: PostData) {
@@ -66,10 +66,10 @@ class HomeFragment : Fragment() {
 
                 bundle.putSerializable("key", postData)
 
-                val ProfileFragment = ProfileFragment()
-                ProfileFragment.arguments = bundle
+                val profileFragment = ProfileFragment()
+                profileFragment.arguments = bundle
 
-                parentFragmentManager.beginTransaction().replace(R.id.main_frm, ProfileFragment).commit()
+                parentFragmentManager.beginTransaction().replace(R.id.main_frm, profileFragment).commit()
             }
 
             override fun onOptionClick(postData: PostData) {
@@ -84,10 +84,10 @@ class HomeFragment : Fragment() {
     private fun initData() {
         itemList.addAll(
             arrayListOf(
-                PostData(R.drawable.img_sample, "better_1", R.drawable.img_sample2,""),
-                PostData(R.drawable.img_sample, "better_2", R.drawable.img_sample2,""),
-                PostData(R.drawable.img_sample, "better_3", R.drawable.img_sample2,""),
-                PostData(R.drawable.img_sample, "better_4", R.drawable.img_sample2,"")
+                PostData(R.drawable.harry, "harry_potter", R.drawable.harry_post,"영국의 작가 J. K. 롤링의 판타지 소설 해리 포터 시리즈의 주인공. 풀 네임은 해리 제임스 포터. MBTI는 ISFP, 에니어그램은 9w8로 추정하는 사람들이 많다."),
+                PostData(R.drawable.ron, "ronald_weasley", R.drawable.ron_post,"로널드 빌리우스 위즐리 (Ronald Bilius Weasley). 해리 포터 시리즈의 등장인물 중 하나이자 또 다른 주인공. 위즐리 일가의 6남 1녀중 여섯째이자 막내아들이자 지니 위즐리의 오빠이다. 거의 언제나 쓰는 이름인 '론'(Ron)은 로널드(Ronald)의 애칭. 1980년 3월 1일생."),
+                PostData(R.drawable.hermione, "hermione_granger", R.drawable.hermione_post,"해리 포터 시리즈의 등장인물. 정식 발매된 번역본의 풀네임은 헤르미온느 진 그레인저. 생일은 1979년 9월 19일이다. 해리 포터의 가장 친한 친구 중 한 명이자 시리즈 내내 사건을 해결해 나가는 삼총사의 일원이다."),
+                PostData(R.drawable.snape, "severus_snape", R.drawable.snape_post,"해리 포터 시리즈의 등장인물. 호그와트의 마법약 과목 교수다.")
             )
         )
     }
