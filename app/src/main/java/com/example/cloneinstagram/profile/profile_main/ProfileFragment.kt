@@ -26,6 +26,8 @@ class ProfileFragment : Fragment() {
 
         /** 프로필 userId, 프사, 이름 설정 **/
         val data = arguments?.getSerializable("data") as PostData
+
+
         binding.tvProfileUserId.text = data.profileUserId
         binding.sivProfileProfileImage.setImageResource(data.profileImage)
 
