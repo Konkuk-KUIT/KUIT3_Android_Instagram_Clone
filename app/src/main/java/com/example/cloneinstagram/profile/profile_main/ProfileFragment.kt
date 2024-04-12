@@ -23,31 +23,32 @@ class ProfileFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         binding = FragmentProfileBinding.inflate(inflater, container, false)
+
+        /** 프로필 userId, 프사, 이름 설정 **/
         val data = arguments?.getSerializable("data") as PostData
         binding.tvProfileUserId.text = data.profileUserId
         binding.sivProfileProfileImage.setImageResource(data.profileImage)
 
-        initAdapter()
+        initAdapter() // 어댑터 적용
 
-
-        // 팔로워 클릭
+        /** 팔로워 클릭 **/
+        /** fragment 의 arguments 로 보낸 정수형 데이트를 통해 탭의 위치를 조정함. **/
         binding.llProfileFollowers.setOnClickListener {
             val profileListFragment = ProfileListFragment()
-            profileListFragment.arguments = bundleOf("key" to 1)
+            profileListFragment.arguments = bundleOf("tab" to 0)
 
             parentFragmentManager.beginTransaction()
                 .replace(R.id.main_frm, profileListFragment)
                 .addToBackStack(null)
                 .commit()
         }
-        // 팔로잉 클릭
+        /** 팔로잉 클릭 **/
         binding.llProfileFollowings.setOnClickListener{
             val profileListFragment = ProfileListFragment()
-            val followersFragment = FollowersFragment()
-            profileListFragment.arguments = bundleOf("key" to 2)
+            profileListFragment.arguments = bundleOf("tab" to 1)
 
             parentFragmentManager.beginTransaction()
-                .replace(R.id.main_frm, followersFragment)
+                .replace(R.id.main_frm, profileListFragment)
                 .addToBackStack(null)
                 .commit()
         }

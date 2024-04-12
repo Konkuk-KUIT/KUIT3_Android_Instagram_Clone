@@ -5,14 +5,17 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.cloneinstagram.R
 import com.example.cloneinstagram.databinding.FragmentFollowingsBinding
 import com.example.cloneinstagram.profile.followers.FollowerData
+import com.example.cloneinstagram.profile.followers.adapter.FollowerAdapter
 import com.example.cloneinstagram.profile.followers.adapter.FollowingAdapter
 
 class FollowingsFragment : Fragment() {
     lateinit var binding : FragmentFollowingsBinding
     private val followingList = arrayListOf<FollowerData>()
+    private lateinit var followerAdapter : FollowerAdapter
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -20,9 +23,16 @@ class FollowingsFragment : Fragment() {
         binding = FragmentFollowingsBinding.inflate(inflater, container, false)
 
         initData()
-        binding.rvFollowings.adapter = FollowingAdapter(followingList)
+        initRV()
 
         return binding.root
+    }
+
+    private fun initRV() {
+        followerAdapter = FollowerAdapter(followingList)
+        binding.rvFollowings.adapter = followerAdapter
+        binding.tvFollowingsText.text = "abcd"
+        binding.rvFollowings.layoutManager = LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)
     }
 
     private fun initData() {

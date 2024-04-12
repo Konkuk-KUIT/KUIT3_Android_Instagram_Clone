@@ -20,13 +20,10 @@ class ProfileListFragment : Fragment() {
     ): View? {
         binding = FragmentProfileListBinding.inflate(inflater, container, false)
 
-//        val data = arguments?.getInt("key")
-//        if (data != null) {
-//            binding.vpFollowersList.setCurrentItem(data, false)
-//        }
-
         initAdapter()
+        initVP()
 
+        /** 뒤로가기 버튼 **/
         binding.ivProfileListChevronLeft.setOnClickListener{
             parentFragmentManager.popBackStack()
         }
@@ -35,11 +32,17 @@ class ProfileListFragment : Fragment() {
 
         return binding.root
     }
-
+    /** 시작될 뷰페이저의 위치 설정, argument의 값이 0-> 팔로워, 1-> 팔로잉 **/
+    private fun initVP() {
+        val data = arguments?.getInt("tab") as Int
+        binding.vpFollowersList.setCurrentItem(data, false)
+    }
+/** 어댑터 설정 **/
     private fun initAdapter() {
         binding.vpFollowersList.adapter = FollowerTLVPAdapter(requireActivity())
         TabLayoutMediator(binding.tlFollowersList, binding.vpFollowersList) { tab, position ->
             tab.text = tabList[position]
         }.attach()
+
     }
 }
