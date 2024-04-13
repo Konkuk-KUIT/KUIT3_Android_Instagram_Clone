@@ -3,8 +3,9 @@ package com.example.cloneinstagram
 import android.os.Bundle
 import androidx.activity.OnBackPressedCallback
 import androidx.appcompat.app.AppCompatActivity
-import com.example.cloneinstagram.R
 import com.example.cloneinstagram.databinding.ActivityMainBinding
+import com.example.cloneinstagram.home.HomeFragment
+import com.example.cloneinstagram.profile.profile_main.ProfileFragment
 
 
 class MainActivity : AppCompatActivity() {
@@ -29,7 +30,6 @@ class MainActivity : AppCompatActivity() {
             .replace(R.id.main_frm, HomeFragment())
             .commitAllowingStateLoss()
         binding.mainBnv.selectedItemId = R.id.homeFragment
-
 
         binding.mainBnv.setOnItemSelectedListener {
             when (it.itemId) {
