@@ -6,172 +6,245 @@
     android:background="@color/white"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".ProfileScreenFragment">
-<androidx.constraintlayout.widget.ConstraintLayout
-    android:layout_width="match_parent"
-    android:layout_height="match_parent">
-    <TextView
-        android:id="@+id/tv_userid"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textSize="18sp"
-        android:textStyle="bold"
-        android:includeFontPadding="false"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        android:layout_marginLeft="20dp"
-        android:layout_marginTop="25dp"
-        android:text="id가 들어갈 자리">
 
-    </TextView>
-    <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintStart_toEndOf="@id/tv_userid"
-        app:layout_constraintTop_toTopOf="parent"
-        android:layout_marginTop="25dp"
-        android:layout_marginLeft="101dp"
-        android:id="@+id/ic_threads"
-        android:src="@drawable/ic_threads">
-    </ImageView>
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
-    <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintStart_toEndOf="@id/ic_threads"
-        app:layout_constraintTop_toTopOf="parent"
-        android:layout_marginTop="25dp"
-        android:layout_marginLeft="20dp"
-        android:id="@+id/ic_create"
-        android:src="@drawable/ic_create">
-    </ImageView>
+        <TextView
+            android:id="@+id/tv_userid"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:includeFontPadding="false"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="25dp"
+            android:text="id가 들어갈 자리">
 
-    <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintStart_toEndOf="@id/ic_create"
-        app:layout_constraintTop_toTopOf="parent"
-        android:layout_marginTop="25dp"
-        android:layout_marginLeft="20dp"
-        android:id="@+id/ic_menu"
-        android:src="@drawable/ic_menu">
-    </ImageView>
-    <FrameLayout
-        android:id="@+id/fr_user_profile"
-        android:layout_width="91dp"
-        android:layout_height="91dp"
-        android:layout_marginLeft="13dp"
-        android:layout_marginTop="18dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tv_userid">
-        
+        </TextView>
+
         <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toEndOf="@id/tv_userid"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_marginTop="25dp"
+            android:layout_marginLeft="101dp"
+            android:id="@+id/ic_threads"
+            android:src="@drawable/ic_threads"></ImageView>
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toEndOf="@id/ic_threads"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_marginTop="25dp"
+            android:layout_marginLeft="20dp"
+            android:id="@+id/ic_create"
+            android:src="@drawable/ic_create"></ImageView>
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toEndOf="@id/ic_create"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_marginTop="25dp"
+            android:layout_marginLeft="20dp"
+            android:id="@+id/ic_menu"
+            android:src="@drawable/ic_menu"></ImageView>
+
+        <FrameLayout
+            android:id="@+id/fr_user_profile"
+            android:layout_width="91dp"
+            android:layout_height="91dp"
+            android:layout_marginLeft="13dp"
+            android:layout_marginTop="18dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_userid">
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:id="@+id/iv_graycircle"
+                android:src="@drawable/ic_graycircle"></ImageView>
+
+            <com.google.android.material.imageview.ShapeableImageView
+                android:layout_width="79dp"
+                android:layout_height="79dp"
+                android:layout_margin="6dp"
+                android:background="#AEAEAE"
+                app:shapeAppearance="@style/ShapeAppearance.Material3.Corner.Full"></com.google.android.material.imageview.ShapeableImageView>
+        </FrameLayout>
+
+        <TextView
+            android:id="@+id/tv_post_count"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toEndOf="@id/fr_user_profile"
+            app:layout_constraintTop_toBottomOf="@id/tv_userid"
+            android:textSize="18sp"
+            android:layout_marginLeft="49dp"
+            android:layout_marginTop="43dp"
+            android:text="10"
+            android:textStyle="bold"></TextView>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toEndOf="@id/fr_user_profile"
+            app:layout_constraintTop_toBottomOf="@id/tv_post_count"
+            android:textSize="14sp"
+            android:layout_marginLeft="40dp"
+            android:text="게시글"
+            android:textStyle="bold"></TextView>
+
+        <TextView
+            android:id="@+id/tv_follower"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toEndOf="@id/tv_post_count"
+            app:layout_constraintTop_toBottomOf="@id/tv_userid"
+            android:textSize="18sp"
+            android:layout_marginLeft="55dp"
+            android:layout_marginTop="43dp"
+            android:text="10"
+            android:textStyle="bold"></TextView>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toEndOf="@id/tv_post_count"
+            app:layout_constraintTop_toBottomOf="@id/tv_follower"
+            android:textSize="14sp"
+            android:layout_marginLeft="47dp"
+            android:text="팔로워"
+            android:textStyle="bold"></TextView>
+
+        <TextView
+            android:id="@+id/tv_following"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toEndOf="@id/tv_follower"
+            app:layout_constraintTop_toBottomOf="@id/tv_userid"
+            android:textSize="18sp"
+            android:layout_marginLeft="55dp"
+            android:layout_marginTop="43dp"
+            android:text="10"
+            android:textStyle="bold"></TextView>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toEndOf="@id/tv_follower"
+            app:layout_constraintTop_toBottomOf="@id/tv_follower"
+            android:textSize="14sp"
+            android:layout_marginLeft="47dp"
+            android:text="팔로잉"
+            android:textStyle="bold"></TextView>
+
+        <TextView
+            android:id="@+id/username"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/fr_user_profile"
+            android:textSize="16sp"
+            android:layout_marginLeft="13dp"
+            android:layout_marginTop="6dp"
+            android:text="쿠잇"
+            android:textStyle="bold"></TextView>
+
+        <TextView
+            android:id="@+id/tv_return"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:textSize="16sp"
+            android:layout_margin="3dp"
+            android:text="나가기"
+            android:textStyle="bold"></TextView>
+
+        <TextView
+            android:id="@+id/tv_profile_edit"
+            android:layout_width="148dp"
+            android:layout_height="30dp"
+            app:layout_constraintTop_toBottomOf="@id/username"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginLeft="13dp"
+            android:layout_marginTop="9dp"
+            android:background="#DDDDDD"
+            android:text="프로필 편집"
+            android:gravity="center"
+            android:textColor="@color/black"
+            android:textStyle="bold"
+            android:textSize="12sp"></TextView>
+
+        <TextView
+            android:id="@+id/tv_profile_share"
+            android:layout_width="148dp"
+            android:layout_height="30dp"
+            app:layout_constraintTop_toBottomOf="@id/username"
+            app:layout_constraintStart_toEndOf="@id/tv_profile_edit"
+            android:layout_marginLeft="4dp"
+            android:layout_marginTop="9dp"
+            android:background="#DDDDDD"
+            android:text="프로필 공유"
+            android:gravity="center"
+            android:textColor="@color/black"
+            android:textStyle="bold"
+            android:textSize="12sp"></TextView>
+
+        <ImageView
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            app:layout_constraintTop_toBottomOf="@id/username"
+            app:layout_constraintStart_toEndOf="@id/tv_profile_share"
+            android:layout_marginLeft="7dp"
+            android:layout_marginTop="12dp"
+            android:src="@drawable/ic_add_people"
+            android:background="#DDDDDD"></ImageView>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:id="@+id/iv_graycircle"
-            android:src="@drawable/ic_graycircle">
-        </ImageView>
-        
-        <com.google.android.material.imageview.ShapeableImageView
-            android:layout_width="79dp"
-            android:layout_height="79dp"
-            android:layout_margin="6dp"
-            android:background="#AEAEAE"
-            app:shapeAppearance="@style/ShapeAppearance.Material3.Corner.Full">
-        </com.google.android.material.imageview.ShapeableImageView>
-    </FrameLayout>
-    <TextView
-        android:id="@+id/tv_post_count"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintStart_toEndOf="@id/fr_user_profile"
-        app:layout_constraintTop_toBottomOf="@id/tv_userid"
-        android:textSize="18sp"
-        android:layout_marginLeft="49dp"
-        android:layout_marginTop="43dp"
-        android:text="10"
-        android:textStyle="bold">
-    </TextView>
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintStart_toEndOf="@id/fr_user_profile"
-        app:layout_constraintTop_toBottomOf="@id/tv_post_count"
-        android:textSize="14sp"
-        android:layout_marginLeft="40dp"
-        android:text="게시글"
-        android:textStyle="bold">
-    </TextView>
+            android:layout_height="wrap_content"
+            android:layout_marginTop="34dp"
+            app:layout_constraintTop_toBottomOf="@id/tv_profile_edit"
+            app:layout_constraintStart_toStartOf="parent">
 
-    <TextView
-        android:id="@+id/tv_follower"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintStart_toEndOf="@id/tv_post_count"
-        app:layout_constraintTop_toBottomOf="@id/tv_userid"
-        android:textSize="18sp"
-        android:layout_marginLeft="55dp"
-        android:layout_marginTop="43dp"
-        android:text="10"
-        android:textStyle="bold">
-    </TextView>
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintStart_toEndOf="@id/tv_post_count"
-        app:layout_constraintTop_toBottomOf="@id/tv_follower"
-        android:textSize="14sp"
-        android:layout_marginLeft="47dp"
-        android:text="팔로워"
-        android:textStyle="bold">
-    </TextView>
+            <com.google.android.material.tabs.TabLayout
+                android:id="@+id/tl_profile_tab"
+                app:tabIndicatorAnimationMode="linear"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintVertical_bias="0.02">
 
-    <TextView
-        android:id="@+id/tv_following"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintStart_toEndOf="@id/tv_follower"
-        app:layout_constraintTop_toBottomOf="@id/tv_userid"
-        android:textSize="18sp"
-        android:layout_marginLeft="55dp"
-        android:layout_marginTop="43dp"
-        android:text="10"
-        android:textStyle="bold">
-    </TextView>
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintStart_toEndOf="@id/tv_follower"
-        app:layout_constraintTop_toBottomOf="@id/tv_follower"
-        android:textSize="14sp"
-        android:layout_marginLeft="47dp"
-        android:text="팔로잉"
-        android:textStyle="bold">
-    </TextView>
+                <com.google.android.material.tabs.TabItem
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:icon="@drawable/ic_grid">
 
-    <TextView
-        android:id="@+id/username"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/fr_user_profile"
-        android:textSize="16sp"
-        android:layout_marginLeft="13dp"
-        android:layout_marginTop="6dp"
-        android:text="쿠잇"
-        android:textStyle="bold">
-    </TextView>
+                </com.google.android.material.tabs.TabItem>
+                <com.google.android.material.tabs.TabItem
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:icon="@drawable/ic_tag"></com.google.android.material.tabs.TabItem>
+            </com.google.android.material.tabs.TabLayout>
 
-    <TextView
-        android:id="@+id/tv_return"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:textSize="16sp"
-        android:layout_margin = "3dp"
-        android:text="나가기"
-        android:textStyle="bold">
-    </TextView>
-</androidx.constraintlayout.widget.ConstraintLayout>
-    
+            <androidx.viewpager2.widget.ViewPager2
+                android:id="@+id/vp_profile_tab"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                app:layout_constraintTop_toBottomOf="@id/tl_profile_tab"
+                app:layout_constraintStart_toStartOf="parent">
+            </androidx.viewpager2.widget.ViewPager2>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
 </FrameLayout>
