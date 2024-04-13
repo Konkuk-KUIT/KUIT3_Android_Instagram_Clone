@@ -41,10 +41,8 @@ class ProfileScreenFragment : Fragment() {
     private fun initTabLayout(){
         binding.vpProfileTab.adapter = TabLayoutVPAdapter(this)
         TabLayoutMediator(binding.tlProfileTab, binding.vpProfileTab) { tab, position ->
-            when(tab.position){
-                0->tab.setIcon(R.drawable.ic_grid)
-                1->tab.setIcon(R.drawable.ic_tag)
-            }
         }.attach()
+        binding.tlProfileTab.getTabAt(0)?.setIcon(R.drawable.ic_grid)
+        binding.tlProfileTab.getTabAt(1)?.setIcon(R.drawable.ic_tag)
     }
 }
