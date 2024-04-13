@@ -4,7 +4,6 @@ import android.os.Bundle
 import androidx.activity.OnBackPressedCallback
 import androidx.appcompat.app.AppCompatActivity
 import com.example.cloneinstagram.R
-import com.example.cloneinstagram.SearchFragment
 import com.example.cloneinstagram.databinding.ActivityMainBinding
 
 
@@ -40,7 +39,7 @@ class MainActivity : AppCompatActivity() {
                 }
                 R.id.reelsFragment -> {
                     supportFragmentManager.beginTransaction()
-                        .replace(R.id.main_frm, HomeFragment())
+                        .replace(R.id.main_frm, ReelsFragment())
                         .commitAllowingStateLoss()
                     return@setOnItemSelectedListener true
                 }
