@@ -35,6 +35,18 @@ class ProfileScreenFragment : Fragment() {
                 .commit()
         }
 
+        binding.tvFollower.setOnClickListener{
+            parentFragmentManager.beginTransaction()
+                .replace(R.id.main_frm, ProfileListMainFragment())
+                .commit()
+        }
+
+        binding.tvFollowing.setOnClickListener{
+            parentFragmentManager.beginTransaction()
+                .replace(R.id.main_frm, ProfileListMainFragment())
+                .commit()
+        }
+
         return binding.root
     }
 
