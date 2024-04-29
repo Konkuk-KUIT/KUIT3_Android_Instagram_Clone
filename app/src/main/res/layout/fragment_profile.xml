@@ -121,6 +121,7 @@
                     android:textColor="@color/black"/>
 
             <TextView
+                    android:id="@+id/tv_follower"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="팔로워"
@@ -146,6 +147,7 @@
                     android:textColor="@color/black"/>
 
             <TextView
+                    android:id="@+id/tv_following"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="팔로잉"
@@ -253,11 +255,87 @@
 
             </FrameLayout>
 
+            <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="스토리 하이라이트"
+                    android:textSize="12sp"
+                    android:textStyle="bold"
+                    android:textColor="@color/black"
+                    app:layout_constraintTop_toBottomOf="@+id/iv_profile_edit"
+                    app:layout_constraintStart_toStartOf="parent"
+                    android:layout_marginTop="18dp"
+                    android:layout_marginStart="13dp"/>
 
+            <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="좋아하는 스토리를 프로필에 보관해보세요"
+                    android:textSize="12sp"
+                    android:textColor="@color/black"
+                    app:layout_constraintTop_toBottomOf="@+id/iv_profile_edit"
+                    app:layout_constraintStart_toStartOf="parent"
+                    android:layout_marginTop="34dp"
+                    android:layout_marginStart="13dp"/>
 
+            <com.google.android.material.imageview.ShapeableImageView
+                    android:id="@+id/siv_story_highlight"
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
+                    android:padding="1dp"
+                    android:layout_marginStart="13dp"
+                    android:layout_marginTop="63dp"
+                    app:layout_constraintTop_toBottomOf="@+id/iv_profile_edit"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:shapeAppearance="@style/ShapeAppearance.Material3.Corner.Full" />
 
+            <ImageView
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
+                    android:src="@drawable/profile_gray"
+                    app:layout_constraintBottom_toBottomOf="@+id/siv_story_highlight"
+                    app:layout_constraintEnd_toEndOf="@+id/siv_story_highlight"
+                    app:layout_constraintStart_toStartOf="@+id/siv_story_highlight"
+                    app:layout_constraintTop_toTopOf="@+id/siv_story_highlight"/>
 
+            <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/story_highlight_plussvg"
+                    app:layout_constraintBottom_toBottomOf="@+id/siv_story_highlight"
+                    app:layout_constraintEnd_toEndOf="@+id/siv_story_highlight"
+                    app:layout_constraintStart_toStartOf="@+id/siv_story_highlight"
+                    app:layout_constraintTop_toTopOf="@+id/siv_story_highlight"/>
 
+            <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="새로 만들기"
+                    android:textSize="11sp"
+                    android:textColor="@color/black"
+                    app:layout_constraintTop_toBottomOf="@+id/siv_story_highlight"
+                    app:layout_constraintStart_toStartOf="parent"
+                    android:layout_marginTop="6dp"
+                    android:layout_marginStart="16dp"/>
+
+            <com.google.android.material.tabs.TabLayout
+                    android:id="@+id/tl_profile"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintTop_toBottomOf="@+id/siv_story_highlight"
+                    app:tabIndicatorAnimationMode="linear"
+                    app:tabIndicatorColor="@color/black"
+                    app:tabIndicatorFullWidth="true"
+                    app:tabRippleColor="#BDBDBD"
+                    app:tabIconTint="@color/black"
+                    android:layout_marginTop="28dp"/>
+
+            <androidx.viewpager2.widget.ViewPager2
+                    android:id="@+id/vp_profile"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    app:layout_constraintTop_toBottomOf="@id/tl_profile"
+                    app:layout_constraintBottom_toBottomOf="parent"/>
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
