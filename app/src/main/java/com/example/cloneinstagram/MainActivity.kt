@@ -2,28 +2,32 @@ package com.example.cloneinstagram
 
 import android.content.Intent
 import android.os.Bundle
+import android.widget.Toast
+import androidx.activity.OnBackPressedCallback
 import androidx.appcompat.app.AppCompatActivity
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.cloneinstagram.databinding.ActivityMainBinding
 import com.example.cloneinstagram.databinding.FragmentHomeBinding
 
 
 class MainActivity : AppCompatActivity() {
 
-    lateinit var binding : ActivityMainBinding
+    lateinit var binding: ActivityMainBinding
+    private var itemList : ArrayList<PostData> = arrayListOf()
+    private var postAdapter : PostAdapter ?= null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = ActivityMainBinding.inflate(layoutInflater)
-        setContentView(binding.root)
 
-        supportFragmentManager.beginTransaction()
-            .replace(R.id.container, HomeFragment())
-            .commit()
+        binding = ActivityMainBinding.inflate(layoutInflater)
+
+
+        setContentView(binding.root)
+        initBottomNavigation()
     }
 
 
-
-  /*  private fun initBottomNavigation() {
+    private fun initBottomNavigation() {
         supportFragmentManager.beginTransaction()
             .replace(R.id.main_frm, HomeFragment())
             .commitAllowingStateLoss()
@@ -59,12 +63,13 @@ class MainActivity : AppCompatActivity() {
                         .commitAllowingStateLoss()
                     return@setOnItemSelectedListener true
                 }
-                R.id.profileFragment -> {
+                //이게 왜 갑자기 오류?  (처음 profileFragment로 설정되어 있던 걸 내가 만든 idFragment로 변경하니 오류생김 -> 왜? )
+                /*R.id.idFragment -> {
                     supportFragmentManager.beginTransaction()
-                        .replace(R.id.main_frm, ProfileFragment())
+                        .replace(R.id.main_frm, IdFragment())
                         .commitAllowingStateLoss()
                     return@setOnItemSelectedListener true
-                }
+                }*/
 
             }
             false
@@ -85,6 +90,7 @@ class MainActivity : AppCompatActivity() {
         onBackPressedDispatcher.addCallback(this, callback)
 
     }
-*/
+
+
 
 }
