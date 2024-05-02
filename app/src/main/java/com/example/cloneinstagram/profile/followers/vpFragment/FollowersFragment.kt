@@ -28,19 +28,19 @@ class FollowersFragment : Fragment() {
 
         return binding.root
     }
+    /**더미데이터생성**/
     private fun initData() {
         for (i in 1..10){
             followerList.add(
                 FollowerData(R.drawable.img_sample, "쿠잇", "kuit.official")
             )}
     }
-
+    /**어댑터설정**/
     private fun initRV() {
         val size = followerList.size
         followerAdapter = FollowerAdapter(followerList)
         binding.rvFollowers.adapter = followerAdapter
         binding.tvFollowersText.text = "$size 팔로워"
         binding.rvFollowers.layoutManager = LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)
-//        binding.rvFollowers.layoutManager = StaggeredGridLayoutManager(1, StaggeredGridLayoutManager.VERTICAL)
     }
 }

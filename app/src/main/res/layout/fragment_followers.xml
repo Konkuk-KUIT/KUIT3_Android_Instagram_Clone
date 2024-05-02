@@ -25,7 +25,6 @@
         android:layout_height="0dp"
         app:layout_constraintTop_toBottomOf="@id/tv_followers_text"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"
         tools:listitem="@layout/item_followers"
         android:layout_marginTop="8dp"
         android:layout_marginBottom="50dp"/>
