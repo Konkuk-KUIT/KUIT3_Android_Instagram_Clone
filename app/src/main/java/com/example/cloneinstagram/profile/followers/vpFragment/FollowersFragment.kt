@@ -29,26 +29,17 @@ class FollowersFragment : Fragment() {
         return binding.root
     }
     private fun initData() {
-//        for (i in 1..10){
-//            followerList.add(
-//                FollowerData(R.drawable.img_sample, "쿠잇", "kuit.official")
-//            )}
-        followerList.addAll(
-            arrayListOf(
-                FollowerData(
-                    R.drawable.img_sample, "kuit1", "kuit1.official"),
-                FollowerData(
-                    R.drawable.img_sample, "kuit2", "kuit2.official"),
-//                FollowerData(
-//                    R.drawable.img_sample, "kuit3", "kuit3.official")
-            )
-        )
+        for (i in 1..10){
+            followerList.add(
+                FollowerData(R.drawable.img_sample, "쿠잇", "kuit.official")
+            )}
     }
 
     private fun initRV() {
+        val size = followerList.size
         followerAdapter = FollowerAdapter(followerList)
         binding.rvFollowers.adapter = followerAdapter
-        binding.tvFollowersText.text = "abcd"
+        binding.tvFollowersText.text = "$size 팔로워"
         binding.rvFollowers.layoutManager = LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)
 //        binding.rvFollowers.layoutManager = StaggeredGridLayoutManager(1, StaggeredGridLayoutManager.VERTICAL)
     }

@@ -1,4 +1,4 @@
-package com.example.cloneinstagram
+package com.example.cloneinstagram.reels
 
 import android.os.Bundle
 import android.view.LayoutInflater

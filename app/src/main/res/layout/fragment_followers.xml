@@ -2,7 +2,7 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
+    android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".profile.followers.vpFragment.FollowersFragment">
 
@@ -30,10 +30,4 @@
         android:layout_marginTop="8dp"
         android:layout_marginBottom="50dp"/>
 
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="40dp"
-        android:background="#DBDBDB"
-        app:layout_constraintTop_toBottomOf="@id/rv_followers"
-        app:layout_constraintStart_toStartOf="parent"/>
 </androidx.constraintlayout.widget.ConstraintLayout>

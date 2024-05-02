@@ -1,5 +1,6 @@
 package com.example.cloneinstagram.profile.profile_main
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -9,6 +10,7 @@ import androidx.fragment.app.Fragment
 import com.example.cloneinstagram.R
 import com.example.cloneinstagram.home.PostData
 import com.example.cloneinstagram.databinding.FragmentProfileBinding
+import com.example.cloneinstagram.home.UserData
 import com.example.cloneinstagram.profile.followers.ProfileListFragment
 import com.example.cloneinstagram.profile.followers.vpFragment.FollowersFragment
 import com.google.android.material.tabs.TabLayoutMediator
@@ -46,10 +48,23 @@ class ProfileFragment : Fragment() {
             val followersFragment = FollowersFragment()
             profileListFragment.arguments = bundleOf("key" to 2)
 
+
             parentFragmentManager.beginTransaction()
                 .replace(R.id.main_frm, followersFragment)
                 .addToBackStack(null)
                 .commit()
+        }
+        // 프로필 편집 클릭
+        binding.tvProfileEditProfile.setOnClickListener {
+            val userData = UserData.Builder()
+                .setUserName(binding.tvProfileUserName.text.toString())
+                .setProfileUserId(binding.tvProfileUserId.text.toString())
+                .setProfileImage(data.profileImage)
+                .build()
+
+            val intent = Intent(activity, ProfileEditActivity::class.java)
+            intent.putExtra("data", userData)
+            startActivity(intent)
         }
 
 

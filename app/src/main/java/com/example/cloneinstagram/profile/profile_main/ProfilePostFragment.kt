@@ -4,14 +4,25 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.GridLayout
+import android.widget.ImageView
+import android.widget.TextView
+import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
-import com.bumptech.glide.Glide
+import androidx.recyclerview.widget.GridLayoutManager
 import com.example.cloneinstagram.R
+import com.example.cloneinstagram.databinding.FragmentProfileBinding
 import com.example.cloneinstagram.databinding.FragmentProfilePostBinding
+import com.example.cloneinstagram.home.HomeFragment
+import com.example.cloneinstagram.home.PostData
+import java.io.Serializable
 
 class ProfilePostFragment : Fragment() {
     lateinit var binding : FragmentProfilePostBinding
+    lateinit var profileBinding: FragmentProfileBinding
     private val urlList = arrayListOf<String>()
+    private val itemList = arrayListOf<PostData>()
+    private lateinit var profilePostAdapter: ProfilePostAdapter
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -19,10 +30,47 @@ class ProfilePostFragment : Fragment() {
     ): View? {
         // Inflate the layout for this fragment
         binding = FragmentProfilePostBinding.inflate(inflater, container, false)
+        profileBinding = FragmentProfileBinding.inflate(inflater, container, false)
         initList()
-        initGlide()
+        initData()
+        initAdapter()
+
+//        initGlide()
+//        initListener()
 
         return binding.root
+    }
+
+    private fun initData() {
+        for (i in 0..13) {
+            val profileUserId : String = profileBinding.tvProfileUserId.text.toString()
+            itemList.add(
+                PostData.Builder()
+                    .setProfileImageView(profileBinding.sivProfileProfileImage)
+                    .setProfileUserId(profileUserId)
+                    .setPostImageURL(urlList[i])
+                    .setPostContent("쿠잇 3기 시작합니다!! 다들 열심히 한 학기 마무리해봐요. 쿠잇 3기 시작합니다!! 다들 열심히 한 학기 마무리해봐요. 쿠잇 3기 시작합니다!! 다들 열심히 한 학기 마무리해봐요.")
+                    .build()
+            )
+        }
+    }
+
+    private fun initAdapter() {
+        profilePostAdapter = ProfilePostAdapter(this, itemList)
+        binding.rvProfilePost.adapter = profilePostAdapter
+        binding.rvProfilePost.layoutManager = GridLayoutManager(context, 3)
+        profilePostAdapter.setOnItemClickListener(object : ProfilePostAdapter.OnItemClickListener{
+            override fun setOnItemClickListener(postData: PostData) {
+                val profileDetailPostFragment = ProfileDetailPostFragment()
+                profileDetailPostFragment.arguments = bundleOf("data" to postData)
+                parentFragment?.parentFragmentManager?.beginTransaction()
+                    ?.replace(R.id.main_frm, profileDetailPostFragment)
+                    ?.addToBackStack(null)
+                    ?.commit()
+
+            }
+
+        })
     }
 
     private fun initList() {
@@ -42,50 +90,213 @@ class ProfilePostFragment : Fragment() {
         urlList.add("https://cdn.pixabay.com/photo/2023/10/17/05/25/fox-squirrel-8320423_960_720.jpg")
     }
 
-    private fun initGlide() {
-        Glide.with(this)
-            .load(urlList[0])
-            .into(binding.ivProfilePost1)
-        Glide.with(this)
-            .load(R.drawable.ic_create)
-            .into(binding.ivProfilePost2)
-        Glide.with(this)
-            .load(urlList[2])
-            .into(binding.ivProfilePost3)
-        Glide.with(this)
-            .load(urlList[3])
-            .into(binding.ivProfilePost4)
-        Glide.with(this)
-            .load(urlList[4])
-            .into(binding.ivProfilePost5)
-        Glide.with(this)
-            .load(urlList[5])
-            .into(binding.ivProfilePost6)
-        Glide.with(this)
-            .load(urlList[6])
-            .into(binding.ivProfilePost7)
-        Glide.with(this)
-            .load(urlList[7])
-            .into(binding.ivProfilePost8)
-        Glide.with(this)
-            .load(urlList[8])
-            .into(binding.ivProfilePost9)
-        Glide.with(this)
-            .load(urlList[9])
-            .into(binding.ivProfilePost10)
-        Glide.with(this)
-            .load(urlList[10])
-            .into(binding.ivProfilePost11)
-        Glide.with(this)
-            .load(urlList[11])
-            .into(binding.ivProfilePost12)
-        Glide.with(this)
-            .load(urlList[12])
-            .into(binding.ivProfilePost13)
-        Glide.with(this)
-            .load(urlList[13])
-            .into(binding.ivProfilePost14)
+//    private fun initListener() {
+//        val profileDetailPostFragment = ProfileDetailPostFragment()
+//
+//        binding.ivProfilePost1.setOnClickListener{
+//            val dummyData = DummyData(
+//                profileBinding.sivProfileProfileImage, profileBinding.tvProfileUserId, binding.ivProfilePost1,
+//                "쿠잇 3기 시작합니다!! 다들 열심히 한 학기 마무리해봐요. 쿠잇 3기 시작합니다!! 다들 열심히 한 학기 마무리해봐요. 쿠잇 3기 시작합니다!! 다들 열심히 한 학기 마무리해봐요.")
+//            profileDetailPostFragment.arguments = bundleOf("data" to dummyData)
+//            val profileListFragment = ProfileListFragment()
+////            parentFragmentManager.beginTransaction()
+////                .replace(R.id.main_frm, profileListFragment)
+////                .addToBackStack(null)
+////                .commit()
+//
+//            parentFragment?.parentFragmentManager?.beginTransaction()
+//                ?.replace(R.id.main_frm, profileListFragment)
+//                ?.commit()
+//        }
+//        binding.ivProfilePost2.setOnClickListener{
+//            val dummyData = DummyData(
+//                profileBinding.sivProfileProfileImage, profileBinding.tvProfileUserId, binding.ivProfilePost2,
+//                "쿠잇 3기 시작합니다!! 다들 열심히 한 학기 마무리해봐요. 쿠잇 3기 시작합니다!! 다들 열심히 한 학기 마무리해봐요. 쿠잇 3기 시작합니다!! 다들 열심히 한 학기 마무리해봐요.")
+//            profileDetailPostFragment.arguments = bundleOf("data" to dummyData)
+//
+//            parentFragmentManager.beginTransaction()
+//                .replace(R.id.main_frm, profileDetailPostFragment)
+//                .addToBackStack(null)
+//                .commit()
+//        }
+//        binding.ivProfilePost3.setOnClickListener{
+//            val dummyData = DummyData(
+//                profileBinding.sivProfileProfileImage, profileBinding.tvProfileUserId, binding.ivProfilePost3,
+//                "쿠잇 3기 시작합니다!! 다들 열심히 한 학기 마무리해봐요. 쿠잇 3기 시작합니다!! 다들 열심히 한 학기 마무리해봐요. 쿠잇 3기 시작합니다!! 다들 열심히 한 학기 마무리해봐요.")
+//            profileDetailPostFragment.arguments = bundleOf("data" to dummyData)
+//
+//            parentFragmentManager.beginTransaction()
+//                .replace(R.id.main_frm, profileDetailPostFragment)
+//                .addToBackStack(null)
+//                .commit()
+//        }
+//        binding.ivProfilePost4.setOnClickListener{
+//            val dummyData = DummyData(
+//                profileBinding.sivProfileProfileImage, profileBinding.tvProfileUserId, binding.ivProfilePost4,
+//                "쿠잇 3기 시작합니다!! 다들 열심히 한 학기 마무리해봐요. 쿠잇 3기 시작합니다!! 다들 열심히 한 학기 마무리해봐요. 쿠잇 3기 시작합니다!! 다들 열심히 한 학기 마무리해봐요.")
+//            profileDetailPostFragment.arguments = bundleOf("data" to dummyData)
+//
+//            parentFragmentManager.beginTransaction()
+//                .replace(R.id.main_frm, profileDetailPostFragment)
+//                .addToBackStack(null)
+//                .commit()
+//        }
+//        binding.ivProfilePost5.setOnClickListener{
+//            val dummyData = DummyData(
+//                profileBinding.sivProfileProfileImage, profileBinding.tvProfileUserId, binding.ivProfilePost5,
+//                "쿠잇 3기 시작합니다!! 다들 열심히 한 학기 마무리해봐요. 쿠잇 3기 시작합니다!! 다들 열심히 한 학기 마무리해봐요. 쿠잇 3기 시작합니다!! 다들 열심히 한 학기 마무리해봐요.")
+//            profileDetailPostFragment.arguments = bundleOf("data" to dummyData)
+//
+//            parentFragmentManager.beginTransaction()
+//                .replace(R.id.main_frm, profileDetailPostFragment)
+//                .addToBackStack(null)
+//                .commit()
+//        }
+//        binding.ivProfilePost6.setOnClickListener{
+//            val dummyData = DummyData(
+//                profileBinding.sivProfileProfileImage, profileBinding.tvProfileUserId, binding.ivProfilePost6,
+//                "쿠잇 3기 시작합니다!! 다들 열심히 한 학기 마무리해봐요. 쿠잇 3기 시작합니다!! 다들 열심히 한 학기 마무리해봐요. 쿠잇 3기 시작합니다!! 다들 열심히 한 학기 마무리해봐요.")
+//            profileDetailPostFragment.arguments = bundleOf("data" to dummyData)
+//
+//            parentFragmentManager.beginTransaction()
+//                .replace(R.id.main_frm, profileDetailPostFragment)
+//                .addToBackStack(null)
+//                .commit()
+//        }
+//        binding.ivProfilePost7.setOnClickListener{
+//            val dummyData = DummyData(
+//                profileBinding.sivProfileProfileImage, profileBinding.tvProfileUserId, binding.ivProfilePost7,
+//                "쿠잇 3기 시작합니다!! 다들 열심히 한 학기 마무리해봐요. 쿠잇 3기 시작합니다!! 다들 열심히 한 학기 마무리해봐요. 쿠잇 3기 시작합니다!! 다들 열심히 한 학기 마무리해봐요.")
+//            profileDetailPostFragment.arguments = bundleOf("data" to dummyData)
+//
+//            parentFragmentManager.beginTransaction()
+//                .replace(R.id.main_frm, profileDetailPostFragment)
+//                .addToBackStack(null)
+//                .commit()
+//        }
+//        binding.ivProfilePost8.setOnClickListener{
+//            val dummyData = DummyData(
+//                profileBinding.sivProfileProfileImage, profileBinding.tvProfileUserId, binding.ivProfilePost8,
+//                "쿠잇 3기 시작합니다!! 다들 열심히 한 학기 마무리해봐요. 쿠잇 3기 시작합니다!! 다들 열심히 한 학기 마무리해봐요. 쿠잇 3기 시작합니다!! 다들 열심히 한 학기 마무리해봐요.")
+//            profileDetailPostFragment.arguments = bundleOf("data" to dummyData)
+//
+//            parentFragmentManager.beginTransaction()
+//                .replace(R.id.main_frm, profileDetailPostFragment)
+//                .addToBackStack(null)
+//                .commit()
+//        }
+//        binding.ivProfilePost9.setOnClickListener{
+//            val dummyData = DummyData(
+//                profileBinding.sivProfileProfileImage, profileBinding.tvProfileUserId, binding.ivProfilePost9,
+//                "쿠잇 3기 시작합니다!! 다들 열심히 한 학기 마무리해봐요. 쿠잇 3기 시작합니다!! 다들 열심히 한 학기 마무리해봐요. 쿠잇 3기 시작합니다!! 다들 열심히 한 학기 마무리해봐요.")
+//            profileDetailPostFragment.arguments = bundleOf("data" to dummyData)
+//
+//            parentFragmentManager.beginTransaction()
+//                .replace(R.id.main_frm, profileDetailPostFragment)
+//                .addToBackStack(null)
+//                .commit()
+//        }
+//        binding.ivProfilePost10.setOnClickListener{
+//            val dummyData = DummyData(
+//                profileBinding.sivProfileProfileImage, profileBinding.tvProfileUserId, binding.ivProfilePost10,
+//                "쿠잇 3기 시작합니다!! 다들 열심히 한 학기 마무리해봐요. 쿠잇 3기 시작합니다!! 다들 열심히 한 학기 마무리해봐요. 쿠잇 3기 시작합니다!! 다들 열심히 한 학기 마무리해봐요.")
+//            profileDetailPostFragment.arguments = bundleOf("data" to dummyData)
+//
+//            parentFragmentManager.beginTransaction()
+//                .replace(R.id.main_frm, profileDetailPostFragment)
+//                .addToBackStack(null)
+//                .commit()
+//        }
+//        binding.ivProfilePost11.setOnClickListener{
+//            val dummyData = DummyData(
+//                profileBinding.sivProfileProfileImage, profileBinding.tvProfileUserId, binding.ivProfilePost11,
+//                "쿠잇 3기 시작합니다!! 다들 열심히 한 학기 마무리해봐요. 쿠잇 3기 시작합니다!! 다들 열심히 한 학기 마무리해봐요. 쿠잇 3기 시작합니다!! 다들 열심히 한 학기 마무리해봐요.")
+//            profileDetailPostFragment.arguments = bundleOf("data" to dummyData)
+//
+//            parentFragmentManager.beginTransaction()
+//                .replace(R.id.main_frm, profileDetailPostFragment)
+//                .addToBackStack(null)
+//                .commit()
+//        }
+//        binding.ivProfilePost12.setOnClickListener{
+//            val dummyData = DummyData(
+//                profileBinding.sivProfileProfileImage, profileBinding.tvProfileUserId, binding.ivProfilePost12,
+//                "쿠잇 3기 시작합니다!! 다들 열심히 한 학기 마무리해봐요. 쿠잇 3기 시작합니다!! 다들 열심히 한 학기 마무리해봐요. 쿠잇 3기 시작합니다!! 다들 열심히 한 학기 마무리해봐요.")
+//            profileDetailPostFragment.arguments = bundleOf("data" to dummyData)
+//
+//            parentFragmentManager.beginTransaction()
+//                .replace(R.id.main_frm, profileDetailPostFragment)
+//                .addToBackStack(null)
+//                .commit()
+//        }
+//        binding.ivProfilePost13.setOnClickListener{
+//            val dummyData = DummyData(
+//                profileBinding.sivProfileProfileImage, profileBinding.tvProfileUserId, binding.ivProfilePost13,
+//                "쿠잇 3기 시작합니다!! 다들 열심히 한 학기 마무리해봐요. 쿠잇 3기 시작합니다!! 다들 열심히 한 학기 마무리해봐요. 쿠잇 3기 시작합니다!! 다들 열심히 한 학기 마무리해봐요.")
+//            profileDetailPostFragment.arguments = bundleOf("data" to dummyData)
+//
+//            parentFragmentManager.beginTransaction()
+//                .replace(R.id.main_frm, profileDetailPostFragment)
+//                .addToBackStack(null)
+//                .commit()
+//        }
+//        binding.ivProfilePost14.setOnClickListener{
+//            val dummyData = DummyData(
+//                profileBinding.sivProfileProfileImage, profileBinding.tvProfileUserId, binding.ivProfilePost14,
+//                "쿠잇 3기 시작합니다!! 다들 열심히 한 학기 마무리해봐요. 쿠잇 3기 시작합니다!! 다들 열심히 한 학기 마무리해봐요. 쿠잇 3기 시작합니다!! 다들 열심히 한 학기 마무리해봐요.")
+//            profileDetailPostFragment.arguments = bundleOf("data" to dummyData)
+//
+//            parentFragmentManager.beginTransaction()
+//                .replace(R.id.main_frm, profileDetailPostFragment)
+//                .addToBackStack(null)
+//                .commit()
+//        }
+//    }
 
-    }
+//    private fun initGlide() {
+//        Glide.with(this)
+//            .load(urlList[0])
+//            .into(binding.ivProfilePost1)
+//        Glide.with(this)
+//            .load(R.drawable.ic_create)
+//            .into(binding.ivProfilePost2)
+//        Glide.with(this)
+//            .load(urlList[2])
+//            .into(binding.ivProfilePost3)
+//        Glide.with(this)
+//            .load(urlList[3])
+//            .into(binding.ivProfilePost4)
+//        Glide.with(this)
+//            .load(urlList[4])
+//            .into(binding.ivProfilePost5)
+//        Glide.with(this)
+//            .load(urlList[5])
+//            .into(binding.ivProfilePost6)
+//        Glide.with(this)
+//            .load(urlList[6])
+//            .into(binding.ivProfilePost7)
+//        Glide.with(this)
+//            .load(urlList[7])
+//            .into(binding.ivProfilePost8)
+//        Glide.with(this)
+//            .load(urlList[8])
+//            .into(binding.ivProfilePost9)
+//        Glide.with(this)
+//            .load(urlList[9])
+//            .into(binding.ivProfilePost10)
+//        Glide.with(this)
+//            .load(urlList[10])
+//            .into(binding.ivProfilePost11)
+//        Glide.with(this)
+//            .load(urlList[11])
+//            .into(binding.ivProfilePost12)
+//        Glide.with(this)
+//            .load(urlList[12])
+//            .into(binding.ivProfilePost13)
+//        Glide.with(this)
+//            .load(urlList[13])
+//            .into(binding.ivProfilePost14)
+//
+//    }
 
 }
