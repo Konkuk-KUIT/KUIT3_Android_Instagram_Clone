@@ -1,0 +1,294 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ProfileEdit">
+
+    <TextView
+        android:id="@+id/tv_profile_edit_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="프로필 편집"
+        android:textColor="@color/black"
+        android:textSize="12sp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="14dp"
+        android:layout_marginStart="150dp"
+        android:layout_marginEnd="152dp"
+        />
+
+    <ImageView
+        android:id="@+id/iv_pe_btn_chevron_left"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_chevron_left"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginTop="14dp"
+        android:layout_marginStart="14dp"
+        app:layout_constraintEnd_toStartOf="@id/tv_profile_edit_text"
+        android:layout_marginEnd="100dp"
+        />
+
+    <View
+        android:id="@+id/line_pe"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#DBDBDB"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="42.51dp"
+        />
+
+    <com.google.android.material.imageview.ShapeableImageView
+        android:id="@+id/siv_pe_profile_img"
+        android:layout_width="74dp"
+        android:layout_height="74dp"
+        android:src="@drawable/img_sample"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginStart="96dp"
+        app:layout_constraintTop_toTopOf="@id/line_pe"
+        android:layout_marginTop="15dp"
+        app:shapeAppearance="@style/ShapeAppearance.Material3.Corner.Full"
+        />
+
+    <com.google.android.material.imageview.ShapeableImageView
+        android:id="@+id/siv_pe_avatar_img"
+        android:layout_width="74dp"
+        android:layout_height="74dp"
+        android:src="@drawable/img_sample"
+        app:layout_constraintStart_toEndOf="@id/siv_pe_profile_img"
+        android:layout_marginStart="19dp"
+        app:layout_constraintTop_toTopOf="@id/line_pe"
+        android:layout_marginTop="15dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginEnd="97dp"
+        app:shapeAppearance="@style/ShapeAppearance.Material3.Corner.Full"
+        />
+
+    <TextView
+        android:id="@+id/tv_pe_img_edit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="사진 또는 아바타 수정"
+        android:textColor="#029CFE"
+        android:textSize="10sp"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginStart="131dp"
+        app:layout_constraintTop_toBottomOf="@id/siv_pe_profile_img"
+        android:layout_marginTop="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginEnd="134dp"/>
+
+    <View
+        android:id="@+id/line_pe_2"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#DBDBDB"
+        app:layout_constraintTop_toBottomOf="@id/tv_pe_img_edit"
+        android:layout_marginTop="15dp"
+        />
+
+    <TextView
+        android:id="@+id/tv_pe_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="이름"
+        android:textColor="@color/black"
+        android:textSize="12sp"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginStart="14dp"
+        app:layout_constraintTop_toBottomOf="@id/line_pe_2"
+        android:layout_marginTop="15dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginEnd="323dp"/>
+    <TextView
+        android:id="@+id/tv_pe_name_input"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="사용자의 이름이 들어가는 자리"
+        android:textColor="@color/black"
+        android:textSize="12sp"
+        app:layout_constraintStart_toEndOf="@id/tv_pe_name"
+        android:layout_marginStart="64dp"
+        app:layout_constraintTop_toBottomOf="@id/line_pe_2"
+        android:layout_marginTop="15dp"/>
+    <View
+        android:id="@+id/line_pe_3"
+        android:layout_width="242dp"
+        android:layout_height="1dp"
+        android:background="#DBDBDB"
+        app:layout_constraintTop_toBottomOf="@id/tv_pe_name_input"
+        android:layout_marginTop="13dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginStart="101dp"
+        android:layout_marginEnd="17dp"
+
+        />
+
+    <TextView
+        android:id="@+id/tv_pe_user_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="사용자 이름"
+        android:textColor="@color/black"
+        android:textSize="12sp"
+        app:layout_constraintStart_toStartOf="@id/tv_pe_name"
+        app:layout_constraintTop_toBottomOf="@id/line_pe_3"
+        android:layout_marginTop="15dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginEnd="323dp"/>
+    <TextView
+        android:id="@+id/tv_pe_user_name_input"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="사용자의 아이디가 들어가는 자리"
+        android:textColor="@color/black"
+        android:textSize="12sp"
+        app:layout_constraintStart_toStartOf="@id/tv_pe_name_input"
+        app:layout_constraintTop_toBottomOf="@id/line_pe_3"
+        android:layout_marginTop="15dp"/>
+    <View
+        android:id="@+id/line_pe_4"
+        android:layout_width="242dp"
+        android:layout_height="1dp"
+        android:background="#DBDBDB"
+        app:layout_constraintTop_toBottomOf="@id/tv_pe_user_name_input"
+        android:layout_marginTop="13dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginStart="101dp"
+        android:layout_marginEnd="17dp"
+
+        />
+
+    <TextView
+        android:id="@+id/tv_pe_gender"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="성별 대명사"
+        android:textColor="@color/black"
+        android:textSize="12sp"
+        app:layout_constraintStart_toStartOf="@id/tv_pe_name"
+        app:layout_constraintTop_toBottomOf="@id/line_pe_4"
+        android:layout_marginTop="15dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginEnd="323dp"/>
+    <TextView
+        android:id="@+id/tv_pe_gender_input"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="성별 대명사"
+        android:textColor="#CDCDCF"
+        android:textSize="12sp"
+        app:layout_constraintStart_toStartOf="@id/tv_pe_name_input"
+        app:layout_constraintTop_toBottomOf="@id/line_pe_4"
+        android:layout_marginTop="15dp"/>
+    <View
+        android:id="@+id/line_pe_5"
+        android:layout_width="242dp"
+        android:layout_height="1dp"
+        android:background="#DBDBDB"
+        app:layout_constraintTop_toBottomOf="@id/tv_pe_gender_input"
+        android:layout_marginTop="13dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginStart="101dp"
+        android:layout_marginEnd="17dp"
+
+        />
+
+    <TextView
+        android:id="@+id/tv_pe_introduction"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:layout_marginEnd="323dp"
+        android:text="소개"
+        android:textColor="@color/black"
+        android:textSize="12sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@id/tv_pe_name"
+        app:layout_constraintTop_toBottomOf="@id/line_pe_5" />
+
+    <TextView
+        android:id="@+id/tv_pe_introduction_input"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="소개"
+        android:textColor="#CDCDCF"
+        android:textSize="12sp"
+        app:layout_constraintStart_toStartOf="@id/tv_pe_name_input"
+        app:layout_constraintTop_toBottomOf="@id/line_pe_5"
+        android:layout_marginTop="15dp"/>
+    <View
+        android:id="@+id/line_pe_6"
+        android:layout_width="242dp"
+        android:layout_height="1dp"
+        android:background="#DBDBDB"
+        app:layout_constraintTop_toBottomOf="@id/tv_pe_introduction_input"
+        android:layout_marginTop="13dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginStart="101dp"
+        android:layout_marginEnd="17dp"
+
+        />
+
+    <TextView
+        android:id="@+id/tv_pe_link"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:layout_marginEnd="323dp"
+        android:text="링크"
+        android:textColor="@color/black"
+        android:textSize="12sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@id/tv_pe_name"
+        app:layout_constraintTop_toBottomOf="@id/line_pe_6" />
+
+    <TextView
+        android:id="@+id/tv_pe_link_input"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="링크 추가"
+        android:textColor="#CDCDCF"
+        android:textSize="12sp"
+        app:layout_constraintStart_toStartOf="@id/tv_pe_name_input"
+        app:layout_constraintTop_toBottomOf="@id/line_pe_6"
+        android:layout_marginTop="15dp"/>
+
+    <View
+        android:id="@+id/line_pe_7"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginTop="16dp"
+        android:background="#DBDBDB"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tv_pe_link_input" />
+
+    <ImageView
+        android:id="@+id/iv_pe_btn_chevron_right"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_chevron_right"
+        app:layout_constraintStart_toEndOf="@id/tv_pe_link_input"
+        android:layout_marginStart="167dp"
+        app:layout_constraintTop_toTopOf="@id/tv_pe_link_input"
+        app:layout_constraintBottom_toBottomOf="@id/tv_pe_link_input"
+
+
+        />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
