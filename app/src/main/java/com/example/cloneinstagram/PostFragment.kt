@@ -20,8 +20,30 @@ class PostFragment : Fragment() {
 
         initPostPicture()
 
+        val mActivity = activity as MainActivity
+        binding.ivPost1.setOnClickListener {
+            mActivity.changeFragment()
+        }
+        binding.ivPost2.setOnClickListener {
+            mActivity.changeFragment()
+        }
+        binding.ivPost3.setOnClickListener {
+            mActivity.changeFragment()
+        }
+        binding.ivPost4.setOnClickListener {
+            mActivity.changeFragment()
+        }
+        binding.ivPost5.setOnClickListener {
+            mActivity.changeFragment()
+        }
+        binding.ivPost6.setOnClickListener {
+            mActivity.changeFragment()
+        }
+
         return binding.root
     }
+
+
 
     private fun initPostPicture() {
         Glide.with(this)

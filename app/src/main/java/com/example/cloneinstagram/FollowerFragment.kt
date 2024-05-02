@@ -21,8 +21,8 @@ class FollowerFragment : Fragment() {
 
         binding = FragmentFollowerBinding.inflate(inflater, container, false)
 
-        initData()
         initRecyclerView()
+        initData()
 
         return binding.root
     }

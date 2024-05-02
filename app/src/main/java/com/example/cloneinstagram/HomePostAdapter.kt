@@ -29,6 +29,8 @@ class HomePostAdapter(val items : ArrayList<HomePostData>) : RecyclerView.Adapte
                 itemClickerListener.onOptionButtonClick(item)
             }
 
+
+
             //포스트의 이름 부분을 눌렀을 때 profile 프래그먼트에 String을 보내고 프래그먼트의 화면으로 교체
             binding.tvHomePostEdit.setOnClickListener {
                 itemClickerListener.onNameButtonClick(item)
@@ -45,6 +47,7 @@ class HomePostAdapter(val items : ArrayList<HomePostData>) : RecyclerView.Adapte
                     binding.tvHomeCommentEdit.maxLines = Int.MAX_VALUE
                 }
             }
+
         }
     }
 
@@ -62,5 +65,7 @@ class HomePostAdapter(val items : ArrayList<HomePostData>) : RecyclerView.Adapte
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         holder.bind(items[position])
+
     }
+
 }

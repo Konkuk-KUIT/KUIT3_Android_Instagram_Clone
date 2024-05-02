@@ -63,6 +63,9 @@ class HomeFragment : Fragment() {
                 startActivity(intent)
             }
         })
+
+        binding.
+
     }
 
     private fun initData() {

@@ -6,17 +6,17 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.bumptech.glide.Glide
-import com.example.cloneinstagram.databinding.FragmentTagedPostBinding
+import com.example.cloneinstagram.databinding.FragmentTaggedPostBinding
 
 class TagedPostFragment : Fragment() {
 
-    lateinit var binding : FragmentTagedPostBinding
+    lateinit var binding : FragmentTaggedPostBinding
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        binding = FragmentTagedPostBinding.inflate(inflater, container, false)
+        binding = FragmentTaggedPostBinding.inflate(inflater, container, false)
 
         initTaggedPostPicture()
 
