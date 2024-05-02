@@ -1,5 +1,6 @@
 package com.example.cloneinstagram
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -19,8 +20,23 @@ class PostFragment : Fragment() {
         binding = FragmentPostBinding.inflate(inflater, container, false)
 
         initDummyData()
+        setupClickListener()
 
         return binding.root
+    }
+
+    private fun setupClickListener() {
+        val listener = View.OnClickListener {
+            val intent = Intent(context, PostDetailActivity::class.java)
+            startActivity(intent)
+        }
+
+        binding.ivPost1.setOnClickListener(listener)
+        binding.ivPost2.setOnClickListener(listener)
+        binding.ivPost3.setOnClickListener(listener)
+        binding.ivPost4.setOnClickListener(listener)
+        binding.ivPost5.setOnClickListener(listener)
+        binding.ivPost6.setOnClickListener(listener)
     }
 
     private fun initDummyData() {

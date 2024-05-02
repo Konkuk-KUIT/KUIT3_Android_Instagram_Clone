@@ -16,7 +16,10 @@ class HomeFragment : Fragment() {
     lateinit var itemHomePostBinding: ItemHomePostBinding
 
     private var itemList: ArrayList<PostData> = arrayListOf()
-    private var PostAdapter : PostAdapter ?= null
+    private var postAdapter : PostAdapter ?= null
+
+    private var storyList: ArrayList<StoryData> = arrayListOf()
+    private var storyAdapter: StoryAdapter ?= null
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -55,12 +58,18 @@ class HomeFragment : Fragment() {
     }
 
     private fun initRecyclerView() {
-        PostAdapter = PostAdapter(itemList)
+        postAdapter = PostAdapter(itemList)
+        storyAdapter = StoryAdapter(storyList)
 
-        binding.rvPost.adapter = PostAdapter
+        binding.rvPost.adapter = postAdapter
         binding.rvPost.layoutManager = LinearLayoutManager(requireActivity(), LinearLayoutManager.VERTICAL, false)
 
-        PostAdapter!!.setOnItemClickListener(object : PostAdapter.OnItemClickListener{
+        binding.rvStory.adapter = storyAdapter
+        binding.rvStory.layoutManager = LinearLayoutManager(requireActivity(), LinearLayoutManager.HORIZONTAL, false)
+
+
+
+        postAdapter!!.setOnItemClickListener(object : PostAdapter.OnItemClickListener{
             override fun onIdClick(postData: PostData) {
                 val bundle = Bundle()
 
@@ -88,6 +97,15 @@ class HomeFragment : Fragment() {
                 PostData(R.drawable.ron, "ronald_weasley", R.drawable.ron_post,"로널드 빌리우스 위즐리 (Ronald Bilius Weasley). 해리 포터 시리즈의 등장인물 중 하나이자 또 다른 주인공. 위즐리 일가의 6남 1녀중 여섯째이자 막내아들이자 지니 위즐리의 오빠이다. 거의 언제나 쓰는 이름인 '론'(Ron)은 로널드(Ronald)의 애칭. 1980년 3월 1일생."),
                 PostData(R.drawable.hermione, "hermione_granger", R.drawable.hermione_post,"해리 포터 시리즈의 등장인물. 정식 발매된 번역본의 풀네임은 헤르미온느 진 그레인저. 생일은 1979년 9월 19일이다. 해리 포터의 가장 친한 친구 중 한 명이자 시리즈 내내 사건을 해결해 나가는 삼총사의 일원이다."),
                 PostData(R.drawable.snape, "severus_snape", R.drawable.snape_post,"해리 포터 시리즈의 등장인물. 호그와트의 마법약 과목 교수다.")
+            )
+        )
+
+        storyList.addAll(
+            arrayListOf(
+                StoryData(R.drawable.harry, "harry_potter", true),
+                StoryData(R.drawable.ron, "ronald_weasley", true),
+                StoryData(R.drawable.hermione, "hermione_granger", false),
+                StoryData(R.drawable.snape, "severus_snape", false),
             )
         )
     }

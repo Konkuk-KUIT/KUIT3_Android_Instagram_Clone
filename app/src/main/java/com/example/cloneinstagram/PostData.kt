@@ -6,5 +6,6 @@ data class PostData(
     val profileImg: Int,
     val userId: String,
     val postImg: Int,
-    val postContent: String
+    val postContent: String,
+    var isStorySeen: Boolean = false
 ) : Serializable
