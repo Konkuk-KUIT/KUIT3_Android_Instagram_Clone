@@ -8,6 +8,7 @@ data class PostData(
     val postProfile : Int,
     val postImage: Int,
     val postID: String,
+    val postName:String,
     val postID2: String,
     val postComment: String
 ) : Serializable

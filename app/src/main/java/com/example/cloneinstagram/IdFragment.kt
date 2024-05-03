@@ -1,5 +1,6 @@
 package com.example.cloneinstagram
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -19,8 +20,10 @@ class IdFragment : Fragment() {
     ): View? {
 
         datas = arguments?.getSerializable("key") as PostData
+
         binding = FragmentIdBinding.inflate(inflater, container, false)
         binding.tvProfileName.text = datas.postID
+        binding.tvProfileBottomName.text = datas.postName
         binding.sivProfileEllipse.setImageResource(datas.postProfile)
 
         binding.tvProfileFollower.setOnClickListener{
@@ -28,6 +31,15 @@ class IdFragment : Fragment() {
                 .replace(R.id.main_frm, FollowFragment())
                 .addToBackStack(null)
                 .commit()
+        }
+
+        val profileImg = datas.postProfile
+        binding.flProfileEdit.setOnClickListener {
+            val intent = Intent(context,EditProfileActivity::class.java)
+            intent.putExtra("ID", binding.tvProfileName.text.toString())
+            intent.putExtra("NAME", binding.tvProfileBottomName.text.toString())
+            intent.putExtra("IMG", profileImg)
+            startActivity(intent)
         }
 
         initView()

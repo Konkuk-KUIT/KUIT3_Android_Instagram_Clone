@@ -171,7 +171,7 @@
 
         <TextView
             android:id="@+id/tv_post_comment_2"
-            android:layout_width="match_parent"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="2dp"
             android:text="쿠잇 3기 시작합니다!! 다들 열심히 한 학기 마무리해봐요. 쿠잇 3기 시작합니다!! 다들 열심히 한 학기 마무리해봐요. 쿠잇 3기 시작합니다!! 다들 열심히 한 학기 마무리해봐요."
@@ -179,9 +179,8 @@
             android:textSize="12sp"
             android:ellipsize="end"
             android:maxLines="1"
-            android:layout_marginStart="75dp"
             app:layout_constraintStart_toEndOf="@id/tv_post_comment_1"
-            app:layout_constraintEnd_toEndOf="@id/iv_post"
+            app:layout_constraintEnd_toStartOf="@id/tv_post_comment_3"
             app:layout_constraintTop_toBottomOf="@id/tv_post_like_1" />
 
         <TextView
@@ -193,7 +192,7 @@
             android:text="더보기"
             android:textColor="#808080"
             android:textSize="12sp"
-            app:layout_constraintStart_toEndOf="@id/tv_post_comment_2"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tv_post_like_1"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
