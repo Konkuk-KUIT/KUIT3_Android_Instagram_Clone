@@ -7,6 +7,7 @@
     tools:context=".profile.profile_main.ProfileDetailPostFragment">
 
     <ImageView
+        android:id="@+id/iv_profile_detail_left"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:layout_constraintTop_toTopOf="parent"
@@ -19,7 +20,7 @@
         android:id="@+id/tv_profile_detail_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="userID"
+        android:text="name"
         android:textSize="12sp"
         android:fontFamily="@font/instagram_sans"
         app:layout_constraintTop_toTopOf="parent"
@@ -39,7 +40,7 @@
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tv_profile_detail_userID" />
+        app:layout_constraintTop_toBottomOf="@id/tv_profile_detail_name" />
 
     <View
         android:id="@+id/v_profile_detail_line"
@@ -70,6 +71,7 @@
         android:textStyle="bold"
         android:fontFamily="@font/instagram_sans"
         app:layout_constraintTop_toTopOf="@id/siv_profile_detail_profile"
+        app:layout_constraintBottom_toBottomOf="@id/siv_profile_detail_profile"
         app:layout_constraintStart_toEndOf="@id/siv_profile_detail_profile"
         android:layout_marginStart="14dp"/>
 

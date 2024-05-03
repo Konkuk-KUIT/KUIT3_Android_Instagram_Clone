@@ -21,19 +21,12 @@ class ProfileDetailPostFragment : Fragment() {
 
         initVP(data)
         binding.tvProfileDetailUserID.text = data.profileUserId
-        binding.tvProfileDetailName.text = data.profileUserId
-
-//        if (data.postImageURL == "") {
-//            binding.ivProfileDetailPostImg.setImageResource(data.postImage)
-//        } else {
-//            Glide.with(this)
-//                .load(data.postImageURL)
-//                .into(binding.ivProfileDetailPostImg)
-//        }
+        binding.tvProfileDetailName.text = data.profileName
+        binding.tvProfileDetailCommenter.text = data.profileUserId
 
         binding.tvProfileDetailShowMore.setOnClickListener {
             binding.tvProfileDetailContents.maxLines = Int.MAX_VALUE
-            binding.tvProfileDetailContents.layoutParams.width = 700//
+            binding.tvProfileDetailContents.layoutParams.width = 270//
             binding.tvProfileDetailShowMore.visibility = View.GONE
         }
 
@@ -42,11 +35,18 @@ class ProfileDetailPostFragment : Fragment() {
             if (isLiked == false) {
                 binding.ivProfileDetailPostLikeEmpty.visibility = View.INVISIBLE
                 binding.ivProfileDetailPostLikeFilled.visibility = View.VISIBLE
+            } else {
+                binding.ivProfileDetailPostLikeEmpty.visibility = View.VISIBLE
+                binding.ivProfileDetailPostLikeFilled.visibility = View.INVISIBLE
             }
         }
 
+        binding.ivProfileDetailLeft.setOnClickListener {
 
-        // Inflate the layout for this fragment
+
+        }
+
+
         return binding.root
     }
 

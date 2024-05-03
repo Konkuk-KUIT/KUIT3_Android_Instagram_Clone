@@ -5,36 +5,27 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <com.google.android.material.imageview.ShapeableImageView
-        android:id="@+id/iv_item_home_story_image"
+        android:id="@+id/siv_item_home_story_image"
         android:layout_width="72dp"
         android:layout_height="72dp"
-        android:layout_marginStart="14dp"
+        android:layout_marginStart="11dp"
+        android:paddingEnd="3dp"
         android:src="@drawable/img_sample2"
         android:scaleType="centerCrop"
         android:layout_marginTop="4dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:shapeAppearance="@style/ShapeAppearance.Material3.Corner.Full" />
-
-    <TextView
-        android:id="@+id/tv_item_home_story"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:text="kuit.official"
-        android:textColor="@color/black"
-        android:textSize="12sp"
-        app:layout_constraintEnd_toEndOf="@id/iv_item_home_story_image"
-        app:layout_constraintStart_toStartOf="@id/iv_item_home_story_image"
-        app:layout_constraintTop_toBottomOf="@id/iv_item_home_story_image" />
+    
     <FrameLayout
         android:id="@+id/fl_item_home_story"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintBottom_toBottomOf="@id/iv_item_home_story_image"
-        app:layout_constraintEnd_toEndOf="@id/iv_item_home_story_image"
-        app:layout_constraintStart_toStartOf="@id/iv_item_home_story_image"
-        app:layout_constraintTop_toTopOf="@id/iv_item_home_story_image">
+        android:paddingEnd="3dp"
+        app:layout_constraintBottom_toBottomOf="@id/siv_item_home_story_image"
+        app:layout_constraintEnd_toEndOf="@id/siv_item_home_story_image"
+        app:layout_constraintStart_toStartOf="@id/siv_item_home_story_image"
+        app:layout_constraintTop_toTopOf="@id/siv_item_home_story_image">
 
         <ImageView
             android:id="@+id/iv_item_home_story_gray"
@@ -50,6 +41,27 @@
             android:src="@drawable/ic_story_color" />
 
     </FrameLayout>
+
+    <ImageView
+        android:id="@+id/iv_item_home_plus"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_story_plus"
+        app:layout_constraintBottom_toBottomOf="@id/siv_item_home_story_image"
+        app:layout_constraintEnd_toEndOf="@id/siv_item_home_story_image"
+        android:visibility="gone"/>
+
+    <TextView
+        android:id="@+id/tv_item_home_story"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="kuit.official"
+        android:textColor="@color/black"
+        android:textSize="12sp"
+        app:layout_constraintEnd_toEndOf="@id/siv_item_home_story_image"
+        app:layout_constraintStart_toStartOf="@id/siv_item_home_story_image"
+        app:layout_constraintTop_toBottomOf="@id/siv_item_home_story_image" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

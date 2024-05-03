@@ -1,14 +1,14 @@
 package com.example.cloneinstagram.home
 
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.cloneinstagram.databinding.ItemHomeStoryBinding
 
-class HomeStoryAdapter(val fragment: Fragment, val items :ArrayList<String>): RecyclerView.Adapter<HomeStoryAdapter.ViewHolder>() {
-
+class HomeStoryListAdapter(val fragment: Fragment, val urls :ArrayList<String>, val myData: UsersData): RecyclerView.Adapter<HomeStoryListAdapter.ViewHolder>() {
     private lateinit var itemClickListener : OnItemClickListener
     interface OnItemClickListener {
         fun onItemClick(itemHomeStorybinding: ItemHomeStoryBinding)
@@ -17,13 +17,25 @@ class HomeStoryAdapter(val fragment: Fragment, val items :ArrayList<String>): Re
         itemClickListener = onItemClickListener
     }
 
-
     inner class ViewHolder(val binding: ItemHomeStoryBinding) : RecyclerView.ViewHolder(binding.root){
         var isClicked = false
-        fun bind(item: String){
+        fun bind(url: String){
             Glide.with(fragment)
-                .load(item)
-                .into(binding.ivItemHomeStoryImage)
+                .load(url)
+                .into(binding.sivItemHomeStoryImage)
+            if (isClicked == false) {
+                binding.flItemHomeStory.setOnClickListener {
+                    itemClickListener.onItemClick(binding)
+                    this.isClicked = true
+                }
+            }
+        }
+
+        fun myStoryBind(url: String){
+            binding.ivItemHomePlus.visibility = View.VISIBLE
+            binding.sivItemHomeStoryImage.setImageResource(myData.profileImage)
+            binding.tvItemHomeStory.text = myData.profileUserId
+
             if (isClicked == false) {
                 binding.flItemHomeStory.setOnClickListener {
                     itemClickListener.onItemClick(binding)
@@ -38,9 +50,10 @@ class HomeStoryAdapter(val fragment: Fragment, val items :ArrayList<String>): Re
         return ViewHolder(binding)
     }
 
-    override fun getItemCount(): Int = items.size
+    override fun getItemCount(): Int = urls.size
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        holder.bind(items[position])
+        if (position == 0) { holder.myStoryBind(urls[position]) } // myStory 만 특별 세팅
+        else { holder.bind(urls[position]) }
     }
 }

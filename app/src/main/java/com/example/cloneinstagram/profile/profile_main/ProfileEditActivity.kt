@@ -1,14 +1,10 @@
 package com.example.cloneinstagram.profile.profile_main
 
 import android.os.Bundle
-import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
-import com.example.cloneinstagram.R
+import com.bumptech.glide.Glide
 import com.example.cloneinstagram.databinding.ActivityProfileEditBinding
-import com.example.cloneinstagram.home.PostData
-import com.example.cloneinstagram.home.UserData
+import com.example.cloneinstagram.home.UsersData
 
 class ProfileEditActivity : AppCompatActivity() {
     lateinit var binding : ActivityProfileEditBinding
@@ -17,14 +13,16 @@ class ProfileEditActivity : AppCompatActivity() {
 
         binding = ActivityProfileEditBinding.inflate(layoutInflater)
 
-        val data = intent.getSerializableExtra("data") as UserData
+        val data = intent.getSerializableExtra("data") as UsersData
 
         binding.tvProfileEditName.text = data.userName
         binding.tvProfileEditUserID.text = data.profileUserId
-        if (data.profileImageView == null) {
+        if (data.profileImageUrl == "") {
             binding.sivProfileEditProfileImage.setImageResource(data.profileImage)
         } else {
-//            binding.sivProfileEditProfileImage.setImageResource(data.profileImageView.sourceLayoutResId)
+            Glide.with(applicationContext)
+                .load(data.profileImageUrl)
+                .into(binding.sivProfileEditProfileImage)
         }
 
         binding.ivProfileEditLeft.setOnClickListener{

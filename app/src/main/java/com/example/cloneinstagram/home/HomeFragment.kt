@@ -19,7 +19,8 @@ class HomeFragment : Fragment() {
     lateinit var binding: FragmentHomeBinding
     private var itemList : ArrayList<PostData> = arrayListOf()
     private lateinit var postAdapter: PostAdapter
-    private lateinit var homeStoryAdapter: HomeStoryAdapter
+    private lateinit var homeStoryListAdapter: HomeStoryListAdapter
+    private lateinit var myData : UsersData
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -28,14 +29,23 @@ class HomeFragment : Fragment() {
     ): View? {
         binding = FragmentHomeBinding.inflate(inflater, container, false)
 
+        initMyData()
         initData()
-        initStoryRecyclerView()
-        initPostRecyclerView()
+        initPostRV()
+        initStoryRV()
 
         return binding.root
     }
 
-    private fun initStoryRecyclerView() {
+    private fun initMyData() {
+        myData = UsersData.Builder()
+            .setProfileImage(R.drawable.img_sample)
+            .setProfileUserId("kuit.official")
+            .setUserName("쿠잇")
+            .build()
+    }
+
+    private fun initStoryRV() {
         val urlList = arrayListOf<String>(
             "https://cdn.pixabay.com/photo/2017/02/20/18/03/cat-2083492_1280.jpg",
             "https://cdn.pixabay.com/photo/2015/04/23/21/59/tree-736877_1280.jpg",
@@ -45,23 +55,27 @@ class HomeFragment : Fragment() {
             "https://cdn.pixabay.com/photo/2019/11/08/11/56/kitten-4611189_1280.jpg"
 
         )
-        homeStoryAdapter = HomeStoryAdapter(this, urlList)
-        binding.rvHomeStoryList.adapter = homeStoryAdapter
+        homeStoryListAdapter = HomeStoryListAdapter(this, urlList, myData)
+
+        binding.rvHomeStoryList.adapter = homeStoryListAdapter
         binding.rvHomeStoryList.layoutManager = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
-        homeStoryAdapter.setOnItemClickListner(object : HomeStoryAdapter.OnItemClickListener {
+
+        homeStoryListAdapter.setOnItemClickListner(object : HomeStoryListAdapter.OnItemClickListener {
             override fun onItemClick(itemHomeStorybinding: ItemHomeStoryBinding) {
                 itemHomeStorybinding.ivItemHomeStoryColor.visibility = View.INVISIBLE
                 itemHomeStorybinding.ivItemHomeStoryGray.visibility = View.VISIBLE
             }
-
         })
     }
 
-    private fun initPostRecyclerView() {
+    private fun initPostRV() {
         postAdapter = PostAdapter(itemList)
+
         binding.rvHomePostList.adapter = postAdapter
         binding.rvHomePostList.layoutManager = StaggeredGridLayoutManager(1, StaggeredGridLayoutManager.VERTICAL)
+
         postAdapter.setOnItemClickListener(object : PostAdapter.OnItemClickListener {
+            // userID click -> move to profileFragment
             override fun onIdClick(postData: PostData) {
                 val profileFragment = ProfileFragment()
                 profileFragment.arguments = bundleOf("data" to postData)
@@ -70,16 +84,17 @@ class HomeFragment : Fragment() {
                     .replace(R.id.main_frm, profileFragment)
                     .addToBackStack(null)
                     .commit()
-
             }
+            // option click -> move to editactivity
             override fun onOptionClick(postData: PostData) {
                 val intent = Intent(activity, EditActivity::class.java)
                 intent.putExtra("data", postData)
                 startActivity(intent)
             }
+            // showmore click -> contents line => max
             override fun onShowMoreClick(postData: PostData, itemBinding : ItemPostHomeBinding) {
                 itemBinding.tvItemPostContents.maxLines = Int.MAX_VALUE
-                itemBinding.tvItemPostContents.layoutParams.width = 700//
+                itemBinding.tvItemPostContents.layoutParams.width = 270//
                 itemBinding.tvItemPostShowMore.visibility = View.GONE
             }
         })
@@ -91,12 +106,14 @@ class HomeFragment : Fragment() {
                 PostData.Builder()
                     .setProfileImage(R.drawable.img_sample)
                     .setProfileUserId("kuit.official_1")
+                    .setProfileName("쿠잇1")
                     .setPostImage(R.drawable.img_sample2)
                     .setPostContent("첫번째 게시물 첫번째 게시물 첫번째 게시물 첫번째 게시물 첫번째 게시물 첫번째 게시물 첫번째 게시물 첫번째 게시물 첫번째 게시물 첫번째 게시물 첫번째 게시물 첫번째 게시물 첫번째 게시물 첫번째 게시물 첫번째 게시물 첫번째 게시물 첫번째 게시물 첫번째 게시물 첫번째 게시물 첫번째 게시물 첫번째 게시물 첫번째 게시물 첫번째 게시물 첫번째 게시물 첫번째 게시물 첫번째 게시물 첫번째 게시물 첫번째 게시물 첫번째 게시물 첫번째 게시물 ")
                     .build(),
                 PostData.Builder()
                     .setProfileImage(R.drawable.img_sample2)
                     .setProfileUserId("kuit.official_1")
+                    .setProfileName("쿠잇2")
                     .setPostImage(R.drawable.img_sample)
                     .setPostContent("두번째 게시물 두번째 게시물 두번째 게시물 두번째 게시물 첫번째 게시물 첫번째 게시물 첫번째 게시물 첫번째 게시물 첫번째 게시물 첫번째 게시물 첫번째 게시물 첫번째 게시물 첫번째 게시물 첫번째 게시물 첫번째 게시물 첫번째 게시물 첫번째 게시물 첫번째 게시물 첫번째 게시물 첫번째 게시물 첫번째 게시물 첫번째 게시물 첫번째 게시물 첫번째 게시물 첫번째 게시물 첫번째 게시물 첫번째 게시물 첫번째 게시물 첫번째 게시물 첫번째 게시물 ")
                     .build()

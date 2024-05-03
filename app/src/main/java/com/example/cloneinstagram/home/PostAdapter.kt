@@ -27,6 +27,7 @@ class PostAdapter(val items : ArrayList<PostData>) : RecyclerView.Adapter<PostAd
             binding.tvItemUserId.text = item.profileUserId
             binding.ivItemPostImage.setImageResource(item.postImage)
             binding.tvItemPostContents.text = item.postContent
+
             binding.tvItemUserId.setOnClickListener {
                 itemClickListener.onIdClick(item)
             }

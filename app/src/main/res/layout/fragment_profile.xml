@@ -262,7 +262,8 @@
         android:id="@+id/vp_profile_post_tag"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        app:layout_constraintTop_toBottomOf="@id/tl_profile_post_tag" />
+        app:layout_constraintTop_toBottomOf="@id/tl_profile_post_tag"
+        app:layout_constraintBottom_toBottomOf="parent"/>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
