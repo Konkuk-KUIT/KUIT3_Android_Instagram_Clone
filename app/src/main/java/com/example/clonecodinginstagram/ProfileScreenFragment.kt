@@ -7,7 +7,9 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.FragmentManager
 import com.example.clonecodinginstagram.databinding.FragmentProfileScreenBinding
+import com.example.clonecodinginstagram.databinding.FragmentUserPostBinding
 import com.example.clonecodinginstagram.databinding.ItemPostBinding
 import com.google.android.material.tabs.TabLayoutMediator
 
@@ -45,6 +47,13 @@ class ProfileScreenFragment : Fragment() {
             parentFragmentManager.beginTransaction()
                 .replace(R.id.main_frm, ProfileListMainFragment())
                 .commit()
+        }
+
+        binding.tvProfileEdit.setOnClickListener{
+            val intent = Intent(requireParentFragment().requireActivity(),ProfileEditActivity::class.java)
+            intent.putExtra("id",this.arguments?.getString("id"))
+            intent.putExtra("name",this.arguments?.getString("name"))
+            startActivity(intent)
         }
 
         return binding.root
