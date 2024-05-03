@@ -21,7 +21,6 @@ class PostAdapter(val items: ArrayList<PostData>, val onProfileClick1 : (View)->
             binding.icMenu.setOnClickListener(){
                 onProfileClick2(binding.icMenu)
             }
-
         }
     }
 

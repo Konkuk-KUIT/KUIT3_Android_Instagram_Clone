@@ -6,15 +6,18 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.bumptech.glide.Glide
+import com.example.clonecodinginstagram.databinding.FragmentProfileScreenBinding
 import com.example.clonecodinginstagram.databinding.FragmentUserPostBinding
 
 class UserPostFragment : Fragment() {
     lateinit var binding : FragmentUserPostBinding
+    lateinit var screenbinding : FragmentProfileScreenBinding
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         binding = FragmentUserPostBinding.inflate(inflater,container,false)
+        screenbinding = FragmentProfileScreenBinding.inflate(inflater,container,false)
         Glide.with(requireContext())
             .load("https://cdn.pixabay.com/photo/2021/04/27/18/26/cygnet-6212139_1280.jpg")
             .centerCrop()
@@ -46,6 +49,17 @@ class UserPostFragment : Fragment() {
             .override(400,400)
             .into(binding.ivPost6)
 
+        binding.ivPost1.setOnClickListener{
+            val strid = requireParentFragment().arguments?.getString("id")
+            requireParentFragment().parentFragmentManager.beginTransaction()
+                .replace(R.id.main_frm, PostDetailFragment().apply{
+                    arguments = Bundle().apply {
+                        putString("id",strid)
+                    }
+                })
+                .addToBackStack(null)
+                .commit()
+        }
 
         return binding.root
     }

@@ -66,7 +66,7 @@
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
-    <View
+    <ImageView
         android:id="@+id/view_image"
         android:layout_width="match_parent"
         android:layout_height="360dp"
@@ -74,7 +74,7 @@
         android:background="#8E8E8E"
         app:layout_constraintTop_toBottomOf="@id/ly_profile5_1">
 
-    </View>
+    </ImageView>
 
     <LinearLayout
         android:layout_width="match_parent"

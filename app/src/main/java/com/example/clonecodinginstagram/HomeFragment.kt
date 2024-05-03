@@ -37,6 +37,7 @@ class HomeFragment : Fragment() {
         return binding.root
     }
     private fun initRecyclerView() {
+
         postadapter = PostAdapter(items,{
             itembinding.icMenu
             profileClick1()
@@ -44,6 +45,7 @@ class HomeFragment : Fragment() {
             itembinding.icProfile5
             profileClick2()
         }
+
         binding.rcPost.adapter = postadapter
         binding.rcPost.layoutManager = LinearLayoutManager(this.activity, LinearLayoutManager.VERTICAL,false)
     }
@@ -60,7 +62,6 @@ class HomeFragment : Fragment() {
             })
             .commit()
     }
-
     private fun profileClick2(){
         val strid = itembinding.textId.text.toString()
         val strname = "쿠잇"
