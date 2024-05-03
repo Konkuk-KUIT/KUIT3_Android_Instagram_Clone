@@ -30,7 +30,6 @@ class HomePostAdapter(val items : ArrayList<HomePostData>) : RecyclerView.Adapte
             }
 
 
-
             //포스트의 이름 부분을 눌렀을 때 profile 프래그먼트에 String을 보내고 프래그먼트의 화면으로 교체
             binding.tvHomePostEdit.setOnClickListener {
                 itemClickerListener.onNameButtonClick(item)
