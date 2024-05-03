@@ -39,6 +39,7 @@ class ProfileFragment : Fragment() {
                 // Bundle에서 Serializable 객체를 가져와서 캐스팅
                 val homePostData = bundle.getSerializable("key") as HomePostData
                 intent.putExtra("Profile", homePostData.ProfileImage)
+
             }
 
             startActivity(intent)
