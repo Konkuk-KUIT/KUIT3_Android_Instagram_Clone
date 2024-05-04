@@ -13,6 +13,7 @@ import com.google.android.material.tabs.TabLayoutMediator
 class ProfileFragment : Fragment() {
     lateinit var binding: FragmentProfileBinding
     private val tabList= arrayListOf(R.drawable.ic_grid,R.drawable.ic_tag)
+    private lateinit var dataList:ArrayList<PostData>
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -51,6 +52,18 @@ class ProfileFragment : Fragment() {
             parentFragmentManager.executePendingTransactions()
             fragment.binding.tlFwList.getTabAt(1)?.select()
         }
+
+        binding.ivProfileBtn1.setOnClickListener {
+            val fragment=ProfileEditFragment()
+            val bundle=Bundle()
+            bundle.putSerializable("profileData",profileData)
+            fragment.arguments=bundle
+            parentFragmentManager.beginTransaction()
+                .replace(R.id.main_frm,fragment)
+                .commit()
+        }
+
+
 
         return binding.root
     }

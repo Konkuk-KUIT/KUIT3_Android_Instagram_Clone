@@ -15,6 +15,7 @@ class HomeFragment : Fragment() {
     lateinit var binding: FragmentHomeBinding
     private var itemList:ArrayList<PostData> =arrayListOf()
     private var postAdapter:PostAdapter?=null
+    private lateinit var storyAdapter:StoryAdapter
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -25,6 +26,12 @@ class HomeFragment : Fragment() {
 
         initData()
         initRecyclerView()
+
+        var list= arrayListOf("kuit.official","hwhwhw74","abcde","12345","hahaha","q1w2e3")
+        storyAdapter=StoryAdapter(list)
+        binding.rvHomeStory.adapter=storyAdapter
+        binding.rvHomeStory.layoutManager=LinearLayoutManager(requireContext(),LinearLayoutManager.HORIZONTAL,false)
+
 
         return binding.root
     }
@@ -55,8 +62,6 @@ class HomeFragment : Fragment() {
     }
 
     private fun initData() {
-
-
         itemList.addAll(
             arrayListOf(
                 PostData(R.drawable.img_sample_pamyo, R.drawable.img_sample_pamyo,"kimgoeun","미국 LA, 거액의 의뢰를 받은 무당 ‘화림’(김고은)과 ‘봉길’(이도현)은 기이한 병이 대물림되는 집안의 장손을 만난다. 조상의 묫자리가 화근임을 알아챈 ‘화림’은 이장을 권하고, 돈 냄새를 맡은 최고의 풍수사 ‘상덕’(최민식)과 장의사 ‘영근’(유해진)이 합류한다. “전부 잘 알 거야… 묘 하나 잘못 건들면 어떻게 되는지” 절대 사람이 묻힐 수 없는 악지에 자리한 기이한 묘. ‘상덕’은 불길한 기운을 느끼고 제안을 거절하지만, ‘화림’의 설득으로 결국 파묘가 시작되고… 나와서는 안될 것이 나왔다."),

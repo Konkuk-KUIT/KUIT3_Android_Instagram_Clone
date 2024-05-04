@@ -5,7 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ProfileEdit">
+    tools:context=".ProfileEditFragment">
 
     <TextView
         android:id="@+id/tv_profile_edit_text"
@@ -26,14 +26,14 @@
         android:id="@+id/iv_pe_btn_chevron_left"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="3dp"
+        android:layout_marginTop="12dp"
+        android:layout_marginEnd="123dp"
         android:src="@drawable/ic_chevron_left"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        android:layout_marginTop="14dp"
-        android:layout_marginStart="14dp"
         app:layout_constraintEnd_toStartOf="@id/tv_profile_edit_text"
-        android:layout_marginEnd="100dp"
-        />
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <View
         android:id="@+id/line_pe"
