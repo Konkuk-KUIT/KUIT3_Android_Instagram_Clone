@@ -15,10 +15,11 @@ class VPIndicatorAdapter(val context: Context?, val items:MutableList<String>):R
                     .load(image)
                     .into(binding.ivItemHdPost)
             }
+
         }
     }
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): VPIndicatorAdapter.ViewHolder {
         val binding=ItemHomeDetailPostBinding.inflate(LayoutInflater.from(parent.context),parent,false)
         return ViewHolder(binding)
     }
