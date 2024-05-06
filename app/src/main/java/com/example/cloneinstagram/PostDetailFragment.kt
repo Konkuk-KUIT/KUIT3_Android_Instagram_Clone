@@ -2,18 +2,28 @@ package com.example.cloneinstagram
 
 import android.content.Context
 import android.os.Bundle
+import android.os.Handler
+import android.os.Looper
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.viewpager2.widget.ViewPager2
 import com.example.cloneinstagram.databinding.FragmentPostDetailBinding
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.delay
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 
 class PostDetailFragment : Fragment() {
 
     lateinit var binding: FragmentPostDetailBinding
     private val imgList = mutableListOf<String>()
     var isLiked : Boolean = false
+
+    //스레드를 활용해서 3초 후 페이지를 넘기기 위한 핸들러
+    var mHandler = Handler(Looper.getMainLooper())
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -54,8 +64,51 @@ class PostDetailFragment : Fragment() {
             }
         }
 
+        //스레드를 사용해서 3초후 넘기기
+        //Thread(viewPagerPass()).start()
+
+        CoroutineScope(Dispatchers.IO).launch {
+            while (true) {
+                var count = binding.vpPostPictures.currentItem
+                Thread.sleep(3000)
+
+                withContext(Dispatchers.Main){
+                    if (count != 2) {
+                        count += 1
+                        binding.vpPostPictures.currentItem = count
+                    } else {
+                        binding.vpPostPictures.currentItem = 0
+                    }
+                }
+            }
+        }
 
         return binding.root
+    }
+
+    inner class viewPagerPass : Runnable {
+        override fun run() {
+            while (true) {
+                Thread.sleep(3000)
+                mHandler.post(viewPagerPassRunnable())
+            }
+        }
+
+    }
+
+    inner class viewPagerPassRunnable : Runnable {
+        override fun run() {
+            var count = binding.vpPostPictures.currentItem
+
+            if (count != 2) {
+                count += 1
+                binding.vpPostPictures.currentItem = count
+            } else {
+                binding.vpPostPictures.currentItem = 0
+            }
+
+        }
+
     }
 
     private fun initViewPager(context: Context) {
