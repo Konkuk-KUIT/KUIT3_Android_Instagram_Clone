@@ -58,8 +58,8 @@ class HomeDetailActivity : AppCompatActivity() {
         binding.diPic.attachTo(binding.vpHdPostPic)
 
         //**Thread
-        /*var passTh=passRun()
-        Thread(passRun()).start()*/
+        var passTh=passRun()
+        Thread(passRun()).start()
 
         //**Coroutine
         CoroutineScope(Dispatchers.Main).launch {
