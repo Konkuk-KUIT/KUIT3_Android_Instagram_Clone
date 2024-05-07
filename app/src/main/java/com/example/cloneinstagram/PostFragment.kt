@@ -20,30 +20,39 @@ class PostFragment : Fragment() {
 
         initPostPicture()
 
-        val mActivity = activity as MainActivity
         binding.ivPost1.setOnClickListener {
-            mActivity.changeFragment()
+            changeFragment()
         }
         binding.ivPost2.setOnClickListener {
-            mActivity.changeFragment()
+            changeFragment()
         }
         binding.ivPost3.setOnClickListener {
-            mActivity.changeFragment()
+            changeFragment()
         }
         binding.ivPost4.setOnClickListener {
-            mActivity.changeFragment()
+            changeFragment()
         }
         binding.ivPost5.setOnClickListener {
-            mActivity.changeFragment()
+            changeFragment()
         }
         binding.ivPost6.setOnClickListener {
-            mActivity.changeFragment()
+            changeFragment()
         }
 
         return binding.root
     }
 
-
+    fun changeFragment(){
+        val strid = requireParentFragment().arguments?.getSerializable("key")
+        requireParentFragment().parentFragmentManager.beginTransaction()
+            .replace(R.id.main_frm, PostDetailFragment().apply{
+                arguments = Bundle().apply {
+                    putSerializable("key", strid)
+                }
+            })
+            .addToBackStack(null)
+            .commit()
+    }
 
     private fun initPostPicture() {
         Glide.with(this)

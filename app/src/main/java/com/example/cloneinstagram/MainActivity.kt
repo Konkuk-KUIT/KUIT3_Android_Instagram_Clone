@@ -83,10 +83,4 @@ class MainActivity : AppCompatActivity() {
 
     }
 
-    fun changeFragment(){
-        supportFragmentManager.beginTransaction().replace(R.id.main_frm, PostDetailFragment()).addToBackStack("PostDetailFragment").commit()
-    }
-
-
-
 }

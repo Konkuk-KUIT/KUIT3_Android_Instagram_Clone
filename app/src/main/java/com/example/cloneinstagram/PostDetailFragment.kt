@@ -36,6 +36,18 @@ class PostDetailFragment : Fragment() {
         //RecyclerView 생성
         initViewPager(requireActivity().applicationContext)
 
+        val bundle = arguments
+        if (bundle != null && bundle.containsKey("key")) {
+            // Bundle에서 Serializable 객체를 가져와서 캐스팅
+            val homePostData = bundle.getSerializable("key") as HomePostData
+
+            binding.tvPostInstaId.text = homePostData.InstagramID
+            binding.tvId.text = homePostData.InstagramID
+            binding.tvEditName.text = homePostData.InstagramID
+            binding.sivEditProfile.setImageResource(homePostData.ProfileImage)
+
+        }
+
         binding.ivEditPreviousButton.setOnClickListener {
             parentFragmentManager.popBackStack()
         }

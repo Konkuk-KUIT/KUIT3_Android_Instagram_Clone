@@ -28,7 +28,10 @@ class ProfileFragment : Fragment() {
 
             binding.tvEditProfileName.text = homePostData.InstagramID
             binding.sivProfileEdit.setImageResource(homePostData.ProfileImage)
+
         }
+
+
 
         binding.ivProfileEdit.setOnClickListener {
             val intent = Intent(requireActivity(), ProfileEditActivity::class.java)
