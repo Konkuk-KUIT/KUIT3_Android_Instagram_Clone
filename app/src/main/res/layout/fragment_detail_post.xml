@@ -1,0 +1,290 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".DetailPost">
+
+    <ImageView
+        android:id="@+id/iv_detail_post_back"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/chevron_left"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginTop="14dp"
+        android:layout_marginStart="14dp"
+        android:contentDescription="back">
+
+    </ImageView>
+
+    <TextView
+        android:id="@+id/tv_detail_post_head_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="12sp"
+        android:text="KUIT.OFFICIAL"
+        android:textColor="@color/black"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="10dp">
+
+    </TextView>
+
+    <TextView
+        android:id="@+id/tv_change_information"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="12sp"
+        android:text="게시물"
+        android:textStyle="bold"
+        android:textColor="@color/black"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tv_detail_post_head_name"
+        android:layout_marginTop="3dp">
+
+    </TextView>
+
+    <View
+        android:id="@+id/v_home_story_line"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginTop="14dp"
+        android:background="#DBDBDB"
+        app:layout_constraintTop_toBottomOf="@id/iv_detail_post_back">
+
+    </View>
+
+    <com.google.android.material.imageview.ShapeableImageView
+        android:id="@+id/siv_detail_post_profile"
+        android:layout_width="28dp"
+        android:layout_height="28dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="12dp"
+        android:background="#D9D9D9"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/v_home_story_line"
+        app:shapeAppearance="@style/ShapeAppearance.Material3.Corner.Full">
+
+    </com.google.android.material.imageview.ShapeableImageView>
+    
+    <TextView
+        android:id="@+id/tv_detail_post_profile_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="kuit.official"
+        android:textColor="@color/black"
+        android:textSize="12sp"
+        app:layout_constraintTop_toTopOf="@id/siv_detail_post_profile"
+        app:layout_constraintBottom_toBottomOf="@id/siv_detail_post_profile"
+        app:layout_constraintStart_toEndOf="@id/siv_detail_post_profile"
+        android:layout_marginStart="9dp">
+
+    </TextView>
+
+    <ImageView
+        android:id="@+id/iv_home_posting_option"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="14dp"
+        android:src="@drawable/options"
+        app:layout_constraintBottom_toBottomOf="@id/siv_detail_post_profile"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@id/siv_detail_post_profile">
+
+    </ImageView>
+
+    <androidx.viewpager2.widget.ViewPager2
+        android:id="@+id/vp_detail_post_main_view_pager"
+        android:layout_width="match_parent"
+        android:layout_height="360dp"
+        app:layout_constraintTop_toBottomOf="@id/siv_detail_post_profile"
+        android:layout_marginTop="11dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+    </androidx.viewpager2.widget.ViewPager2>
+
+    <com.tbuonomo.viewpagerdotsindicator.DotsIndicator
+        android:id="@+id/di_detail_post_dots_indicator"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:dotsColor="#4488fe"
+        app:dotsCornerRadius="8dp"
+        app:dotsSize="5dp"
+        app:dotsSpacing="4dp"
+        app:dotsWidthFactor="2.5"
+        app:selectedDotColor="#000000"
+        app:progressMode="true"
+        tools:ignore="MissingConstraints"
+        app:layout_constraintTop_toTopOf="@id/fl_detail_post_clickbar"
+        app:layout_constraintBottom_toBottomOf="@id/fl_detail_post_clickbar"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+    <FrameLayout
+        android:id="@+id/fl_detail_post_clickbar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="10dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/vp_detail_post_main_view_pager">
+
+        <ImageView
+            android:id="@+id/iv_home_posting_empty_like"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/posting_empty_like">
+
+        </ImageView>
+
+        <ImageView
+            android:id="@+id/iv_home_posting_filled_like"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/like__filled_"
+            android:visibility="gone">
+
+        </ImageView>
+
+    </FrameLayout>
+
+    <ImageView
+        android:id="@+id/iv_home_posting_comment"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="13dp"
+        android:layout_marginTop="10dp"
+        android:src="@drawable/posting_comment"
+        app:layout_constraintStart_toEndOf="@id/fl_detail_post_clickbar"
+        app:layout_constraintTop_toBottomOf="@+id/vp_detail_post_main_view_pager">
+
+    </ImageView>
+
+    <ImageView
+        android:id="@+id/iv_home_posting_share"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="13dp"
+        android:layout_marginTop="10dp"
+        android:src="@drawable/posting_share"
+        app:layout_constraintStart_toEndOf="@id/iv_home_posting_comment"
+        app:layout_constraintTop_toBottomOf="@+id/vp_detail_post_main_view_pager">
+
+    </ImageView>
+
+    <ImageView
+        android:id="@+id/iv_home_posting_save"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="15dp"
+        android:src="@drawable/posting_save"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/vp_detail_post_main_view_pager">
+
+    </ImageView>
+
+    <TextView
+        android:id="@+id/tv_detail_post_posting_info"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="14dp"
+        android:layout_marginTop="8dp"
+        android:text="@string/profile_name"
+        android:textColor="@color/black"
+        android:textSize="12sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/fl_detail_post_clickbar">
+
+    </TextView>
+
+    <TextView
+        android:id="@+id/tv_detail_post_posting_info2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="님 외 여러 명이 좋아합니다"
+        android:textColor="@color/black"
+        android:textSize="10sp"
+        app:layout_constraintStart_toEndOf="@id/tv_detail_post_posting_info"
+        app:layout_constraintTop_toBottomOf="@id/fl_detail_post_clickbar">
+
+    </TextView>
+
+    <TextView
+        android:id="@+id/tv_detail_post_posting_content_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="14dp"
+        android:layout_marginTop="3dp"
+        android:text="@string/profile_name"
+        android:textColor="@color/black"
+        android:textSize="12sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toStartOf="@id/tv_detail_post_posting_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tv_detail_post_posting_info">
+
+    </TextView>
+
+    <TextView
+        android:id="@+id/tv_detail_post_posting_content"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="4dp"
+        android:layout_marginTop="4dp"
+        android:ellipsize="end"
+        android:maxLines="1"
+        android:text="쿠잇 3기 시작합니다!! 다들 열심히 한 학기 마무리해봐요. 쿠잇 3기 시작합니다!! 다들 열심히 한 학기 마무리해봐요.  쿠잇 3기 시작합니다!! 다들 열심히 한 학기 마무리해봐요. "
+        android:fontFamily="@font/instagram_sans_medium"
+        android:textColor="@color/black"
+        android:textSize="10sp"
+        app:layout_constraintEnd_toStartOf="@id/tv_detail_post_posting_content_more"
+        app:layout_constraintStart_toEndOf="@id/tv_detail_post_posting_content_name"
+        app:layout_constraintTop_toBottomOf="@id/tv_detail_post_posting_info">
+
+    </TextView>
+
+    <TextView
+        android:id="@+id/tv_detail_post_posting_content_more"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:text="더보기"
+        android:textColor="@color/black"
+        android:textSize="10sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tv_detail_post_posting_info">
+
+    </TextView>
+
+    <TextView
+        android:id="@+id/tv_detail_post_show_review"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="댓글 모두 보기"
+        android:textSize="10sp"
+        app:layout_constraintTop_toBottomOf="@id/tv_detail_post_posting_content"
+        app:layout_constraintStart_toStartOf="@id/tv_detail_post_posting_content_name"
+        android:layout_marginTop="6dp">
+
+    </TextView>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="2024년 3월"
+        android:textSize="10sp"
+        app:layout_constraintTop_toBottomOf="@id/tv_detail_post_show_review"
+        app:layout_constraintStart_toStartOf="@id/tv_detail_post_show_review"
+        android:layout_marginTop="6dp">
+
+    </TextView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
