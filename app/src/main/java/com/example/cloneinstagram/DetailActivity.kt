@@ -28,6 +28,8 @@ class DetailActivity : AppCompatActivity() {
     private var currentPage = 0
     lateinit var job: Job
 
+
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
