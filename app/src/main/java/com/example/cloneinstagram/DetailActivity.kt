@@ -44,7 +44,8 @@ class DetailActivity : AppCompatActivity() {
             binding.ivLikeEmpty.visibility = View.VISIBLE
             binding.ivLikeRed.visibility = View.GONE
         }
-        
+
+        //스레드 구현
        /* val thread = Thread(PagerRunnable())
         thread.start()*/
 
@@ -91,7 +92,7 @@ class DetailActivity : AppCompatActivity() {
         setPage()
         true
     }
-    //3초마다 페이지 넘김
+    //Runnable 구현. 3초마다 페이지 넘김
     inner class PagerRunnable : Runnable{
         override fun run() {
             while(true){
@@ -101,6 +102,5 @@ class DetailActivity : AppCompatActivity() {
         }
 
     }*/
-   
 
 }
