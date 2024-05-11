@@ -11,7 +11,7 @@ import com.example.cloneinstagram.R
 import com.example.cloneinstagram.home.PostData
 import com.example.cloneinstagram.databinding.FragmentProfileBinding
 import com.example.cloneinstagram.home.UsersData
-import com.example.cloneinstagram.profile.followers.ProfileListFragment
+import com.example.cloneinstagram.profile.followers.ProfileFollowerListFragment
 import com.google.android.material.tabs.TabLayoutMediator
 
 class ProfileFragment : Fragment() {
@@ -48,21 +48,21 @@ class ProfileFragment : Fragment() {
 
         /** 팔로워 클릭 **/
         binding.llProfileFollowers.setOnClickListener {
-            val profileListFragment = ProfileListFragment()
-            profileListFragment.arguments = bundleOf("tab" to 0)
+            val profileFollowerListFragment = ProfileFollowerListFragment()
+            profileFollowerListFragment.arguments = bundleOf("tab" to 0)
 
             parentFragmentManager.beginTransaction()
-                .replace(R.id.main_frm, profileListFragment)
+                .replace(R.id.main_frm, profileFollowerListFragment)
                 .addToBackStack(null)
                 .commit()
         }
         /** 팔로잉 클릭 **/
         binding.llProfileFollowings.setOnClickListener{
-            val profileListFragment = ProfileListFragment()
-            profileListFragment.arguments = bundleOf("tab" to 1)
+            val profileFollowerListFragment = ProfileFollowerListFragment()
+            profileFollowerListFragment.arguments = bundleOf("tab" to 1)
 
             parentFragmentManager.beginTransaction()
-                .replace(R.id.main_frm, profileListFragment)
+                .replace(R.id.main_frm, profileFollowerListFragment)
                 .addToBackStack(null)
                 .commit()
         }

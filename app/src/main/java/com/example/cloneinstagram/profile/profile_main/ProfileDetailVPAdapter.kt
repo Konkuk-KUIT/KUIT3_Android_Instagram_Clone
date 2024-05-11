@@ -26,6 +26,6 @@ class ProfileDetailVPAdapter(val fragment: Fragment, val itemList : MutableList<
         holder.bind(itemList[position])
     }
 
-    override fun getItemCount(): Int =itemList.size
+    override fun getItemCount(): Int = itemList.size
 
 }
