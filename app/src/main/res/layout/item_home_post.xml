@@ -60,6 +60,7 @@
             android:layout_width="360dp"
             android:layout_height="360dp"
             android:layout_marginTop="10dp"
+            android:scaleType="centerCrop"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/siv_home_post" />
 
