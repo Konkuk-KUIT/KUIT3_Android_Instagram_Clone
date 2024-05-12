@@ -15,6 +15,11 @@
             android:theme="@style/Theme.CloneInstagram"
             tools:targetApi="31">
         <activity
+                android:name=".ProfileEditActivity"
+                android:exported="false"
+                android:label="@string/title_activity_profile_edit"
+                android:theme="@style/Theme.CloneInstagram" />
+        <activity
                 android:name=".FollowerFollowingActivity"
                 android:exported="false" />
         <activity

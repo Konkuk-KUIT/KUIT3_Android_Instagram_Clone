@@ -20,7 +20,38 @@ class PostFragment : Fragment() {
 
         initPostPicture()
 
+        binding.ivPost1.setOnClickListener {
+            changeFragment()
+        }
+        binding.ivPost2.setOnClickListener {
+            changeFragment()
+        }
+        binding.ivPost3.setOnClickListener {
+            changeFragment()
+        }
+        binding.ivPost4.setOnClickListener {
+            changeFragment()
+        }
+        binding.ivPost5.setOnClickListener {
+            changeFragment()
+        }
+        binding.ivPost6.setOnClickListener {
+            changeFragment()
+        }
+
         return binding.root
+    }
+
+    fun changeFragment(){
+        val strid = requireParentFragment().arguments?.getSerializable("key")
+        requireParentFragment().parentFragmentManager.beginTransaction()
+            .replace(R.id.main_frm, PostDetailFragment().apply{
+                arguments = Bundle().apply {
+                    putSerializable("key", strid)
+                }
+            })
+            .addToBackStack(null)
+            .commit()
     }
 
     private fun initPostPicture() {

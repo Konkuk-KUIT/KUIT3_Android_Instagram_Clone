@@ -28,6 +28,24 @@ class ProfileFragment : Fragment() {
 
             binding.tvEditProfileName.text = homePostData.InstagramID
             binding.sivProfileEdit.setImageResource(homePostData.ProfileImage)
+
+        }
+
+
+
+        binding.ivProfileEdit.setOnClickListener {
+            val intent = Intent(requireActivity(), ProfileEditActivity::class.java)
+            intent.putExtra("ID", binding.tvEditProfileName.text)
+            intent.putExtra("name", binding.tvNameInput.text)
+
+            if (bundle != null && bundle.containsKey("key")) {
+                // Bundle에서 Serializable 객체를 가져와서 캐스팅
+                val homePostData = bundle.getSerializable("key") as HomePostData
+                intent.putExtra("Profile", homePostData.ProfileImage)
+
+            }
+
+            startActivity(intent)
         }
 
         //TabLayout, ViewPager2 생성

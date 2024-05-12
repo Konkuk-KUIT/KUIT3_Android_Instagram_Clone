@@ -11,5 +11,7 @@ class PostTabLayoutVPAdapter (fragment: Fragment) : FragmentStateAdapter(fragmen
             0 -> PostFragment()
             else -> TagedPostFragment()
         }
+
     }
+
 }
