@@ -1,8 +1,10 @@
 package com.example.cloneinstagram.home
 
 import android.widget.ImageView
+import androidx.room.Entity
+import androidx.room.PrimaryKey
 import java.io.Serializable
-
+@Entity
 data class PostData(
     val profileImage: Int,
     val profileImageUrl: String,
@@ -12,6 +14,7 @@ data class PostData(
     val postImageURL: String,
     val postContent: String,
 ) : Serializable {
+    @PrimaryKey(autoGenerate = true) var userUid: Int = 0
     class Builder {
         private var profileImage : Int = 0
         private var profileImageUrl: String =""

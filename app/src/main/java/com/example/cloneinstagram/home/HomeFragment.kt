@@ -1,7 +1,10 @@
 package com.example.cloneinstagram.home
 
+import android.content.Context
 import android.content.Intent
+import android.content.SharedPreferences
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -9,11 +12,15 @@ import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.StaggeredGridLayoutManager
+import androidx.room.Room
 import com.example.cloneinstagram.R
 import com.example.cloneinstagram.databinding.FragmentHomeBinding
 import com.example.cloneinstagram.databinding.ItemHomeStoryBinding
 import com.example.cloneinstagram.databinding.ItemPostHomeBinding
 import com.example.cloneinstagram.profile.profile_main.ProfileFragment
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
 
 class HomeFragment : Fragment() {
     lateinit var binding: FragmentHomeBinding
@@ -43,6 +50,73 @@ class HomeFragment : Fragment() {
             .setProfileUserId("kuit.official")
             .setUserName("쿠잇")
             .build()
+    }
+
+    private fun initData() {
+        val spf_homePost: SharedPreferences = requireContext().getSharedPreferences("home_post4", Context.MODE_PRIVATE)
+
+        // 1번 바로 가져와서 쓰기 ( 싱글톤 패턴 x )
+
+//        val homePostDB = Room.databaseBuilder(
+//            requireContext(),
+//            HomePostDB::class.java,
+//            "homepost-database"
+//        ).allowMainThreadQueries().build()
+
+        // 2번 싱글톤 패턴
+        val homePostDB = HomePostDB.getInstance(requireContext())
+
+        if(!spf_homePost.getBoolean("isInit", false)){
+//            with(spf_homePost.edit()) {
+//                putBoolean("isInit", true)
+//                apply()
+//            }
+//            with(homePostDB!!.HomePostDAO()) {
+//                insert(PostData.Builder()
+//                    .setProfileImage(R.drawable.img_sample)
+//                    .setProfileUserId("kuit.official_1")
+//                    .setProfileName("쿠잇1")
+//                    .setPostImage(R.drawable.img_sample2)
+//                    .setPostContent("첫번째 게시물 첫번째 게시물 첫번째 게시물 첫번째 게시물 첫번째 게시물 첫번째 게시물 첫번째 게시물 첫번째 게시물 첫번째 게시물 첫번째 게시물 첫번째 게시물 첫번째 게시물 첫번째 게시물 첫번째 게시물 첫번째 게시물 첫번째 게시물 첫번째 게시물 첫번째 게시물 첫번째 게시물 첫번째 게시물 첫번째 게시물 첫번째 게시물 첫번째 게시물 첫번째 게시물 첫번째 게시물 첫번째 게시물 첫번째 게시물 첫번째 게시물 첫번째 게시물 첫번째 게시물 ")
+//                    .build())
+//                insert(PostData.Builder()
+//                    .setProfileImage(R.drawable.img_sample2)
+//                    .setProfileUserId("kuit.official_1")
+//                    .setProfileName("쿠잇2")
+//                    .setPostImage(R.drawable.img_sample)
+//                    .setPostContent("두번째 게시물 두번째 게시물 두번째 게시물 두번째 게시물 첫번째 게시물 첫번째 게시물 첫번째 게시물 첫번째 게시물 첫번째 게시물 첫번째 게시물 첫번째 게시물 첫번째 게시물 첫번째 게시물 첫번째 게시물 첫번째 게시물 첫번째 게시물 첫번째 게시물 첫번째 게시물 첫번째 게시물 첫번째 게시물 첫번째 게시물 첫번째 게시물 첫번째 게시물 첫번째 게시물 첫번째 게시물 첫번째 게시물 첫번째 게시물 첫번째 게시물 첫번째 게시물 첫번째 게시물 ")
+//                    .build())
+//            }
+            CoroutineScope(Dispatchers.IO).launch {
+                with(spf_homePost.edit()) {
+                    putBoolean("isInit", true)
+                    apply()
+                }
+                with(homePostDB!!.HomePostDAO()) {
+                    insert(PostData.Builder()
+                        .setProfileImage(R.drawable.img_sample)
+                        .setProfileUserId("kuit.official_1")
+                        .setProfileName("쿠잇1")
+                        .setPostImage(R.drawable.img_sample2)
+                        .setPostContent("첫번째 게시물 첫번째 게시물 첫번째 게시물 첫번째 게시물 첫번째 게시물 첫번째 게시물 첫번째 게시물 첫번째 게시물 첫번째 게시물 첫번째 게시물 첫번째 게시물 첫번째 게시물 첫번째 게시물 첫번째 게시물 첫번째 게시물 첫번째 게시물 첫번째 게시물 첫번째 게시물 첫번째 게시물 첫번째 게시물 첫번째 게시물 첫번째 게시물 첫번째 게시물 첫번째 게시물 첫번째 게시물 첫번째 게시물 첫번째 게시물 첫번째 게시물 첫번째 게시물 첫번째 게시물 ")
+                        .build())
+                    insert(PostData.Builder()
+                        .setProfileImage(R.drawable.img_sample2)
+                        .setProfileUserId("kuit.official_1")
+                        .setProfileName("쿠잇2")
+                        .setPostImage(R.drawable.img_sample)
+                        .setPostContent("두번째 게시물 두번째 게시물 두번째 게시물 두번째 게시물 첫번째 게시물 첫번째 게시물 첫번째 게시물 첫번째 게시물 첫번째 게시물 첫번째 게시물 첫번째 게시물 첫번째 게시물 첫번째 게시물 첫번째 게시물 첫번째 게시물 첫번째 게시물 첫번째 게시물 첫번째 게시물 첫번째 게시물 첫번째 게시물 첫번째 게시물 첫번째 게시물 첫번째 게시물 첫번째 게시물 첫번째 게시물 첫번째 게시물 첫번째 게시물 첫번째 게시물 첫번째 게시물 첫번째 게시물 ")
+                        .build())
+                }
+            }
+
+
+        }
+        CoroutineScope(Dispatchers.IO).launch {
+            itemList.addAll(
+                homePostDB!!.HomePostDAO().getAll()
+            )
+        }
     }
 
     private fun initStoryRV() {
@@ -100,24 +174,4 @@ class HomeFragment : Fragment() {
         })
     }
 
-    private fun initData() {
-        itemList.addAll(
-            arrayListOf(
-                PostData.Builder()
-                    .setProfileImage(R.drawable.img_sample)
-                    .setProfileUserId("kuit.official_1")
-                    .setProfileName("쿠잇1")
-                    .setPostImage(R.drawable.img_sample2)
-                    .setPostContent("첫번째 게시물 첫번째 게시물 첫번째 게시물 첫번째 게시물 첫번째 게시물 첫번째 게시물 첫번째 게시물 첫번째 게시물 첫번째 게시물 첫번째 게시물 첫번째 게시물 첫번째 게시물 첫번째 게시물 첫번째 게시물 첫번째 게시물 첫번째 게시물 첫번째 게시물 첫번째 게시물 첫번째 게시물 첫번째 게시물 첫번째 게시물 첫번째 게시물 첫번째 게시물 첫번째 게시물 첫번째 게시물 첫번째 게시물 첫번째 게시물 첫번째 게시물 첫번째 게시물 첫번째 게시물 ")
-                    .build(),
-                PostData.Builder()
-                    .setProfileImage(R.drawable.img_sample2)
-                    .setProfileUserId("kuit.official_1")
-                    .setProfileName("쿠잇2")
-                    .setPostImage(R.drawable.img_sample)
-                    .setPostContent("두번째 게시물 두번째 게시물 두번째 게시물 두번째 게시물 첫번째 게시물 첫번째 게시물 첫번째 게시물 첫번째 게시물 첫번째 게시물 첫번째 게시물 첫번째 게시물 첫번째 게시물 첫번째 게시물 첫번째 게시물 첫번째 게시물 첫번째 게시물 첫번째 게시물 첫번째 게시물 첫번째 게시물 첫번째 게시물 첫번째 게시물 첫번째 게시물 첫번째 게시물 첫번째 게시물 첫번째 게시물 첫번째 게시물 첫번째 게시물 첫번째 게시물 첫번째 게시물 첫번째 게시물 ")
-                    .build()
-            )
-        )
-    }
 }
