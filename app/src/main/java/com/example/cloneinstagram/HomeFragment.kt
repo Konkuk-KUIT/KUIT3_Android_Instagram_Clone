@@ -102,10 +102,11 @@ class HomeFragment : Fragment() {
 
         storyList.addAll(
             arrayListOf(
-                StoryData(R.drawable.harry, "harry_potter", true),
-                StoryData(R.drawable.ron, "ronald_weasley", true),
-                StoryData(R.drawable.hermione, "hermione_granger", false),
-                StoryData(R.drawable.snape, "severus_snape", false),
+                StoryData(R.drawable.img_sample, "내 스토리", true, true),
+                StoryData(R.drawable.harry, "harry_potter", false, false),
+                StoryData(R.drawable.ron, "ronald_weasley", false, false),
+                StoryData(R.drawable.hermione, "hermione_granger", false, false),
+                StoryData(R.drawable.snape, "severus_snape", false, false),
             )
         )
     }

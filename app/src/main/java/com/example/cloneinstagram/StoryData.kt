@@ -4,5 +4,6 @@ import java.io.Serializable
 data class StoryData(
     val userImg: Int,
     val userId: String,
-    var isSeen: Boolean
+    var isSeen: Boolean,
+    var isMyStory: Boolean
 ): Serializable

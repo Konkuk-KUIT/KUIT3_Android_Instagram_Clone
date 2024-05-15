@@ -2,10 +2,9 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".PostDetailActivity">
+    tools:context=".PostDetailFragment">
 
     <ImageView
         android:id="@+id/iv_previous"
@@ -22,7 +21,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
-        android:text="KUIT.OFFICIAL"
+        android:fontFamily="@font/instagram_sans"
+        android:text="아이디 값이 들어가는 자리"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -31,6 +31,7 @@
         android:id="@+id/tv_post"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:fontFamily="@font/instagram_sans"
         android:text="게시물"
         android:textColor="@color/black"
         android:textStyle="bold"
@@ -54,40 +55,18 @@
         android:layout_height="28dp"
         android:layout_marginStart="10dp"
         android:layout_marginTop="12dp"
+        android:src="@drawable/ic_no_profile"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@id/line1"
         app:shapeAppearance="@style/ShapeAppearance.Material3.Corner.Full" />
-
-    <FrameLayout
-        android:id="@+id/fl_post_detail_story"
-        android:layout_width="36dp"
-        android:layout_height="36dp"
-        app:layout_constraintBottom_toBottomOf="@id/siv_post_detail_profile"
-        app:layout_constraintEnd_toEndOf="@id/siv_post_detail_profile"
-        app:layout_constraintStart_toStartOf="@id/siv_post_detail_profile"
-        app:layout_constraintTop_toTopOf="@id/siv_post_detail_profile">
-
-        <ImageView
-            android:id="@+id/iv_post_detail_story_color"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@drawable/ic_story_color" />
-
-        <ImageView
-            android:id="@+id/iv_post_detail_story_gray"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@drawable/ic_story_gray"
-            android:visibility="gone" />
-
-    </FrameLayout>
 
     <TextView
         android:id="@+id/tv_post_detail_userid_big"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="9dp"
-        android:text="userid"
+        android:fontFamily="@font/instagram_sans"
+        android:text="아이디 값이 들어가는 자리"
         android:textColor="@color/black"
         android:textSize="12sp"
         android:textStyle="bold"
@@ -105,8 +84,8 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="@+id/siv_post_detail_profile" />
 
-    <ImageView
-        android:id="@+id/iv_post_detail_img"
+    <androidx.viewpager2.widget.ViewPager2
+        android:id="@+id/vp_post_detail_img"
         android:layout_width="360dp"
         android:layout_height="360dp"
         android:layout_marginTop="10dp"
@@ -121,7 +100,7 @@
         android:layout_marginTop="10dp"
         android:src="@drawable/ic_like"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/iv_post_detail_img" />
+        app:layout_constraintTop_toBottomOf="@id/vp_post_detail_img" />
 
     <ImageView
         android:id="@+id/iv_post_detail_comment"
@@ -131,7 +110,7 @@
         android:layout_marginTop="10dp"
         android:src="@drawable/ic_comment"
         app:layout_constraintStart_toEndOf="@id/iv_post_detail_like"
-        app:layout_constraintTop_toBottomOf="@id/iv_post_detail_img" />
+        app:layout_constraintTop_toBottomOf="@id/vp_post_detail_img" />
 
     <ImageView
         android:id="@+id/iv_post_detail_share"
@@ -141,7 +120,25 @@
         android:layout_marginTop="10dp"
         android:src="@drawable/ic_share"
         app:layout_constraintStart_toEndOf="@id/iv_post_detail_like"
-        app:layout_constraintTop_toBottomOf="@id/iv_post_detail_img" />
+        app:layout_constraintTop_toBottomOf="@id/vp_post_detail_img" />
+
+    <com.tbuonomo.viewpagerdotsindicator.SpringDotsIndicator
+        android:id="@+id/di_image"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="14dp"
+        app:dampingRatio="0.5"
+        app:dotsColor="#0097FE"
+        app:dotsCornerRadius="100dp"
+
+        app:dotsSize="10dp"
+        app:dotsSpacing="4dp"
+        app:dotsStrokeColor="#DBDBDB"
+        app:dotsStrokeWidth="8dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/vp_post_detail_img"
+        app:stiffness="300" />
 
     <ImageView
         android:id="@+id/iv_post_detail_bookmark"
@@ -151,7 +148,7 @@
         android:layout_marginEnd="15dp"
         android:src="@drawable/ic_save"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/iv_post_detail_img" />
+        app:layout_constraintTop_toBottomOf="@id/vp_post_detail_img" />
 
     <TextView
         android:id="@+id/tv_post_detail_like_id"
@@ -159,6 +156,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="14dp"
         android:layout_marginTop="8dp"
+        android:fontFamily="@font/instagram_sans"
         android:text="kuit.official"
         android:textColor="@color/black"
         android:textSize="12sp"
@@ -170,11 +168,12 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="43dp"
+        android:fontFamily="@font/instagram_sans"
         android:text="님 외 여려명이 좋아합니다"
         android:textColor="@color/black"
         android:textSize="10sp"
         app:layout_constraintStart_toEndOf="@id/tv_post_detail_like_id"
-        app:layout_constraintTop_toBottomOf="@id/iv_post_detail_img" />
+        app:layout_constraintTop_toBottomOf="@id/vp_post_detail_img" />
 
     <TextView
         android:id="@+id/tv_post_detail_userid_small"
@@ -182,6 +181,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="14dp"
         android:layout_marginTop="27dp"
+        android:fontFamily="@font/instagram_sans"
         android:text="userid"
         android:textColor="@color/black"
         android:textSize="12sp"
@@ -196,6 +196,7 @@
         android:layout_marginStart="4dp"
         android:layout_marginTop="28dp"
         android:ellipsize="end"
+        android:fontFamily="@font/instagram_sans"
         android:maxLines="1"
         android:text="게시글이 들어갈 자리"
         android:textColor="@color/black"
@@ -204,8 +205,10 @@
         app:layout_constraintTop_toBottomOf="@id/iv_post_detail_like" />
 
     <TextView
+        android:id="@+id/iv_post_detail_more"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:fontFamily="@font/instagram_sans"
         android:text="더보기"
         android:textSize="10sp"
         app:layout_constraintBottom_toBottomOf="@id/tv_post_detail_content"
@@ -213,11 +216,12 @@
         app:layout_constraintTop_toTopOf="@id/tv_post_detail_content" />
 
     <TextView
-        android:id="@+id/tv_show_coment"
+        android:id="@+id/tv_show_comment"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="14dp"
         android:layout_marginTop="6dp"
+        android:fontFamily="@font/instagram_sans"
         android:text="댓글 모두 보기"
         android:textSize="10sp"
         app:layout_constraintStart_toStartOf="parent"
@@ -228,10 +232,11 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="14dp"
         android:layout_marginTop="6dp"
+        android:fontFamily="@font/instagram_sans"
         android:text="2024년 3월"
         android:textSize="10sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tv_show_coment" />
+        app:layout_constraintTop_toBottomOf="@id/tv_show_comment" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -27,8 +27,13 @@ class PostFragment : Fragment() {
 
     private fun setupClickListener() {
         val listener = View.OnClickListener {
-            val intent = Intent(context, PostDetailActivity::class.java)
-            startActivity(intent)
+            val postDetailFragment = PostDetailFragment()
+
+
+            parentFragmentManager.beginTransaction()
+                .replace(R.id.main_frm, postDetailFragment)
+                .addToBackStack(null)
+                .commit()
         }
 
         binding.ivPost1.setOnClickListener(listener)
@@ -38,6 +43,8 @@ class PostFragment : Fragment() {
         binding.ivPost5.setOnClickListener(listener)
         binding.ivPost6.setOnClickListener(listener)
     }
+
+
 
     private fun initDummyData() {
         Glide.with(this).load("https://cdn.pixabay.com/photo/2014/11/30/14/11/cat-551554_1280.jpg").centerCrop().into(binding.ivPost1)

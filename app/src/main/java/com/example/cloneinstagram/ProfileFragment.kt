@@ -29,6 +29,19 @@ class ProfileFragment : Fragment() {
             binding.sivProfileImg.setImageResource(postData.profileImg)
         }
 
+        binding.ivEditProfile.setOnClickListener {
+            val intent = Intent(requireActivity(), EditProfileActivity::class.java)
+            intent.putExtra("name", binding.tvName.text)
+            intent.putExtra("ID", binding.tvProfileId.text)
+
+            if(bundle!=null && bundle.containsKey("key")) {
+                val postData = bundle.getSerializable("key") as PostData
+                intent.putExtra("profile", postData.profileImg)
+            }
+
+            startActivity(intent)
+        }
+
         initView()
 
         initUsers()

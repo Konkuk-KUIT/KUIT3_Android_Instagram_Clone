@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="82dp"
     android:layout_height="match_parent"
-    android:layout_marginEnd="12dp"
     android:layout_marginTop="8dp"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    android:layout_marginEnd="12dp">
 
     <com.google.android.material.imageview.ShapeableImageView
         android:id="@+id/siv_home_story"
@@ -17,28 +17,25 @@
         app:layout_constraintTop_toTopOf="parent"
         app:shapeAppearance="@style/ShapeAppearance.Material3.Corner.Full" />
 
-    <FrameLayout
-        android:id="@+id/fl_home_story"
+    <ImageView
+        android:id="@+id/iv_story_visibility"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:src="@drawable/ic_story_color"
         app:layout_constraintBottom_toBottomOf="@id/siv_home_story"
         app:layout_constraintEnd_toEndOf="@id/siv_home_story"
         app:layout_constraintStart_toStartOf="@id/siv_home_story"
-        app:layout_constraintTop_toTopOf="@id/siv_home_story">
+        app:layout_constraintTop_toTopOf="@id/siv_home_story" />
 
-        <ImageView
-            android:id="@+id/iv_home_story_gray"
-            android:layout_width="82dp"
-            android:layout_height="82dp"
-            android:src="@drawable/ic_story_gray"/>
-
-        <ImageView
-            android:id="@+id/iv_home_story_color"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@drawable/ic_story_color"/>
-
-    </FrameLayout>
+    <ImageView
+        android:id="@+id/iv_add_story"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_story_plus"
+        app:layout_constraintTop_toTopOf="@id/siv_home_story"
+        app:layout_constraintStart_toStartOf="@id/siv_home_story"
+        android:layout_marginTop="46dp"
+        android:layout_marginStart="46dp" />
 
     <TextView
         android:id="@+id/tv_home_story_id"
