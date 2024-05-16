@@ -1,7 +1,9 @@
 package com.example.cloneinstagram
 
 import android.annotation.SuppressLint
+import android.content.Context
 import android.content.Intent
+import android.content.SharedPreferences
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -11,6 +13,10 @@ import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.cloneinstagram.databinding.FragmentHomeBinding
 import com.example.cloneinstagram.databinding.ItemHomePostBinding
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.awaitAll
+import kotlinx.coroutines.launch
 
 
 class HomeFragment : Fragment() {
@@ -19,6 +25,8 @@ class HomeFragment : Fragment() {
     lateinit var binding2:FragmentHomeBinding
     private var itemList : ArrayList<ItemHomePostData> = arrayListOf()
     private var adapter : HomeAdapter ?= null
+    private var itemList2 : ArrayList<HomeStoryData> = arrayListOf()
+    private var adapter2 : HomeStoryAdapter ?= null
 
     @SuppressLint("CommitTransaction")
     override fun onCreateView(
@@ -78,6 +86,11 @@ class HomeFragment : Fragment() {
         adapter = HomeAdapter(itemList)
         binding2.rvHomePosting.adapter = adapter
         binding2.rvHomePosting.layoutManager = LinearLayoutManager(context, LinearLayoutManager.VERTICAL,false)
+
+        adapter2 = HomeStoryAdapter(itemList2)
+        binding2.rvHomeStory.adapter = adapter2
+        binding2.rvHomeStory.layoutManager = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
+
         adapter!!.setOnItemClickListener(object : HomeAdapter.OnItemClickListener{
             override fun onItemCLick(item: ItemHomePostData) {
                 //이 코드는 Profile 화면이 Fragment일 때 bundle arugument로 전달한다.
@@ -97,12 +110,66 @@ class HomeFragment : Fragment() {
     }
 
     private fun initializeDataSet(){
-        itemList.addAll(
-            arrayListOf(
-                ItemHomePostData(R.drawable.img_sample3, "user1", R.drawable.img_sample3, "여러분 그거 아시나요? 벚꽃의 꽃말은 중간고사 랍니다. 하하하. 빨리 종강시켜줘. 공부는 좋지만 시험은 싫어."),
-                ItemHomePostData(R.drawable.img_sample4, "user2", R.drawable.img_sample4, "안드로이드 너무 어려워요. 워크북 너무 오래 걸려요. 거의 체감상 서버랑 비슷한 느낌. 안드도 재밌지만 서버하고 싶어요"),
-                ItemHomePostData(R.drawable.img_sample5, "user3", R.drawable.img_sample5, "새벽 3시 경에 건국대학교에서 이상한 일들이 많이 일어난다는 사실 알고 계셨나요? 도서관 앞 동상이 책장을 넘기기도 하고, 일감호 한가운 데서 누군가 물위흫 걸어다닌데요")
+        val spf_homePost : SharedPreferences = requireContext().getSharedPreferences("home_post", Context.MODE_PRIVATE)
+
+        val homeDB = HomeDB.getInstance(requireContext())
+
+        if(!spf_homePost.getBoolean("isInit", false)){
+            with(spf_homePost.edit()){
+                putBoolean("isInit", true)
+                apply()
+            }
+            CoroutineScope(Dispatchers.IO).launch {
+                with(homeDB!!.ItemHomePostDao()){
+                    homeDB.ItemHomePostDao().putItemHomePostData(ItemHomePostData(R.drawable.img_sample3, "user1", R.drawable.img_sample3, "여러분 그거 아시나요? 벚꽃의 꽃말은 중간고사 랍니다. 하하하. 빨리 종강시켜줘. 공부는 좋지만 시험은 싫어."))
+                    homeDB.ItemHomePostDao().putItemHomePostData(ItemHomePostData(R.drawable.img_sample4, "user2", R.drawable.img_sample4, "안드로이드 너무 어려워요. 워크북 너무 오래 걸려요. 거의 체감상 서버랑 비슷한 느낌. 안드도 재밌지만 서버하고 싶어요"))
+                    homeDB.ItemHomePostDao().putItemHomePostData(ItemHomePostData(R.drawable.img_sample5, "user3", R.drawable.img_sample5, "새벽 3시 경에 건국대학교에서 이상한 일들이 많이 일어난다는 사실 알고 계셨나요? 도서관 앞 동상이 책장을 넘기기도 하고, 일감호 한가운 데서 누군가 물위흫 걸어다닌데요"))
+                }
+                with(homeDB.HomeStoryDao()){
+                    homeDB.HomeStoryDao().putHomeStoryData(HomeStoryData(R.drawable.img_sample, "kwon"))
+                    homeDB.HomeStoryDao().putHomeStoryData(HomeStoryData(R.drawable.img_sample2, "min"))
+                    homeDB.HomeStoryDao().putHomeStoryData(HomeStoryData(R.drawable.img_sample3, "hyeok"))
+                    homeDB.HomeStoryDao().putHomeStoryData(HomeStoryData(R.drawable.img_sample4, "hello"))
+                    homeDB.HomeStoryDao().putHomeStoryData(HomeStoryData(R.drawable.img_sample5, "world"))
+                    homeDB.HomeStoryDao().putHomeStoryData(HomeStoryData(R.drawable.img_sample, "kwon"))
+                    homeDB.HomeStoryDao().putHomeStoryData(HomeStoryData(R.drawable.img_sample2, "min"))
+                    homeDB.HomeStoryDao().putHomeStoryData(HomeStoryData(R.drawable.img_sample3, "hyeok"))
+                    homeDB.HomeStoryDao().putHomeStoryData(HomeStoryData(R.drawable.img_sample4, "hello"))
+                    homeDB.HomeStoryDao().putHomeStoryData(HomeStoryData(R.drawable.img_sample5, "world"))
+                }
+            }
+        }
+
+        CoroutineScope(Dispatchers.IO).launch {
+            itemList.addAll(
+                homeDB!!.ItemHomePostDao().getItemHomePostData()
             )
-        )
+            itemList2.addAll(
+                homeDB.HomeStoryDao().getHomeStoryData()
+            )
+        }
+
+//        itemList.addAll(
+//            arrayListOf(
+//                ItemHomePostData(R.drawable.img_sample3, "user1", R.drawable.img_sample3, "여러분 그거 아시나요? 벚꽃의 꽃말은 중간고사 랍니다. 하하하. 빨리 종강시켜줘. 공부는 좋지만 시험은 싫어."),
+//                ItemHomePostData(R.drawable.img_sample4, "user2", R.drawable.img_sample4, "안드로이드 너무 어려워요. 워크북 너무 오래 걸려요. 거의 체감상 서버랑 비슷한 느낌. 안드도 재밌지만 서버하고 싶어요"),
+//                ItemHomePostData(R.drawable.img_sample5, "user3", R.drawable.img_sample5, "새벽 3시 경에 건국대학교에서 이상한 일들이 많이 일어난다는 사실 알고 계셨나요? 도서관 앞 동상이 책장을 넘기기도 하고, 일감호 한가운 데서 누군가 물위흫 걸어다닌데요")
+//            )
+//        )
+
+//        itemList2.addAll(
+//            arrayListOf(
+//                HomeStoryData(R.drawable.img_sample, "kwon"),
+//                HomeStoryData(R.drawable.img_sample2, "min"),
+//                HomeStoryData(R.drawable.img_sample3, "hyeok"),
+//                HomeStoryData(R.drawable.img_sample4, "hello"),
+//                HomeStoryData(R.drawable.img_sample5, "world"),
+//                HomeStoryData(R.drawable.img_sample, "kwon"),
+//                HomeStoryData(R.drawable.img_sample2, "min"),
+//                HomeStoryData(R.drawable.img_sample3, "hyeok"),
+//                HomeStoryData(R.drawable.img_sample4, "hello"),
+//                HomeStoryData(R.drawable.img_sample5, "world")
+//            )
+//        )
     }
 }
