@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:layout_weight="1"
@@ -142,13 +143,13 @@
                 android:id="@+id/tv_profile_bottom_name"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textSize="16sp"
-                android:text="쿠잇"
-                app:layout_constraintTop_toBottomOf="@id/siv_profile_ellipse"
-                app:layout_constraintStart_toStartOf="parent"
                 android:layout_marginStart="13dp"
+                android:text="이름 값 전달"
                 android:textColor="@color/black"
-                android:textStyle="bold"/>
+                android:textSize="16sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/siv_profile_ellipse" />
             <FrameLayout
                 android:id="@+id/fl_profile_edit"
                 android:layout_width="wrap_content"
