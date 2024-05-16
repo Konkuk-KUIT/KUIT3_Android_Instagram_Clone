@@ -69,7 +69,7 @@ class ProfileFragment : Fragment() {
     }
 
     private fun initView() {
-        binding.vpProfileTab.adapter = ProfileTabLayoutVPAdapter(requireActivity())
+        binding.vpProfileTab.adapter = ProfileTabLayoutVPAdapter(this)
 
         TabLayoutMediator(binding.tlProfile, binding.vpProfileTab) { tab, position ->
             tab.setIcon(tabIcons[position])
