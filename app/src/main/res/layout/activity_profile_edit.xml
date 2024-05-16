@@ -1,0 +1,230 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".profile.profile_main.ProfileEditActivity">
+    
+    <ImageView
+        android:id="@+id/iv_profile_edit_left"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_chevron_left"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginTop="9dp"
+        android:layout_marginStart="3dp"/>
+    
+    <TextView
+        android:id="@+id/tv_profile_edit_profile_edit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="프로필 편집"
+        android:textStyle="bold"
+        android:fontFamily="@font/inter_variablefont_slnt_wght"
+        android:textColor="@color/black"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="14dp"/>
+    
+    <View
+        android:id="@+id/v_profile_edit_line"
+        android:layout_width="match_parent"
+        android:layout_height="0.3dp"
+        android:background="#BDBDBD"
+        app:layout_constraintTop_toBottomOf="@id/tv_profile_edit_profile_edit"
+        android:layout_marginTop="13.51dp"/>
+
+    <com.google.android.material.imageview.ShapeableImageView
+        android:id="@+id/siv_profile_edit_profile_image"
+        android:layout_width="74dp"
+        android:layout_height="74dp"
+        android:background="#BDBDBD"
+        app:shapeAppearance="@style/ShapeAppearance.Material3.Corner.Full"
+        app:layout_constraintTop_toBottomOf="@id/v_profile_edit_line"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginTop="14.49dp"
+        android:layout_marginStart="96dp"/>
+
+    <com.google.android.material.imageview.ShapeableImageView
+        android:id="@+id/siv_profile_edit_avatar"
+        android:layout_width="74dp"
+        android:layout_height="74dp"
+        android:background="#FFF"
+        app:shapeAppearance="@style/ShapeAppearance.Material3.Corner.Full"
+        app:layout_constraintTop_toBottomOf="@id/v_profile_edit_line"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="14.49dp"
+        android:layout_marginEnd="96dp"
+        app:strokeColor="@color/black"
+        app:strokeWidth="1dp"/>
+    
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="#029CFE"
+        android:text="사진 또는 아바타 수정"
+        android:textSize="10sp"
+        android:textStyle="bold"
+        android:fontFamily="@font/inter_variablefont_slnt_wght"
+        app:layout_constraintTop_toBottomOf="@id/siv_profile_edit_profile_image"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="16dp"/>
+
+    <View
+        android:id="@+id/v_profile_edit_line_2"
+        android:layout_width="match_parent"
+        android:layout_height="0.3dp"
+        android:background="#BDBDBD"
+        app:layout_constraintTop_toBottomOf="@id/siv_profile_edit_profile_image"
+        android:layout_marginTop="43dp"/>
+    
+    <LinearLayout
+        android:id="@+id/ll_profile_edit_1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintTop_toBottomOf="@id/v_profile_edit_line_2"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginTop="15dp"
+        android:layout_marginStart="14dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="이름"
+            android:textColor="@color/black"
+            android:textSize="12sp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="사용자 이름"
+            android:textColor="@color/black"
+            android:textSize="12sp"
+            android:layout_marginTop="29dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="성별 대명사"
+            android:textColor="@color/black"
+            android:textSize="12sp"
+            android:layout_marginTop="29dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="소개"
+            android:textColor="@color/black"
+            android:textSize="12sp"
+            android:layout_marginTop="29dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="링크"
+            android:textColor="@color/black"
+            android:textSize="12sp"
+            android:layout_marginTop="29dp"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintTop_toTopOf="@id/ll_profile_edit_1"
+        app:layout_constraintStart_toEndOf="@id/ll_profile_edit_1"
+        android:layout_marginStart="28dp">
+
+        <TextView
+            android:id="@+id/tv_profile_edit_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="쿠잇"
+            android:textColor="@color/black"
+            android:textSize="12sp"/>
+
+        <View
+            android:layout_width="242dp"
+            android:layout_height="0.3dp"
+            android:background="#BDBDBD"
+            android:layout_marginTop="13dp"/>
+
+        <TextView
+            android:id="@+id/tv_profile_edit_userID"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="userID"
+            android:textColor="@color/black"
+            android:textSize="12sp"
+            android:layout_marginTop="15dp"/>
+
+        <View
+            android:layout_width="242dp"
+            android:layout_height="0.3dp"
+            android:background="#BDBDBD"
+            android:layout_marginTop="13dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="성별 대명사"
+            android:textColor="#CDCDCF"
+            android:textSize="12sp"
+            android:layout_marginTop="15dp"/>
+
+        <View
+            android:layout_width="242dp"
+            android:layout_height="0.3dp"
+            android:background="#BDBDBD"
+            android:layout_marginTop="13dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="소개"
+            android:textColor="#CDCDCF"
+            android:textSize="12sp"
+            android:layout_marginTop="15dp"/>
+
+        <View
+            android:layout_width="242dp"
+            android:layout_height="0.3dp"
+            android:background="#BDBDBD"
+            android:layout_marginTop="13dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="링크 추가"
+            android:textColor="#CDCDCF"
+            android:textSize="12sp"
+            android:layout_marginTop="15dp"/>
+
+    </LinearLayout>
+
+    <ImageView
+        android:id="@+id/iv_profile_edit_right"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_chevron_right"
+        app:layout_constraintBottom_toBottomOf="@id/ll_profile_edit_1"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginEnd="16dp"/>
+
+    <View
+        android:id="@+id/v_profile_edit_line_3"
+        android:layout_width="match_parent"
+        android:layout_height="0.3dp"
+        android:background="#BDBDBD"
+        app:layout_constraintTop_toBottomOf="@id/iv_profile_edit_right"
+        android:layout_marginTop="8dp" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

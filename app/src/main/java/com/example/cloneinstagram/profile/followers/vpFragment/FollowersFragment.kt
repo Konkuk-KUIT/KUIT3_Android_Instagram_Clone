@@ -37,9 +37,10 @@ class FollowersFragment : Fragment() {
     }
     /**어댑터설정**/
     private fun initRV() {
+        val size = followerList.size
         followerAdapter = FollowerAdapter(followerList)
         binding.rvFollowers.adapter = followerAdapter
-        binding.tvFollowersText.text = "abcd"
+        binding.tvFollowersText.text = "$size 팔로워"
         binding.rvFollowers.layoutManager = LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)
     }
 }

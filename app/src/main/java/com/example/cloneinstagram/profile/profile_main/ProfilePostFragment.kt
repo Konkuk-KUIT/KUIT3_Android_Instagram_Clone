@@ -4,28 +4,71 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
-import com.bumptech.glide.Glide
+import androidx.recyclerview.widget.GridLayoutManager
 import com.example.cloneinstagram.R
+import com.example.cloneinstagram.databinding.FragmentProfileBinding
 import com.example.cloneinstagram.databinding.FragmentProfilePostBinding
+import com.example.cloneinstagram.data.PostData
+import com.example.cloneinstagram.data.UsersData
 
 class ProfilePostFragment : Fragment() {
-    lateinit var binding : FragmentProfilePostBinding
+    lateinit var binding: FragmentProfilePostBinding
+    lateinit var profileBinding: FragmentProfileBinding
     private val urlList = arrayListOf<String>()
+    private val itemList = arrayListOf<PostData>()
+    private lateinit var profilePostAdapter: ProfilePostAdapter
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
         binding = FragmentProfilePostBinding.inflate(inflater, container, false)
-        initList()
-        initGlide()
+        profileBinding = FragmentProfileBinding.inflate(inflater, container, false)
+
+        val data = arguments?.getSerializable("usersData") as UsersData
+
+        initUrlList()
+        initItemData(data)
+        initRV()
 
         return binding.root
     }
 
-    private fun initList() {
+    private fun initRV() {
+        profilePostAdapter = ProfilePostAdapter(this, itemList)
+        binding.rvProfilePost.adapter = profilePostAdapter
+        binding.rvProfilePost.layoutManager = GridLayoutManager(context, 3)
+
+        profilePostAdapter.setOnItemClickListener(object : ProfilePostAdapter.OnItemClickListener {
+
+            override fun setOnItemClickListener(postData: PostData) {
+                val profileDetailPostFragment = ProfileDetailPostFragment()
+                profileDetailPostFragment.arguments = bundleOf("data" to postData)
+
+                parentFragment?.parentFragmentManager?.beginTransaction()
+                    ?.replace(R.id.main_frm, profileDetailPostFragment)
+                    ?.addToBackStack(null)
+                    ?.commit()
+            }
+        })
+    }
+    private fun initItemData(data: UsersData) {
+        for (i in 0..13) {
+            itemList.add(
+                PostData.Builder()
+                    .setProfileImage(data.profileImage)
+                    .setProfileUserId(data.profileUserId)
+                    .setProfileName(data.userName)
+                    .setPostImageURL(urlList[i])
+                    .setPostContent("쿠잇 3기 시작합니다!! 다들 열심히 한 학기 마무리해봐요. 쿠잇 3기 시작합니다!! 다들 열심히 한 학기 마무리해봐요. 쿠잇 3기 시작합니다!! 다들 열심히 한 학기 마무리해봐요.")
+                    .build()
+            )
+        }
+    }
+
+    private fun initUrlList() {
         urlList.add("https://cdn.pixabay.com/photo/2019/08/07/14/11/dog-4390885_1280.jpg")
         urlList.add("https://cdn.pixabay.com/photo/2019/07/23/13/51/shepherd-dog-4357790_1280.jpg")
         urlList.add("https://cdn.pixabay.com/photo/2018/05/11/08/11/dog-3389729_1280.jpg")
@@ -41,51 +84,4 @@ class ProfilePostFragment : Fragment() {
         urlList.add("https://cdn.pixabay.com/photo/2020/03/01/15/30/fox-4893199_1280.jpg")
         urlList.add("https://cdn.pixabay.com/photo/2023/10/17/05/25/fox-squirrel-8320423_960_720.jpg")
     }
-
-    private fun initGlide() {
-        Glide.with(this)
-            .load(urlList[0])
-            .into(binding.ivProfilePost1)
-        Glide.with(this)
-            .load(R.drawable.ic_create)
-            .into(binding.ivProfilePost2)
-        Glide.with(this)
-            .load(urlList[2])
-            .into(binding.ivProfilePost3)
-        Glide.with(this)
-            .load(urlList[3])
-            .into(binding.ivProfilePost4)
-        Glide.with(this)
-            .load(urlList[4])
-            .into(binding.ivProfilePost5)
-        Glide.with(this)
-            .load(urlList[5])
-            .into(binding.ivProfilePost6)
-        Glide.with(this)
-            .load(urlList[6])
-            .into(binding.ivProfilePost7)
-        Glide.with(this)
-            .load(urlList[7])
-            .into(binding.ivProfilePost8)
-        Glide.with(this)
-            .load(urlList[8])
-            .into(binding.ivProfilePost9)
-        Glide.with(this)
-            .load(urlList[9])
-            .into(binding.ivProfilePost10)
-        Glide.with(this)
-            .load(urlList[10])
-            .into(binding.ivProfilePost11)
-        Glide.with(this)
-            .load(urlList[11])
-            .into(binding.ivProfilePost12)
-        Glide.with(this)
-            .load(urlList[12])
-            .into(binding.ivProfilePost13)
-        Glide.with(this)
-            .load(urlList[13])
-            .into(binding.ivProfilePost14)
-
-    }
-
 }

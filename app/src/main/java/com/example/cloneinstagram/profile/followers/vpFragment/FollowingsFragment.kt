@@ -15,7 +15,7 @@ import com.example.cloneinstagram.profile.followers.adapter.FollowingAdapter
 class FollowingsFragment : Fragment() {
     lateinit var binding : FragmentFollowingsBinding
     private val followingList = arrayListOf<FollowerData>()
-    private lateinit var followerAdapter : FollowerAdapter
+    private lateinit var followingAdapter: FollowingAdapter
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -24,14 +24,16 @@ class FollowingsFragment : Fragment() {
 
         initData()
         initRV()
+        binding.rvFollowings.adapter = FollowingAdapter(followingList)
 
         return binding.root
     }
 
     private fun initRV() {
-        followerAdapter = FollowerAdapter(followingList)
-        binding.rvFollowings.adapter = followerAdapter
-        binding.tvFollowingsText.text = "abcd"
+        val size = followingList.size
+        followingAdapter= FollowingAdapter(followingList)
+        binding.rvFollowings.adapter = followingAdapter
+        binding.tvFollowingsText.text = "$size 팔로잉"
         binding.rvFollowings.layoutManager = LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)
     }
 

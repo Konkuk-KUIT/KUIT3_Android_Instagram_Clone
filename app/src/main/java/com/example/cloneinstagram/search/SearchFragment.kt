@@ -1,4 +1,4 @@
-package com.example.cloneinstagram
+package com.example.cloneinstagram.search
 
 import android.os.Bundle
 import android.view.LayoutInflater

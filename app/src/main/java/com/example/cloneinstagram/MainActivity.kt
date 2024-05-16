@@ -6,6 +6,8 @@ import androidx.appcompat.app.AppCompatActivity
 import com.example.cloneinstagram.databinding.ActivityMainBinding
 import com.example.cloneinstagram.home.HomeFragment
 import com.example.cloneinstagram.profile.profile_main.ProfileFragment
+import com.example.cloneinstagram.reels.ReelsFragment
+import com.example.cloneinstagram.search.SearchFragment
 
 
 class MainActivity : AppCompatActivity() {

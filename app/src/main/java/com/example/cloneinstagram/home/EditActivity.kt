@@ -2,6 +2,7 @@ package com.example.cloneinstagram.home
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import com.example.cloneinstagram.data.PostData
 import com.example.cloneinstagram.databinding.ActivityEditBinding
 
 class EditActivity : AppCompatActivity() {

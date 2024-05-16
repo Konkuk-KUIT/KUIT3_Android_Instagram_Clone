@@ -9,13 +9,12 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.cloneinstagram.R
 import com.example.cloneinstagram.databinding.FragmentSubscribeBinding
 import com.example.cloneinstagram.profile.followers.FollowerData
-import com.example.cloneinstagram.profile.followers.adapter.FollowerAdapter
 import com.example.cloneinstagram.profile.followers.adapter.SubscribeAdapter
 
 class SubscribeFragment : Fragment() {
     lateinit var binding : FragmentSubscribeBinding
     private val subscribeList = arrayListOf<FollowerData>()
-    private lateinit var follwerAdapter: FollowerAdapter
+    private lateinit var subscribeAdapter: SubscribeAdapter
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -24,17 +23,17 @@ class SubscribeFragment : Fragment() {
 
         initData()
         initRV()
+        binding.rvSubscribe.adapter = SubscribeAdapter(subscribeList)
 
         return binding.root
     }
 
     private fun initRV() {
-        follwerAdapter = FollowerAdapter(subscribeList)
-        binding.rvSubscribe.adapter = follwerAdapter
-        binding.tvSubscribeText.text = "abcd"
+        subscribeAdapter = SubscribeAdapter(subscribeList)
+        binding.rvSubscribe.adapter = subscribeAdapter
+        binding.tvSubscribeText.text = "구독"
         binding.rvSubscribe.layoutManager = LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)
     }
-
     private fun initData() {
         for (i in 1..10)
             subscribeList.add(

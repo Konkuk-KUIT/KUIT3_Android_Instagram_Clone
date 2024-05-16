@@ -4,10 +4,10 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".profile.followers.ProfileListFragment">
+    tools:context=".profile.followers.ProfileFollowerListFragment">
 
     <ImageView
-        android:id="@+id/iv_profile_list_chevron_left"
+        android:id="@+id/iv_profile_follower_list_chevron_left"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:src="@drawable/ic_chevron_left"
@@ -17,7 +17,7 @@
         android:layout_marginStart="3dp"/>
     
     <TextView
-        android:id="@+id/tv_profile_list_user_id"
+        android:id="@+id/tv_profile_follower_list_user_id"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="user_id"
@@ -30,10 +30,10 @@
         android:layout_marginTop="14dp"/>
 
     <com.google.android.material.tabs.TabLayout
-        android:id="@+id/tl_followers_list"
+        android:id="@+id/tl_followers_follower_list"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@id/iv_profile_list_chevron_left"
+        app:layout_constraintTop_toBottomOf="@id/iv_profile_follower_list_chevron_left"
         app:tabIndicatorAnimationMode="linear"
         app:tabIndicatorColor="@color/black"
         app:tabIndicatorFullWidth="true"
@@ -41,11 +41,11 @@
         app:tabIconTint="@color/black" />
 
     <androidx.viewpager2.widget.ViewPager2
-        android:id="@+id/vp_followers_list"
+        android:id="@+id/vp_followers_follower_list"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tl_followers_list"/>
+        app:layout_constraintTop_toBottomOf="@id/tl_followers_follower_list"/>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
