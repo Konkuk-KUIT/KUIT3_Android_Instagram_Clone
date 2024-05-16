@@ -1,29 +1,28 @@
 package com.example.cloneinstagram.home
 
 import android.content.Context
-import android.util.Log
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
-import com.example.cloneinstagram.data.PostData
+import com.example.cloneinstagram.data.UsersData
 
-@Database(entities = [PostData::class], version = 3)
-abstract class HomePostDB : RoomDatabase() {
-    abstract fun HomePostDAO() : HomePostDAO
+@Database(entities = [UsersData::class], version = 1)
+abstract class HomeStoryDB : RoomDatabase() {
+    abstract fun HomeStoryDAO() : HomeStoryDAO
 
     companion object{
-        private var instance: HomePostDB? = null
+        private var instance: HomeStoryDB? = null
 
         @Synchronized
-        fun getInstance(context: Context): HomePostDB?{
+        fun getInstance(context: Context): HomeStoryDB?{
 
             if(instance == null){
 
-                synchronized(HomePostDB){
+                synchronized(HomeStoryDB){
                     instance = Room.databaseBuilder(
                         context,
-                        HomePostDB::class.java,
-                        "homepost-database"
+                        HomeStoryDB::class.java,
+                        "homestory-database"
                     ).fallbackToDestructiveMigration().build()
                 }
             }

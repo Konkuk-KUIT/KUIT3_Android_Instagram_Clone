@@ -3,9 +3,10 @@ package com.example.cloneinstagram.home
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.example.cloneinstagram.data.PostData
 import com.example.cloneinstagram.databinding.ItemPostHomeBinding
 
-class PostAdapter(val items : ArrayList<PostData>) : RecyclerView.Adapter<PostAdapter.ViewHolder>() {
+class HomePostAdapter(val items : ArrayList<PostData>) : RecyclerView.Adapter<HomePostAdapter.ViewHolder>() {
     private lateinit var itemClickListener: OnItemClickListener
     private val CLICK_USERID = 1 // user id 클릭
     private val CLICK_SHOWMORE = 2 // 더보기 클릭

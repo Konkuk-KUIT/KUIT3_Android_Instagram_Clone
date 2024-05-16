@@ -3,7 +3,7 @@ package com.example.cloneinstagram.profile.profile_main
 import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
 import androidx.viewpager2.adapter.FragmentStateAdapter
-import com.example.cloneinstagram.home.UsersData
+import com.example.cloneinstagram.data.UsersData
 
 class ProfileTLVPAdapter(fragment: Fragment, usersData: UsersData) : FragmentStateAdapter(fragment) {
 

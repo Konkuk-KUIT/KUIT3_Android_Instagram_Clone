@@ -1,13 +1,17 @@
-package com.example.cloneinstagram.home
+package com.example.cloneinstagram.data
 
+import androidx.room.Entity
+import androidx.room.PrimaryKey
 import java.io.Serializable
 
+@Entity
 data class UsersData(
     val profileImage: Int,
     val profileImageUrl: String,
     val profileUserId: String,
     val userName: String,
 ) : Serializable {
+    @PrimaryKey(autoGenerate = true) var userStoryId: Int = 0
     class Builder {
         private var profileImage : Int = 0
         private var profileImageUrl : String=""

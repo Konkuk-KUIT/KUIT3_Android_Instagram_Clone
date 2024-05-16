@@ -6,9 +6,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.viewpager2.widget.ViewPager2
-import com.bumptech.glide.Glide
 import com.example.cloneinstagram.databinding.FragmentProfileDetailPostBinding
-import com.example.cloneinstagram.home.PostData
+import com.example.cloneinstagram.data.PostData
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.delay

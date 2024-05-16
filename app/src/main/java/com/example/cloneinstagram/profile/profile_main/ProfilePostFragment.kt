@@ -4,19 +4,14 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.GridLayout
-import android.widget.ImageView
-import android.widget.TextView
 import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.GridLayoutManager
 import com.example.cloneinstagram.R
 import com.example.cloneinstagram.databinding.FragmentProfileBinding
 import com.example.cloneinstagram.databinding.FragmentProfilePostBinding
-import com.example.cloneinstagram.home.HomeFragment
-import com.example.cloneinstagram.home.PostData
-import com.example.cloneinstagram.home.UsersData
-import java.io.Serializable
+import com.example.cloneinstagram.data.PostData
+import com.example.cloneinstagram.data.UsersData
 
 class ProfilePostFragment : Fragment() {
     lateinit var binding: FragmentProfilePostBinding

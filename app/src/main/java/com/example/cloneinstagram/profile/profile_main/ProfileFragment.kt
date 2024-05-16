@@ -8,9 +8,9 @@ import android.view.ViewGroup
 import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
 import com.example.cloneinstagram.R
-import com.example.cloneinstagram.home.PostData
+import com.example.cloneinstagram.data.PostData
 import com.example.cloneinstagram.databinding.FragmentProfileBinding
-import com.example.cloneinstagram.home.UsersData
+import com.example.cloneinstagram.data.UsersData
 import com.example.cloneinstagram.profile.followers.ProfileFollowerListFragment
 import com.google.android.material.tabs.TabLayoutMediator
 

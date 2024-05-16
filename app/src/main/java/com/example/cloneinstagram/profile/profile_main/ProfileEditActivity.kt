@@ -4,7 +4,7 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.bumptech.glide.Glide
 import com.example.cloneinstagram.databinding.ActivityProfileEditBinding
-import com.example.cloneinstagram.home.UsersData
+import com.example.cloneinstagram.data.UsersData
 
 class ProfileEditActivity : AppCompatActivity() {
     lateinit var binding : ActivityProfileEditBinding
