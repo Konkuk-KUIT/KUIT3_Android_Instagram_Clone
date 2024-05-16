@@ -15,6 +15,7 @@ import androidx.room.Room
 import com.example.cloneinstagram.databinding.FragmentHomeBinding
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.coroutineScope
 import kotlinx.coroutines.launch
 
 
@@ -22,6 +23,7 @@ class HomeFragment : Fragment() {
     lateinit var binding: FragmentHomeBinding
     private var itemList:ArrayList<PostData> =arrayListOf()
     private var postAdapter:PostAdapter?=null
+    private var storyList:ArrayList<StoryData> =arrayListOf()
     private lateinit var storyAdapter:StoryAdapter
 
     override fun onCreateView(
@@ -33,14 +35,56 @@ class HomeFragment : Fragment() {
 
         initData()
         initRecyclerView()
+        initStoryData()
 
-        var list= arrayListOf("kuit.official","hwhwhw74","abcde","12345","hahaha","q1w2e3")
-        storyAdapter=StoryAdapter(list)
+        return binding.root
+    }
+
+    private fun initStoryData() {
+        storyAdapter=StoryAdapter(storyList)
         binding.rvHomeStory.adapter=storyAdapter
         binding.rvHomeStory.layoutManager=LinearLayoutManager(requireContext(),LinearLayoutManager.HORIZONTAL,false)
 
 
-        return binding.root
+        /*기존 방법
+        var list= arrayListOf("kuit.official","hwhwhw74","abcde","12345","hahaha","q1w2e3")
+        storyAdapter=StoryAdapter(list)
+        binding.rvHomeStory.adapter=storyAdapter
+        binding.rvHomeStory.layoutManager=LinearLayoutManager(requireContext(),LinearLayoutManager.HORIZONTAL,false)*/
+
+        //1
+        val spf_story:SharedPreferences=requireContext().getSharedPreferences("story",Context.MODE_PRIVATE)
+        val storyDB=StoryDB.getInstance(requireContext())
+        Log.d("test",spf_story.getBoolean("isInit",false).toString())
+        if(!spf_story.getBoolean("isInit",false)){
+            CoroutineScope(Dispatchers.IO).launch {
+                with(spf_story.edit()){
+                    putBoolean("isInit",true)
+                    apply()
+                }
+                with(storyDB!!.StoryDao()){
+                    val storyData1=StoryData("kuit.official",R.drawable.img_sample)
+                    insert(storyData1)
+                    val storyData2=StoryData("hwhwhw74",R.drawable.img_sample2)
+                    insert(storyData2)
+                    val storyData3=StoryData("abcde",R.drawable.img_cute_dog)
+                    insert(storyData3)
+                    val storyData4=StoryData("12345",R.drawable.img_dog)
+                    insert(storyData4)
+                    val storyData5=StoryData("hahaha",R.drawable.img_babo_dog)
+                    insert(storyData5)
+                    val storyData6=StoryData("q1w2e3",R.drawable.img_banana_dog)
+                    insert(storyData6)
+
+                }
+            }
+        }
+        CoroutineScope(Dispatchers.IO).launch {
+            storyList.addAll(
+                storyDB!!.StoryDao().getAll()
+            )
+        }
+
     }
 
     private fun initRecyclerView() {
