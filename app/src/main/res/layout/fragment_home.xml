@@ -20,7 +20,8 @@
             android:layout_marginTop="10dp"
             android:src="@drawable/logo"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"></ImageView>
+            app:layout_constraintTop_toTopOf="parent">
+        </ImageView>
 
         <ImageView
             android:id="@+id/iv_home_dm"
@@ -30,7 +31,8 @@
             android:layout_marginEnd="14dp"
             android:src="@drawable/dm"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent"></ImageView>
+            app:layout_constraintTop_toTopOf="parent">
+        </ImageView>
 
         <ImageView
             android:layout_width="wrap_content"
@@ -39,231 +41,242 @@
             android:layout_marginEnd="21dp"
             android:src="@drawable/empty_like"
             app:layout_constraintEnd_toStartOf="@id/iv_home_dm"
-            app:layout_constraintTop_toTopOf="parent"></ImageView>
+            app:layout_constraintTop_toTopOf="parent">
+        </ImageView>
 
-        <com.google.android.material.imageview.ShapeableImageView
-            android:id="@+id/siv_story_profile"
-            android:layout_width="72dp"
-            android:layout_height="72dp"
-            android:layout_marginStart="11dp"
-            android:layout_marginTop="13dp"
-            android:src="@drawable/img_sample"
-            app:layout_constraintStart_toStartOf="parent"
+<!--        <com.google.android.material.imageview.ShapeableImageView-->
+<!--            android:id="@+id/siv_story_profile"-->
+<!--            android:layout_width="72dp"-->
+<!--            android:layout_height="72dp"-->
+<!--            android:layout_marginStart="11dp"-->
+<!--            android:layout_marginTop="13dp"-->
+<!--            android:src="@drawable/img_sample"-->
+<!--            app:layout_constraintStart_toStartOf="parent"-->
+<!--            app:layout_constraintTop_toBottomOf="@id/iv_home_logo"-->
+<!--            app:shapeAppearance="@style/ShapeAppearance.Material3.Corner.Full">-->
+
+<!--        </com.google.android.material.imageview.ShapeableImageView>-->
+
+<!--        <FrameLayout-->
+<!--            android:id="@+id/fl_home_my_story"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            app:layout_constraintBottom_toBottomOf="@id/siv_story_profile"-->
+<!--            app:layout_constraintEnd_toEndOf="@id/siv_story_profile"-->
+<!--            app:layout_constraintStart_toStartOf="@id/siv_story_profile"-->
+<!--            app:layout_constraintTop_toTopOf="@id/siv_story_profile">-->
+
+<!--            <ImageView-->
+<!--                android:id="@+id/iv_home_my_story_gray"-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:src="@drawable/story_gray_ring">-->
+
+<!--            </ImageView>-->
+
+<!--            <ImageView-->
+<!--                android:id="@+id/iv_home_my_story_color"-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:src="@drawable/story_color_ring"-->
+<!--                android:visibility="gone">-->
+
+<!--            </ImageView>-->
+<!--        </FrameLayout>-->
+
+<!--        <ImageView-->
+<!--            android:id="@+id/iv_home_my_story_plus"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:src="@drawable/story_plus_logo"-->
+<!--            app:layout_constraintBottom_toBottomOf="@id/siv_story_profile"-->
+<!--            app:layout_constraintEnd_toEndOf="@id/siv_story_profile"></ImageView>-->
+
+<!--        <TextView-->
+<!--            android:id="@+id/tv_my_story"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_marginTop="9dp"-->
+<!--            android:text="내 스토리"-->
+<!--            android:textSize="12sp"-->
+<!--            app:layout_constraintEnd_toEndOf="@id/siv_story_profile"-->
+<!--            app:layout_constraintStart_toStartOf="@id/siv_story_profile"-->
+<!--            app:layout_constraintTop_toBottomOf="@id/siv_story_profile"-->
+<!--            tools:ignore="MissingConstraints">-->
+
+<!--        </TextView>-->
+
+
+<!--        <com.google.android.material.imageview.ShapeableImageView-->
+<!--            android:id="@+id/siv_story1_profile"-->
+<!--            android:layout_width="72dp"-->
+<!--            android:layout_height="72dp"-->
+<!--            android:layout_marginStart="23dp"-->
+<!--            android:layout_marginTop="13dp"-->
+<!--            android:src="@drawable/img_sample2"-->
+<!--            app:layout_constraintStart_toEndOf="@id/siv_story_profile"-->
+<!--            app:layout_constraintTop_toBottomOf="@id/iv_home_logo"-->
+<!--            app:shapeAppearance="@style/ShapeAppearance.Material3.Corner.Full">-->
+
+<!--        </com.google.android.material.imageview.ShapeableImageView>-->
+
+<!--        <FrameLayout-->
+<!--            android:id="@+id/fl_home_story1"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_marginStart="17dp"-->
+<!--            app:layout_constraintBottom_toBottomOf="@id/siv_story_profile"-->
+<!--            app:layout_constraintStart_toEndOf="@id/siv_story_profile"-->
+<!--            app:layout_constraintTop_toTopOf="@id/siv_story_profile">-->
+
+<!--            <ImageView-->
+<!--                android:id="@+id/iv_home_story1_gray"-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:src="@drawable/story_gray_ring">-->
+
+<!--            </ImageView>-->
+
+<!--            <ImageView-->
+<!--                android:id="@+id/iv_home_story1_color"-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:src="@drawable/story_color_ring">-->
+
+<!--            </ImageView>-->
+<!--        </FrameLayout>-->
+
+<!--        <TextView-->
+<!--            android:id="@+id/tv_home_story1_nickname"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_marginTop="9dp"-->
+<!--            android:text="@string/profile_name"-->
+<!--            android:textColor="@color/black"-->
+<!--            android:textSize="12sp"-->
+<!--            app:layout_constraintEnd_toEndOf="@id/siv_story1_profile"-->
+<!--            app:layout_constraintStart_toStartOf="@id/siv_story1_profile"-->
+<!--            app:layout_constraintTop_toBottomOf="@id/siv_story1_profile">-->
+
+<!--        </TextView>-->
+
+
+<!--        <com.google.android.material.imageview.ShapeableImageView-->
+<!--            android:id="@+id/siv_story2_profile"-->
+<!--            android:layout_width="72dp"-->
+<!--            android:layout_height="72dp"-->
+<!--            android:layout_marginStart="23dp"-->
+<!--            android:layout_marginTop="13dp"-->
+<!--            android:src="@drawable/img_sample3"-->
+<!--            app:layout_constraintStart_toEndOf="@id/siv_story1_profile"-->
+<!--            app:layout_constraintTop_toBottomOf="@id/iv_home_logo"-->
+<!--            app:shapeAppearance="@style/ShapeAppearance.Material3.Corner.Full">-->
+
+<!--        </com.google.android.material.imageview.ShapeableImageView>-->
+
+<!--        <FrameLayout-->
+<!--            android:id="@+id/fl_home_story2"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_marginStart="17dp"-->
+<!--            app:layout_constraintBottom_toBottomOf="@id/siv_story1_profile"-->
+<!--            app:layout_constraintStart_toEndOf="@id/siv_story1_profile"-->
+<!--            app:layout_constraintTop_toTopOf="@id/siv_story1_profile">-->
+
+<!--            <ImageView-->
+<!--                android:id="@+id/iv_home_story2_gray"-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:src="@drawable/story_gray_ring">-->
+
+<!--            </ImageView>-->
+
+<!--            <ImageView-->
+<!--                android:id="@+id/iv_home_story2_color"-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:src="@drawable/story_color_ring">-->
+
+<!--            </ImageView>-->
+<!--        </FrameLayout>-->
+
+<!--        <TextView-->
+<!--            android:id="@+id/tv_home_story2_nickname"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_marginTop="9dp"-->
+<!--            android:text="@string/profile_name"-->
+<!--            android:textColor="@color/black"-->
+<!--            android:textSize="12sp"-->
+<!--            app:layout_constraintEnd_toEndOf="@id/siv_story2_profile"-->
+<!--            app:layout_constraintStart_toStartOf="@id/siv_story2_profile"-->
+<!--            app:layout_constraintTop_toBottomOf="@id/siv_story2_profile">-->
+
+<!--        </TextView>-->
+
+
+<!--        <com.google.android.material.imageview.ShapeableImageView-->
+<!--            android:id="@+id/siv_story3_profile"-->
+<!--            android:layout_width="72dp"-->
+<!--            android:layout_height="72dp"-->
+<!--            android:layout_marginStart="23dp"-->
+<!--            android:layout_marginTop="13dp"-->
+<!--            android:src="@drawable/img_sample4"-->
+<!--            app:layout_constraintStart_toEndOf="@id/siv_story2_profile"-->
+<!--            app:layout_constraintTop_toBottomOf="@id/iv_home_logo"-->
+<!--            app:shapeAppearance="@style/ShapeAppearance.Material3.Corner.Full">-->
+
+<!--        </com.google.android.material.imageview.ShapeableImageView>-->
+
+<!--        <FrameLayout-->
+<!--            android:id="@+id/fl_home_story3"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_marginStart="17dp"-->
+<!--            app:layout_constraintBottom_toBottomOf="@id/siv_story2_profile"-->
+<!--            app:layout_constraintStart_toEndOf="@id/siv_story2_profile"-->
+<!--            app:layout_constraintTop_toTopOf="@id/siv_story2_profile">-->
+
+<!--            <ImageView-->
+<!--                android:id="@+id/iv_home_story3_gray"-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:src="@drawable/story_gray_ring">-->
+
+<!--            </ImageView>-->
+
+<!--            <ImageView-->
+<!--                android:id="@+id/iv_home_story3_color"-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:src="@drawable/story_color_ring">-->
+
+<!--            </ImageView>-->
+<!--        </FrameLayout>-->
+
+<!--        <TextView-->
+<!--            android:id="@+id/tv_home_story3_nickname"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_marginTop="9dp"-->
+<!--            android:text="@string/profile_name"-->
+<!--            android:textColor="@color/black"-->
+<!--            android:textSize="12sp"-->
+<!--            app:layout_constraintEnd_toEndOf="@id/siv_story3_profile"-->
+<!--            app:layout_constraintStart_toStartOf="@id/siv_story3_profile"-->
+<!--            app:layout_constraintTop_toBottomOf="@id/siv_story3_profile">-->
+
+<!--        </TextView>-->
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_home_story"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            tools:ignore="MissingConstraints"
             app:layout_constraintTop_toBottomOf="@id/iv_home_logo"
-            app:shapeAppearance="@style/ShapeAppearance.Material3.Corner.Full">
+            app:layout_constraintStart_toStartOf="parent">
 
-        </com.google.android.material.imageview.ShapeableImageView>
-
-        <FrameLayout
-            android:id="@+id/fl_home_my_story"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:layout_constraintBottom_toBottomOf="@id/siv_story_profile"
-            app:layout_constraintEnd_toEndOf="@id/siv_story_profile"
-            app:layout_constraintStart_toStartOf="@id/siv_story_profile"
-            app:layout_constraintTop_toTopOf="@id/siv_story_profile">
-
-            <ImageView
-                android:id="@+id/iv_home_my_story_gray"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:src="@drawable/story_gray_ring">
-
-            </ImageView>
-
-            <ImageView
-                android:id="@+id/iv_home_my_story_color"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:src="@drawable/story_color_ring"
-                android:visibility="gone">
-
-            </ImageView>
-        </FrameLayout>
-
-        <ImageView
-            android:id="@+id/iv_home_my_story_plus"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@drawable/story_plus_logo"
-            app:layout_constraintBottom_toBottomOf="@id/siv_story_profile"
-            app:layout_constraintEnd_toEndOf="@id/siv_story_profile"></ImageView>
-
-        <TextView
-            android:id="@+id/tv_my_story"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="9dp"
-            android:text="내 스토리"
-            android:textSize="12sp"
-            app:layout_constraintEnd_toEndOf="@id/siv_story_profile"
-            app:layout_constraintStart_toStartOf="@id/siv_story_profile"
-            app:layout_constraintTop_toBottomOf="@id/siv_story_profile"
-            tools:ignore="MissingConstraints">
-
-        </TextView>
-
-
-        <com.google.android.material.imageview.ShapeableImageView
-            android:id="@+id/siv_story1_profile"
-            android:layout_width="72dp"
-            android:layout_height="72dp"
-            android:layout_marginStart="23dp"
-            android:layout_marginTop="13dp"
-            android:src="@drawable/img_sample2"
-            app:layout_constraintStart_toEndOf="@id/siv_story_profile"
-            app:layout_constraintTop_toBottomOf="@id/iv_home_logo"
-            app:shapeAppearance="@style/ShapeAppearance.Material3.Corner.Full">
-
-        </com.google.android.material.imageview.ShapeableImageView>
-
-        <FrameLayout
-            android:id="@+id/fl_home_story1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="17dp"
-            app:layout_constraintBottom_toBottomOf="@id/siv_story_profile"
-            app:layout_constraintStart_toEndOf="@id/siv_story_profile"
-            app:layout_constraintTop_toTopOf="@id/siv_story_profile">
-
-            <ImageView
-                android:id="@+id/iv_home_story1_gray"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:src="@drawable/story_gray_ring">
-
-            </ImageView>
-
-            <ImageView
-                android:id="@+id/iv_home_story1_color"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:src="@drawable/story_color_ring">
-
-            </ImageView>
-        </FrameLayout>
-
-        <TextView
-            android:id="@+id/tv_home_story1_nickname"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="9dp"
-            android:text="@string/profile_name"
-            android:textColor="@color/black"
-            android:textSize="12sp"
-            app:layout_constraintEnd_toEndOf="@id/siv_story1_profile"
-            app:layout_constraintStart_toStartOf="@id/siv_story1_profile"
-            app:layout_constraintTop_toBottomOf="@id/siv_story1_profile">
-
-        </TextView>
-
-
-        <com.google.android.material.imageview.ShapeableImageView
-            android:id="@+id/siv_story2_profile"
-            android:layout_width="72dp"
-            android:layout_height="72dp"
-            android:layout_marginStart="23dp"
-            android:layout_marginTop="13dp"
-            android:src="@drawable/img_sample3"
-            app:layout_constraintStart_toEndOf="@id/siv_story1_profile"
-            app:layout_constraintTop_toBottomOf="@id/iv_home_logo"
-            app:shapeAppearance="@style/ShapeAppearance.Material3.Corner.Full">
-
-        </com.google.android.material.imageview.ShapeableImageView>
-
-        <FrameLayout
-            android:id="@+id/fl_home_story2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="17dp"
-            app:layout_constraintBottom_toBottomOf="@id/siv_story1_profile"
-            app:layout_constraintStart_toEndOf="@id/siv_story1_profile"
-            app:layout_constraintTop_toTopOf="@id/siv_story1_profile">
-
-            <ImageView
-                android:id="@+id/iv_home_story2_gray"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:src="@drawable/story_gray_ring">
-
-            </ImageView>
-
-            <ImageView
-                android:id="@+id/iv_home_story2_color"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:src="@drawable/story_color_ring">
-
-            </ImageView>
-        </FrameLayout>
-
-        <TextView
-            android:id="@+id/tv_home_story2_nickname"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="9dp"
-            android:text="@string/profile_name"
-            android:textColor="@color/black"
-            android:textSize="12sp"
-            app:layout_constraintEnd_toEndOf="@id/siv_story2_profile"
-            app:layout_constraintStart_toStartOf="@id/siv_story2_profile"
-            app:layout_constraintTop_toBottomOf="@id/siv_story2_profile">
-
-        </TextView>
-
-
-        <com.google.android.material.imageview.ShapeableImageView
-            android:id="@+id/siv_story3_profile"
-            android:layout_width="72dp"
-            android:layout_height="72dp"
-            android:layout_marginStart="23dp"
-            android:layout_marginTop="13dp"
-            android:src="@drawable/img_sample4"
-            app:layout_constraintStart_toEndOf="@id/siv_story2_profile"
-            app:layout_constraintTop_toBottomOf="@id/iv_home_logo"
-            app:shapeAppearance="@style/ShapeAppearance.Material3.Corner.Full">
-
-        </com.google.android.material.imageview.ShapeableImageView>
-
-        <FrameLayout
-            android:id="@+id/fl_home_story3"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="17dp"
-            app:layout_constraintBottom_toBottomOf="@id/siv_story2_profile"
-            app:layout_constraintStart_toEndOf="@id/siv_story2_profile"
-            app:layout_constraintTop_toTopOf="@id/siv_story2_profile">
-
-            <ImageView
-                android:id="@+id/iv_home_story3_gray"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:src="@drawable/story_gray_ring">
-
-            </ImageView>
-
-            <ImageView
-                android:id="@+id/iv_home_story3_color"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:src="@drawable/story_color_ring">
-
-            </ImageView>
-        </FrameLayout>
-
-        <TextView
-            android:id="@+id/tv_home_story3_nickname"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="9dp"
-            android:text="@string/profile_name"
-            android:textColor="@color/black"
-            android:textSize="12sp"
-            app:layout_constraintEnd_toEndOf="@id/siv_story3_profile"
-            app:layout_constraintStart_toStartOf="@id/siv_story3_profile"
-            app:layout_constraintTop_toBottomOf="@id/siv_story3_profile">
-
-        </TextView>
+        </androidx.recyclerview.widget.RecyclerView>
 
         <View
             android:id="@+id/v_home_story_line"
@@ -271,7 +284,7 @@
             android:layout_height="1dp"
             android:layout_marginTop="10dp"
             android:background="#DBDBDB"
-            app:layout_constraintTop_toBottomOf="@id/tv_home_story1_nickname">
+            app:layout_constraintTop_toBottomOf="@id/rv_home_story">
 
         </View>
 
