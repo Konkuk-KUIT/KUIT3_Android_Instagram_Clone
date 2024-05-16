@@ -2,6 +2,7 @@ package com.example.cloneinstagram
 
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -34,7 +35,7 @@ class ProfileFragment : Fragment() {
             intent.putExtra("name", binding.tvName.text)
             intent.putExtra("ID", binding.tvProfileId.text)
 
-            if(bundle!=null && bundle.containsKey("key")) {
+            if (bundle != null && bundle.containsKey("key")) {
                 val postData = bundle.getSerializable("key") as PostData
                 intent.putExtra("profile", postData.profileImg)
             }

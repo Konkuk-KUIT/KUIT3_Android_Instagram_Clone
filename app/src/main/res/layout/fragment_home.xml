@@ -41,8 +41,7 @@
         android:layout_marginStart="6dp"
         app:layout_constraintBottom_toTopOf="@id/v_line"
         app:layout_constraintStart_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/iv_home_logo"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintTop_toBottomOf="@+id/iv_home_logo" />
 
     <View
         android:id="@+id/v_line"
