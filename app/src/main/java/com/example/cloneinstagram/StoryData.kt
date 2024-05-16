@@ -5,11 +5,11 @@ import androidx.room.PrimaryKey
 import java.io.Serializable
 
 @Entity
-data class PostData(
-    val profileImg: Int,
+data class StoryData(
+    val userImg: Int,
     val userId: String,
-    val postImg: Int,
-    val postContent: String,
-) : Serializable {
+    var isSeen: Boolean,
+    var isMyStory: Boolean
+): Serializable {
     @PrimaryKey(autoGenerate = true) var userUid: Int = 0
 }

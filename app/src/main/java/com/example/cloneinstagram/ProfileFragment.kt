@@ -2,6 +2,7 @@ package com.example.cloneinstagram
 
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -27,6 +28,19 @@ class ProfileFragment : Fragment() {
 
             binding.tvProfileId.text = postData.userId
             binding.sivProfileImg.setImageResource(postData.profileImg)
+        }
+
+        binding.ivEditProfile.setOnClickListener {
+            val intent = Intent(requireActivity(), EditProfileActivity::class.java)
+            intent.putExtra("name", binding.tvName.text)
+            intent.putExtra("ID", binding.tvProfileId.text)
+
+            if (bundle != null && bundle.containsKey("key")) {
+                val postData = bundle.getSerializable("key") as PostData
+                intent.putExtra("profile", postData.profileImg)
+            }
+
+            startActivity(intent)
         }
 
         initView()
@@ -55,7 +69,7 @@ class ProfileFragment : Fragment() {
     }
 
     private fun initView() {
-        binding.vpProfileTab.adapter = ProfileTabLayoutVPAdapter(requireActivity())
+        binding.vpProfileTab.adapter = ProfileTabLayoutVPAdapter(this)
 
         TabLayoutMediator(binding.tlProfile, binding.vpProfileTab) { tab, position ->
             tab.setIcon(tabIcons[position])
