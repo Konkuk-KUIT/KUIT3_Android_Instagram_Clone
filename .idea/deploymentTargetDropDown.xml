@@ -10,12 +10,12 @@
               <deviceKey>
                 <Key>
                   <type value="VIRTUAL_DEVICE_PATH" />
-                  <value value="C:\Users\정주연\.android\avd\New_Device11_API_34.avd" />
+                  <value value="C:\Users\정주연\.android\avd\insta_API_34.avd" />
                 </Key>
               </deviceKey>
             </Target>
           </targetSelectedWithDropDown>
-          <timeTargetWasSelectedWithDropDown value="2024-05-07T20:06:33.711111100Z" />
+          <timeTargetWasSelectedWithDropDown value="2024-05-16T15:23:45.617374400Z" />
         </State>
       </entry>
     </value>
