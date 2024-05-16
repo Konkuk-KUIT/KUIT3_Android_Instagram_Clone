@@ -1,0 +1,201 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="30dp"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/siv_home_main"
+            android:layout_width="28dp"
+            android:layout_height="28dp"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginStart="6dp"
+            android:src="@drawable/img_cloud"
+            app:shapeAppearance="@style/ShapeAppearance.Material3.Corner.Full"
+            android:scaleType="centerCrop"/>
+        <FrameLayout
+            android:id="@+id/fl_home_post"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="@id/siv_home_main"
+            app:layout_constraintBottom_toBottomOf="@id/siv_home_main"
+            app:layout_constraintEnd_toEndOf="@id/siv_home_main">
+
+            <ImageView
+                android:id="@+id/iv_ellipse_gray"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_story_gray"/>
+            <ImageView
+                android:id="@+id/iv_ellipse_color"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_ellipse_color"
+                android:visibility="gone"/>
+        </FrameLayout>
+
+    <TextView
+        android:id="@+id/tv_home_post"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="4dp"
+        android:layout_marginTop="8dp"
+        android:text="kuit.official"
+        android:textColor="@color/black"
+        android:textSize="12sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toEndOf="@id/fl_home_post"
+        app:layout_constraintTop_toTopOf="@id/siv_home_main" />
+
+    <ImageView
+            android:id="@+id/iv_post_options"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:src="@drawable/ic_post_options"
+            app:layout_constraintTop_toTopOf="@id/siv_home_main"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginEnd="14dp"/>
+
+
+        <ImageView
+            android:id="@+id/iv_post"
+            android:layout_width="360dp"
+            android:layout_height="360dp"
+            android:layout_marginTop="10dp"
+            app:layout_constraintTop_toBottomOf="@id/tv_home_post"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"/>
+
+        <ImageView
+            android:id="@+id/iv_like_post"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:src="@drawable/ic_like_post"
+            app:layout_constraintTop_toBottomOf="@+id/iv_post"
+            app:layout_constraintStart_toStartOf="parent"
+
+            android:layout_marginTop="9dp"
+            android:layout_marginStart="12dp"/>
+        <ImageView
+            android:id="@+id/iv_comment_post"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:src="@drawable/ic_comment_post"
+            app:layout_constraintTop_toBottomOf="@+id/iv_post"
+            app:layout_constraintStart_toEndOf="@+id/iv_like_post"
+            android:layout_marginTop="9dp"
+            android:layout_marginStart="12dp"/>
+        <ImageView
+            android:id="@+id/iv_share_post"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:src="@drawable/ic_share_post"
+            app:layout_constraintTop_toBottomOf="@+id/iv_post"
+            app:layout_constraintStart_toEndOf="@+id/iv_comment_post"
+            android:layout_marginTop="9dp"
+            android:layout_marginStart="12dp"/>
+        <ImageView
+            android:id="@+id/iv_save_post"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:src="@drawable/ic_save"
+            app:layout_constraintTop_toBottomOf="@+id/iv_post"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginTop="9dp"
+            android:layout_marginEnd="15dp"/>
+
+        <TextView
+            android:id="@+id/tv_post_like_1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="12sp"
+            android:textColor="@color/black"
+            android:text="kuit.oficial"
+            android:textStyle="bold"
+            app:layout_constraintTop_toBottomOf="@id/iv_save_post"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginTop="2dp"
+            android:layout_marginStart="12dp"/>
+        <TextView
+            android:id="@+id/tv_post_like_2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="12sp"
+            android:textColor="@color/black"
+            android:text="님 외"
+            app:layout_constraintTop_toBottomOf="@id/iv_save_post"
+            app:layout_constraintStart_toEndOf="@id/tv_post_like_1"
+            android:layout_marginTop="2dp"
+            android:layout_marginStart="0dp"/>
+        <TextView
+            android:id="@+id/tv_post_like_3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="12sp"
+            android:textColor="@color/black"
+            android:textStyle="bold"
+            android:text="여러 명"
+            app:layout_constraintTop_toBottomOf="@id/iv_save_post"
+            app:layout_constraintStart_toEndOf="@id/tv_post_like_2"
+            android:layout_marginTop="2dp"
+            android:layout_marginStart="7dp"/>
+        <TextView
+            android:id="@+id/tv_post_like_4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="12sp"
+            android:textColor="@color/black"
+            android:text="이 좋아합니다"
+            app:layout_constraintTop_toBottomOf="@id/iv_save_post"
+            app:layout_constraintStart_toEndOf="@id/tv_post_like_3"
+            android:layout_marginTop="2dp"
+            android:layout_marginStart="0dp"/>
+
+
+        <TextView
+            android:id="@+id/tv_post_comment_1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="12sp"
+            android:textColor="@color/black"
+            android:textStyle="bold"
+            android:text="kuit.oficial"
+            app:layout_constraintTop_toBottomOf="@id/tv_post_like_1"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginTop="2dp"
+            android:layout_marginStart="12dp"/>
+
+        <TextView
+            android:id="@+id/tv_post_comment_2"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="2dp"
+            android:text="쿠잇 3기 시작합니다!! 다들 열심히 한 학기 마무리해봐요. 쿠잇 3기 시작합니다!! 다들 열심히 한 학기 마무리해봐요. 쿠잇 3기 시작합니다!! 다들 열심히 한 학기 마무리해봐요."
+            android:textColor="@color/black"
+            android:textSize="12sp"
+            android:ellipsize="end"
+            android:maxLines="1"
+            app:layout_constraintStart_toEndOf="@id/tv_post_comment_1"
+            app:layout_constraintEnd_toStartOf="@id/tv_post_comment_3"
+            app:layout_constraintTop_toBottomOf="@id/tv_post_like_1" />
+
+        <TextView
+            android:id="@+id/tv_post_comment_3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="0dp"
+            android:layout_marginTop="2dp"
+            android:text="더보기"
+            android:textColor="#808080"
+            android:textSize="12sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_post_like_1"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+
+
+

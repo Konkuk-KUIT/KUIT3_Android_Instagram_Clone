@@ -4,16 +4,63 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:layout_weight="1"
     tools:context=".HomeFragment">
 
-    <TextView
+
+    <ImageView
+        android:id="@+id/iv_home_logo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="home 화면"
+        android:src="@drawable/logo"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginTop="10dp"
+        android:layout_marginStart="16dp"/>
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_like_empty"
+        app:layout_constraintTop_toTopOf="@id/iv_home_dm"
+        app:layout_constraintEnd_toStartOf="@id/iv_home_dm"
+        android:layout_marginEnd="21dp"/>
+    <ImageView
+        android:id="@+id/iv_home_dm"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_share"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="14dp"
+        android:layout_marginEnd="14dp"/>
+
+
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rv_story"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/view1"/>
+
+
+    <View
+        android:id="@+id/view1"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#DBDBDB"
+        android:layout_marginTop="10dp"
+        app:layout_constraintTop_toBottomOf="@id/rv_story"/>
+
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rv_post"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintTop_toBottomOf="@+id/view1"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"/>
-
-
+        app:layout_constraintStart_toStartOf="parent"
+         />
 </androidx.constraintlayout.widget.ConstraintLayout>
