@@ -7,18 +7,16 @@ import androidx.core.view.isVisible
 import androidx.recyclerview.widget.RecyclerView
 import com.example.cloneinstagram.databinding.ItemHomeStoryBinding
 
-class StoryAdapter(var list:ArrayList<String>):RecyclerView.Adapter<StoryAdapter.ViewHolder>() {
-
-
+class StoryAdapter(var list:ArrayList<StoryData>):RecyclerView.Adapter<StoryAdapter.ViewHolder>() {
 
     inner class ViewHolder(val binding: ItemHomeStoryBinding):RecyclerView.ViewHolder(binding.root){
-        fun bind(name: String){
-            binding.tvHomeMyStory3.text= name.toString()
-
+        fun bind(item: StoryData){
+            binding.tvHomeMyStory3.text= item.userId.toString()
             binding.flHomeStory3.setOnClickListener {
                 binding.ivHomeStoryColor3.isVisible=false
                 binding.ivHomeStoryGray3.isVisible=true
             }
+            binding.sivHomeStory3.setImageResource(item.storyImg)
         }
     }
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
