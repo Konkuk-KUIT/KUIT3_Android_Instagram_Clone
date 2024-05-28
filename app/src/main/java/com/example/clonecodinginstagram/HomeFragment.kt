@@ -1,17 +1,22 @@
 package com.example.clonecodinginstagram
 
+import android.content.Context
 import android.content.Intent
 import android.location.GnssAntennaInfo.Listener
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.core.graphics.drawable.toDrawable
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
+import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.room.Room
 import com.example.clonecodinginstagram.databinding.FragmentHomeBinding
 import com.example.clonecodinginstagram.databinding.ItemPostBinding
+import kotlinx.coroutines.launch
 
 
 class HomeFragment : Fragment() {
@@ -34,6 +39,7 @@ class HomeFragment : Fragment() {
             .commit()
 
         initData()
+        initRecyclerView()
         return binding.root
     }
     private fun initRecyclerView() {
@@ -72,9 +78,35 @@ class HomeFragment : Fragment() {
     }
 
     private fun initData() {
-        items.addAll(
-            arrayListOf(PostData(R.drawable.img_sample, "kuit_official", "content"),
-                    PostData(R.drawable.img_sample2, "kuit_official", "content2"))
-        )
+        val spf_homePost = requireContext().getSharedPreferences("home_post", Context.MODE_PRIVATE)
+
+        // 1번 바로 가져와서 쓰기 (싱글톤 제한 x)
+
+        val homePostDB = Room.databaseBuilder(
+            requireContext(),
+            HomePostDB::class.java,
+            "homepost-database"
+        ).allowMainThreadQueries().build()
+
+        Log.d("test", spf_homePost.getBoolean("isInit",false).toString())
+
+        if ( !spf_homePost.getBoolean("isInit", false)){
+
+            viewLifecycleOwner.lifecycleScope.launch {
+                with(spf_homePost.edit()){
+                    putBoolean("isInit",true)
+                    commit()
+                }
+                with(homePostDB.HomePostDao()){
+                insert(PostData(R.drawable.img_sample, "kuit_official", "content"))
+                insert(PostData(R.drawable.img_sample2, "kuit_official", "content2"))
+                }
+                items.addAll(
+                    homePostDB.HomePostDao().getAll()
+                )
+            }
+
+        }
+
     }
 }
