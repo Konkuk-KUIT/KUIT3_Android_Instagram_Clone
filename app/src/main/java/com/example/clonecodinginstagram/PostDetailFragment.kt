@@ -1,11 +1,19 @@
 package com.example.clonecodinginstagram
 
 import android.os.Bundle
+import android.os.Handler
+import android.os.Looper
+import android.os.Message
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.lifecycle.lifecycleScope
 import com.example.clonecodinginstagram.databinding.FragmentPostDetailBinding
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.delay
+import kotlinx.coroutines.launch
 
 class PostDetailFragment : Fragment() {
     lateinit var binding : FragmentPostDetailBinding
@@ -37,6 +45,45 @@ class PostDetailFragment : Fragment() {
             binding.ivLikeFilled.visibility = View.GONE
         }
 
+        //1. thread로 구현
+        /*val imgthread = imgview()
+        imgthread.start()*/
+
+        //2. coroutine으로 구현
+        CoroutineScope(Dispatchers.Main).launch {
+            while(true) {
+                delay(3000)
+                val index = binding.vpPostimage.currentItem
+                if (index + 1 == binding.vpPostimage.adapter?.itemCount) {
+                    binding.vpPostimage.setCurrentItem(0, true)
+
+                } else {
+                    binding.vpPostimage.setCurrentItem(index + 1, true)
+                }
+            }
+        }
+
         return binding.root
+    }
+
+    inner class imgview : Thread(){
+        override fun run() {
+            while(true){
+                Thread.sleep(3000)
+                imghandler().sendEmptyMessage(0)
+            }
+        }
+    }
+
+    inner class imghandler : Handler(Looper.getMainLooper()){
+        override fun handleMessage(msg: Message) {
+            val index = binding.vpPostimage.currentItem
+            if (index+1 == binding.vpPostimage.adapter?.itemCount){
+                binding.vpPostimage.setCurrentItem(0,true)
+
+            }else{
+                binding.vpPostimage.setCurrentItem(index+1, true)
+            }
+        }
     }
 }
